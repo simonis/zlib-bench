@@ -1,0 +1,20 @@
+[submodule "zlib-chromium"]
+	path = zlib-chromium
+	url = https://chromium.googlesource.com/chromium/src/third_party/zlib
+[submodule "zlib-cloudflare"]
+	path = zlib-cloudflare
+	url = https://github.com/cloudflare/zlib.git
+	branch = gcc.amd64
+[submodule "zlib-madler"]
+	path = zlib-madler
+	url = https://github.com/madler/zlib.git
+[submodule "zlib-ipp"]
+	path = zlib-ipp
+	url = https://github.com/madler/zlib.git
+[submodule "zlib-ng"]
+	path = zlib-ng
+	url = https://github.com/zlib-ng/zlib-ng.git
+	branch = develop
+[submodule "isa-l"]
+	path = isa-l
+	url = https://github.com/intel/isa-l.git
