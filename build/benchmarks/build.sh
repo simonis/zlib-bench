@@ -11,3 +11,4 @@ $CC -std=c99 -D_POSIX_C_SOURCE=199309L -O2 -o zbench \
     -L../../ipp/lib64 -lippcore -lipps -lippdc -L../isa-l -lz-isal -lrt
 
 $JAVAC -d . ../../benchmarks/java/io/simonis/ZBench.java
+$JAVAC -d . ../../benchmarks/java/io/simonis/CreateVegaLiteGraph.java

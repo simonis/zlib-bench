@@ -13,4 +13,4 @@
 /build/zlib-chromium/*
 !/build/zlib-chromium/build.sh
 !/build/zlib-chromium/aarch64_build.patch
-
+/build/benchmarks

@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 640,
+  "height": 480,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "layer": [{
+    "data": {
+      "values" : [
+        __DATA__
+      ]
+    },
+    "title": "__TITLE__",
+    "transform": [{
+      "aggregate": [{
+        "op": "mean",
+        "field": "throughput",
+        "as": "throughput_mean"
+      }],
+      "groupby": ["level", "type", "ratio"]
+    }, {
+      "lookup": "type",
+      "from": {
+        "data": {
+          "values": [
+            __TYPE_MAP__
+          ]
+        },
+        "key": "type",
+        "fields": ["new-type"]
+      }
+    }],
+    "layer": [{
+      "mark": {
+        "type": "line",
+        "point": true
+      }
+    }, {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": 5,
+        "dy": -3
+      },
+      "encoding": {
+        "text": {"field": "level", "type": "ordinal"}
+      }
+    }],
+    "encoding": {
+      "y": {
+        "field": "throughput_mean",
+        "type": "quantitative",
+        "title": "Throughput (kb/ms)",
+        "axis": {
+          "tickCount": 10
+        }
+      },
+      "x": {
+        "field": "ratio",
+        "type": "quantitative",
+        "title": "Compression ratio"
+      },
+      "color": {
+        "field": "new-type",
+        "type": "nominal",
+        "legend": {
+          "title": "__LEGEND__",
+          "offset": "__LABEL_OFFSET__",
+          "padding": 8,
+          "fillColor": "#ffffff",
+          "strokeColor": "#000000",
+          "zindex": 1
+
+        },
+        "sort" : [
+          __LABEL_ORDER__
+        ]
+      }
+    }
+  }],
+  "config": {
+  }
+}
