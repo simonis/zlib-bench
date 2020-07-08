@@ -349,7 +349,8 @@ void parse_args(int argc, char **argv) {
     switch (opt) {
     case 'a':
       in_file = optarg;
-      file_name = optarg;
+      file_name = malloc(strlen(in_file) + 1);
+      strcpy(file_name, in_file);
       break;
     case 'b':
       out_file = optarg;
@@ -410,9 +411,9 @@ void parse_args(int argc, char **argv) {
                       "                (writes '<name>-<infile>.json' results with 'type':'<name>' attribute)\n");
       fprintf(stderr, "              [-r clock used by clock_gettime()]\n"
                       "                (defaults to 1 (CLOCK_MONOTONIC)\n");
+      fprintf(stderr, "              [-z <compressed file>]\n");
       fprintf(stderr, "              -a <infile>\n");
       fprintf(stderr, "              -b <outfile>\n");
-      fprintf(stderr, "              -z <compressed file>\n");
       exit(EXIT_FAILURE);
     }
   }
@@ -468,12 +469,12 @@ void parse_args(int argc, char **argv) {
       comp_level_start = Z_DEFAULT_COMPRESSION;
     }
   }
-  if (isal && comp_level_start > 3) {
+  if ((action & DEFLATE) && isal && comp_level_start > 3) {
     fprintf(stderr, "Compression level %d not supported by ISAL. Reset to 3 (i.e. ISAL_DEF_MAX_LEVEL)\n", comp_level_start);
     comp_level_start = 3;
   }
-  if (isal && comp_level_end > 3) {
-    fprintf(stderr, "Compression level %d not supported by ISAL. Reset to 3 (i.e. ISAL_DEF_MAX_LEVEL)\n", comp_level_start);
+  if ((action & DEFLATE) && isal && comp_level_end > 3) {
+    fprintf(stderr, "Compression level %d not supported by ISAL. Reset to 3 (i.e. ISAL_DEF_MAX_LEVEL)\n", comp_level_end);
     comp_level_end = 3;
   }
   if (comp_level_end == -99 || comp_level_end < comp_level_start) {
@@ -517,12 +518,17 @@ int main(int argc, char **argv) {
   init_clock();
 
   while (comp_level_start <= comp_level_end) {
+    if (comp_level_start == -2 && strcmp("ipp", zlib_kind)) {
+      // -2 is only defined for IPP zlib
+      comp_level_start++;
+      continue;
+    }
     if (comp_level_start == -1) {
       // Same as 6 so skip
       comp_level_start++;
       continue;
     }
-    if (comp_level_start == 0 && strcmp("isal", zlib_kind)) {
+    if (comp_level_start == 0 && (!isal)) {
       // For isal, '0'  is the lowest compression level, for zlib
       // '0' means 'no compression' so we ignore it.
       comp_level_start++;
@@ -578,14 +584,14 @@ int main(int argc, char **argv) {
       // setlocale(LC_ALL, "");
       fprintf(
           stderr,
-          "%s-%d: %d times %s required %'ld ms (compression rate %.2f%% (%.2f) "
+          "%s-%d: %d times %s %s required %'ld ms (compression rate %.2f%% (%.2f) "
           "troughput %.2f kb/ms)\n",
           zlib_kind, comp_level_start, counter,
           (action & DEFLATE && action & INFLATE
                ? "DEFLATE/INFLATE"
                : (action & DEFLATE ? "DEFLATE"
                                    : (action & INFLATE ? "INFLATE" : "ERROR"))),
-          run_time_ms, comp_rate, comp_ratio, throughput);
+          file_name, run_time_ms, comp_rate, comp_ratio, throughput);
       if (json != NULL) {
         fprintf(json, "{\"level\": \"%d\", \"type\": \"%s\", \"ratio\": \"%.2f\", \"throughput\": \"%.2f\", \"file\": \"%s\"},\n",
           comp_level_start, zlib_kind, comp_ratio, throughput, file_name);

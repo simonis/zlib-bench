@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.60", "throughput": "57.46", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.60", "throughput": "57.59", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.60", "throughput": "57.56", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.60", "throughput": "57.32", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.60", "throughput": "57.59", "file": "BytecodeParser-class"},

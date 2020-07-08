@@ -63,9 +63,9 @@
         "labelAlign": "center",
         "labelAnchor": "middle"
       },
-	"sort": [
-          __ROW_ORDER__
-        ]
+      "sort": [
+        __ROW_ORDER__
+      ]
     }
   },
   "spec": {
@@ -95,7 +95,7 @@
     },
     "layer": [{
       "mark": "bar",
-	    "encoding": {
+      "encoding": {
         "color": {
           "field": "new-type",
           "type": "nominal",
@@ -108,14 +108,14 @@
             __LABEL_ORDER__
           ]
         }
-	    }
+      }
     }, {
       "mark": {
         "type": "text",
         "dx": 5,
         "angle": 0,
         "baseline": "middle",
-        "align": "left"	  
+        "align": "left"
       },
       "encoding": {
         "text": {
@@ -123,7 +123,7 @@
           "type": "nominal",
           "format": ".0%"
         }
-      }	
+      }
     }]
   },
   "config": {

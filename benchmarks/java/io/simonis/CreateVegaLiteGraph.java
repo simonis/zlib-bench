@@ -19,7 +19,10 @@ public class CreateVegaLiteGraph {
         String title = null, legend = "Deflater library", template = null;
         FileOutputStream json_file = null;
         String default_impl = null, default_level = "6", isal_level = "3";
-        String label_offset = "0";
+        // "null" is actually an incorrect type for attributes like "offset" which
+        // expect a number as argument. But it will cheat Vega Lite into using the
+        // default value for that attribute.
+        String label_offset = "null";
         String json_file_name = null, svg_file_name = null, png_file_name = null;
         List<Path> data_files = new ArrayList<>();
         HashMap<String, String> user_map = new HashMap<>();

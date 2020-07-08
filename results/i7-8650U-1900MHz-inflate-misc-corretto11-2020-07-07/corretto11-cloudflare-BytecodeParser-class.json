@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.60", "throughput": "41.55", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.60", "throughput": "41.48", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.60", "throughput": "41.09", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.60", "throughput": "41.39", "file": "BytecodeParser-class"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.60", "throughput": "41.49", "file": "BytecodeParser-class"},

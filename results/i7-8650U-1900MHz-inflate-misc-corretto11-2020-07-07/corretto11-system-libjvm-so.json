@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-system", "ratio": "2.95", "throughput": "41.08", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-system", "ratio": "2.95", "throughput": "41.15", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-system", "ratio": "2.95", "throughput": "41.17", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-system", "ratio": "2.95", "throughput": "41.10", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-system", "ratio": "2.95", "throughput": "41.17", "file": "libjvm-so"},

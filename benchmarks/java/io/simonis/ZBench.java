@@ -251,7 +251,7 @@ public class ZBench {
                 double comp_ratio = (double)in_size / out_size;
                 double throughput = (processed / run_time_ms) / 1024.0;
 
-                System.err.printf("%s-%d: %d times %s required %,d ms (compression rate %.2f%% (%.2f), troughput %.2f kb/ms)\n",
+                System.err.printf("%s-%d: %d times %s %s required %,d ms (compression rate %.2f%% (%.2f), troughput %.2f kb/ms)\n",
                                   zlib_kind, comp_level_start, counter,
                                   (((action & DEFLATE) != 0) && ((action & INFLATE) != 0) ?
                                       "DEFLATE/INFLATE" :
@@ -259,7 +259,7 @@ public class ZBench {
                                           "DEFLATE" :
                                           (((action & INFLATE) != 0) ?
                                               "INFLATE" :
-                                              "ERROR"))), run_time_ms, comp_rate, comp_ratio, throughput);
+                                              "ERROR"))), file_name, run_time_ms, comp_rate, comp_ratio, throughput);
                 if (json != null) {
                     new PrintStream(json).printf("{\"level\": \"%d\", \"type\": \"%s\", \"ratio\": \"%.2f\", \"throughput\": \"%.2f\", \"file\": \"%s\"},\n",
                                                  comp_level_start, zlib_kind, comp_ratio, throughput, file_name);

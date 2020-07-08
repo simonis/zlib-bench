@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-chromium", "ratio": "1.99", "throughput": "59.91", "file": "ooffice"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "1.99", "throughput": "59.80", "file": "ooffice"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "1.99", "throughput": "59.41", "file": "ooffice"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "1.99", "throughput": "59.98", "file": "ooffice"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "1.99", "throughput": "59.95", "file": "ooffice"},

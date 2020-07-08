@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-system", "ratio": "4.00", "throughput": "39.59", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-system", "ratio": "4.00", "throughput": "39.63", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-system", "ratio": "4.00", "throughput": "39.67", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-system", "ratio": "4.00", "throughput": "39.71", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-system", "ratio": "4.00", "throughput": "39.74", "file": "imdb-html"},

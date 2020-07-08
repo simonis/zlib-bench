@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "4.00", "throughput": "39.82", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "4.00", "throughput": "39.90", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "4.00", "throughput": "40.02", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "4.00", "throughput": "40.03", "file": "imdb-html"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "4.00", "throughput": "40.02", "file": "imdb-html"},

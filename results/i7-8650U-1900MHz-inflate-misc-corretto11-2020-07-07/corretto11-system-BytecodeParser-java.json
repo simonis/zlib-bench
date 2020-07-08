@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-system", "ratio": "5.48", "throughput": "32.77", "file": "BytecodeParser-java"},
+{"level": "6", "type": "corretto11-system", "ratio": "5.48", "throughput": "32.84", "file": "BytecodeParser-java"},
+{"level": "6", "type": "corretto11-system", "ratio": "5.48", "throughput": "32.80", "file": "BytecodeParser-java"},
+{"level": "6", "type": "corretto11-system", "ratio": "5.48", "throughput": "32.86", "file": "BytecodeParser-java"},
+{"level": "6", "type": "corretto11-system", "ratio": "5.48", "throughput": "32.86", "file": "BytecodeParser-java"},

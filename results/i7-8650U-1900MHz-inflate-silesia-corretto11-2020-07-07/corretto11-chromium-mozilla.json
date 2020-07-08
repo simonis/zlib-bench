@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.68", "throughput": "65.72", "file": "mozilla"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.68", "throughput": "65.68", "file": "mozilla"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.68", "throughput": "65.52", "file": "mozilla"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.68", "throughput": "65.60", "file": "mozilla"},
+{"level": "6", "type": "corretto11-chromium", "ratio": "2.68", "throughput": "65.64", "file": "mozilla"},

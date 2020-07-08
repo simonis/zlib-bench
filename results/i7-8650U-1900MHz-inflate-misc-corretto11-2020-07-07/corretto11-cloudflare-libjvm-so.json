@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.95", "throughput": "41.45", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.95", "throughput": "41.53", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.95", "throughput": "41.50", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.95", "throughput": "41.41", "file": "libjvm-so"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "2.95", "throughput": "41.52", "file": "libjvm-so"},

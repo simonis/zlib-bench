@@ -1,0 +1,5 @@
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "1.40", "throughput": "55.26", "file": "x-ray"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "1.40", "throughput": "55.35", "file": "x-ray"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "1.40", "throughput": "55.29", "file": "x-ray"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "1.40", "throughput": "55.35", "file": "x-ray"},
+{"level": "6", "type": "corretto11-cloudflare", "ratio": "1.40", "throughput": "54.96", "file": "x-ray"},
