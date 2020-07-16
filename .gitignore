@@ -4,6 +4,7 @@
 /build/zlib-cloudflare/*
 !/build/zlib-cloudflare/build.sh
 !/build/zlib-cloudflare/build_from_external_directory.patch
+!/build/zlib-cloudflare/build_on_windows.patch
 /build/zlib-ipp/*
 !/build/zlib-ipp/build.sh
 /build/zlib-madler/*
