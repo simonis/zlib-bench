@@ -24,7 +24,8 @@ if test "$ARCH" = "x86_64"; then
   fi
 fi
 if test "$ARCH" = "aarch64"; then
-  FLAGS="-DARMV8_OS_LINUX -DADLER32_SIMD_NEON -DINFLATE_CHUNK_SIMD_NEON -DCRC32_ARMV8_CRC32 -march=armv8-a+crc"
+  FLAGS="-DCHROMIUM_ZLIB_NO_CHROMECONF -DARMV8_OS_LINUX -DADLER32_SIMD_NEON -DINFLATE_CHUNK_SIMD_NEON \
+         -DCRC32_ARMV8_CRC32 -march=armv8-a+crc"
   git -C ../../zlib-chromium checkout .
   patch -p1 --directory=../../zlib-chromium < aarch64_build.patch
 fi
