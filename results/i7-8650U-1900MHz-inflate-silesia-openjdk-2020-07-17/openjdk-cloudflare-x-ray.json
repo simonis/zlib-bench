@@ -1,0 +1,5 @@
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.16", "file": "x-ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.38", "file": "x-ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.33", "file": "x-ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.55", "file": "x-ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.13", "file": "x-ray"},

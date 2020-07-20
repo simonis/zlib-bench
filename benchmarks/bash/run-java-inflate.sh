@@ -75,10 +75,10 @@ echo "Running benchmarks from $MYDIR"
 
 declare -A JAVA_OPTS
 
-JAVA_OPTS["system"]="-Dcom.amazon.corretto.zlib.implementation=system"
-JAVA_OPTS["bundled"]="-Dcom.amazon.corretto.zlib.implementation=bundled"
-JAVA_OPTS["chromium"]="-Dcom.amazon.corretto.zlib.implementation=chromium"
-JAVA_OPTS["cloudflare"]="-Dcom.amazon.corretto.zlib.implementation=cloudflare"
+JAVA_OPTS["system"]="-Dorg.openjdk.zlib.implementation=system"
+JAVA_OPTS["bundled"]=""
+JAVA_OPTS["chromium"]="-Dorg.openjdk.zlib.implementation='$MYDIR/../../build/zlib-chromium/libz.so'"
+JAVA_OPTS["cloudflare"]="-Dorg.openjdk.zlib.implementation='$MYDIR/../../build/zlib-cloudflare/libz.so'"
 
 for file in "${INPUT_FILES[@]}"; do
   for impl in "${!JAVA_OPTS[@]}"; do
