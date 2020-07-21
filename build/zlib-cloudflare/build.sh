@@ -1,11 +1,15 @@
 #!/bin/bash
 MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 pushd $MYDIR
-CC=${CC:-gcc}
-rm -f *o *.h *.pc *.a *.log *1 Makefile mini* example* libz* *.bat *.lib *.exp *.dll *.obj
+OS=`uname`
+if test "$OS" = "Darwin"; then
+  CC=${CC:-clang}
+else
+  CC=${CC:-gcc}
+fi
+rm -f *o *.h *.pc *.a *.log *1 Makefile mini* example* libz* *.bat *.lib *.exp *.dll *.obj *.lo *.dylib
 git -C ../../zlib-cloudflare checkout .
-OS=`uname -o`
-if test "$OS" = "Cygwin"; then
+if [[ "$OS" == "CYGWIN"* ]]; then
   #
   # Very barebone, crappy, manual Windows build
   # Still needs to get the path to either "vcvars64.bat" or "VsDevCmd.BAT"
@@ -51,7 +55,11 @@ if test "$OS" = "Cygwin"; then
 else
   patch -p1 --directory=../../zlib-cloudflare < build_from_external_directory.patch
   CC=$CC ../../zlib-cloudflare/configure
-  CC=$CC make libz.so.1.2.8
+  if test "$OS" = "Darwin"; then
+    CC=$CC make libz.1.2.8.dylib
+  else
+    CC=$CC make libz.so.1.2.8
+  fi
 fi
 git -C ../../zlib-cloudflare checkout .
 popd

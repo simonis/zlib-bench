@@ -1,12 +1,18 @@
 #!/bin/bash
 MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 pushd $MYDIR
-CC=${CC:-gcc}
+OS=`uname`
+if test "$OS" = "Darwin"; then
+  CC=${CC:-clang}
+  LIB_EXT="dylib"
+else
+  CC=${CC:-gcc}
+  LIB_EXT="so"
+fi
 BASEDIR=../../zlib-chromium
 ARCH=`uname -m`
-OS=`uname -o`
 
-rm -f *.o *.so *.bat *.lib *.exp *.dll *.obj
+rm -f *.o *.so *.bat *.lib *.exp *.dll *.obj *.dylib
 
 SRC="adler32.c crc32.c gzclose.c gzread.c infback.c inflate.c trees.c zutil.c \
      compress.c deflate.c gzlib.c gzwrite.c inffast.c inftrees.c uncompr.c \
@@ -15,7 +21,7 @@ SRC="adler32.c crc32.c gzclose.c gzread.c infback.c inflate.c trees.c zutil.c \
 
 if test "$ARCH" = "x86_64"; then
   SRC+=" crc_folding.c fill_window_sse.c"
-  if test "$OS" = "Cygwin"; then
+  if [[ "$OS" == "CYGWIN"* ]]; then
     FLAGS="-DCHROMIUM_ZLIB_NO_CHROMECONF -DX86_WINDOWS -DINFLATE_CHUNK_READ_64LE -DUNALIGNED_OK \
            -DADLER32_SIMD_SSSE3 -DINFLATE_CHUNK_SIMD_SSE2 -DCRC32_SIMD_SSE42_PCLMUL -wd4244 -wd4267"
   else
@@ -30,7 +36,7 @@ if test "$ARCH" = "aarch64"; then
   patch -p1 --directory=../../zlib-chromium < aarch64_build.patch
 fi
 
-if test "$OS" = "Cygwin"; then
+if [[ "$OS" == "CYGWIN"* ]]; then
   #
   # Very barebone, crappy, manual Windows build
   # Still needs to get the path to either "vcvars64.bat" or "VsDevCmd.BAT"
@@ -74,7 +80,7 @@ else
     ${CC} ${FLAGS} -O3 -fPIC -I${BASEDIR} -I${BASEDIR}/contrib/optimizations -c \
 	  -o `basename $src .c`.o ${BASEDIR}/$src
   done
-  ${CC} -shared -o libz.so *.o -lc
+  ${CC} -shared -o libz.$LIB_EXT *.o -lc
 fi
 
 if test "$ARCH" = "aarch64"; then
