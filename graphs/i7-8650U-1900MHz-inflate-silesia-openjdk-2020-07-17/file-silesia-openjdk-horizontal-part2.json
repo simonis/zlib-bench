@@ -1,0 +1,260 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "title": {
+    "text" : "Inflater throughput for Silesia corpus (part2) on i7-8650U / 1900MHz",
+    "anchor": "middle",
+    "offset": 20
+  },
+  "data": {
+    "values" : [
+        {"level": "6", "type": "openjdk-bundled", "ratio": "3.56", "throughput": "36.99", "file": "reymont"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.56", "throughput": "36.82", "file": "reymont"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.56", "throughput": "36.22", "file": "reymont"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.56", "throughput": "36.09", "file": "reymont"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.56", "throughput": "36.82", "file": "reymont"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.56", "throughput": "59.58", "file": "reymont"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.56", "throughput": "58.87", "file": "reymont"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.56", "throughput": "59.51", "file": "reymont"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.56", "throughput": "59.08", "file": "reymont"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.56", "throughput": "59.62", "file": "reymont"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.56", "throughput": "36.02", "file": "reymont"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.56", "throughput": "35.75", "file": "reymont"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.56", "throughput": "35.95", "file": "reymont"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.56", "throughput": "35.76", "file": "reymont"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.56", "throughput": "36.00", "file": "reymont"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.56", "throughput": "36.01", "file": "reymont"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.56", "throughput": "35.88", "file": "reymont"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.56", "throughput": "36.05", "file": "reymont"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.56", "throughput": "35.72", "file": "reymont"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.56", "throughput": "36.04", "file": "reymont"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.96", "throughput": "43.02", "file": "samba"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.96", "throughput": "42.88", "file": "samba"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.96", "throughput": "43.06", "file": "samba"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.96", "throughput": "42.99", "file": "samba"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.96", "throughput": "43.00", "file": "samba"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.96", "throughput": "68.48", "file": "samba"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.96", "throughput": "67.30", "file": "samba"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.96", "throughput": "67.84", "file": "samba"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.96", "throughput": "68.30", "file": "samba"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.96", "throughput": "68.34", "file": "samba"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.96", "throughput": "42.55", "file": "samba"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.96", "throughput": "42.52", "file": "samba"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.96", "throughput": "42.59", "file": "samba"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.96", "throughput": "42.61", "file": "samba"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.96", "throughput": "42.48", "file": "samba"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.96", "throughput": "42.30", "file": "samba"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.96", "throughput": "42.14", "file": "samba"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.96", "throughput": "42.43", "file": "samba"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.96", "throughput": "42.45", "file": "samba"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.96", "throughput": "42.32", "file": "samba"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.36", "throughput": "66.26", "file": "sao"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.36", "throughput": "66.53", "file": "sao"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.36", "throughput": "66.62", "file": "sao"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.36", "throughput": "65.91", "file": "sao"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.36", "throughput": "66.84", "file": "sao"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.36", "throughput": "86.86", "file": "sao"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.36", "throughput": "86.18", "file": "sao"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.36", "throughput": "86.33", "file": "sao"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.36", "throughput": "85.06", "file": "sao"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.36", "throughput": "86.40", "file": "sao"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.36", "throughput": "67.39", "file": "sao"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.36", "throughput": "67.03", "file": "sao"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.36", "throughput": "67.03", "file": "sao"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.36", "throughput": "66.44", "file": "sao"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.36", "throughput": "67.21", "file": "sao"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.36", "throughput": "68.18", "file": "sao"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.36", "throughput": "68.13", "file": "sao"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.36", "throughput": "68.13", "file": "sao"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.36", "throughput": "67.12", "file": "sao"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.36", "throughput": "68.09", "file": "sao"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.39", "throughput": "37.22", "file": "webster"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.39", "throughput": "36.98", "file": "webster"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.39", "throughput": "37.11", "file": "webster"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.39", "throughput": "37.13", "file": "webster"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "3.39", "throughput": "37.02", "file": "webster"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.39", "throughput": "58.72", "file": "webster"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.39", "throughput": "58.66", "file": "webster"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.39", "throughput": "58.82", "file": "webster"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.39", "throughput": "58.79", "file": "webster"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "3.39", "throughput": "58.28", "file": "webster"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.39", "throughput": "36.27", "file": "webster"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.39", "throughput": "36.28", "file": "webster"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.39", "throughput": "36.17", "file": "webster"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.39", "throughput": "36.13", "file": "webster"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "3.39", "throughput": "36.24", "file": "webster"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.39", "throughput": "36.16", "file": "webster"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.39", "throughput": "36.07", "file": "webster"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.39", "throughput": "36.17", "file": "webster"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.39", "throughput": "36.07", "file": "webster"},
+{"level": "6", "type": "openjdk-system", "ratio": "3.39", "throughput": "36.12", "file": "webster"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "7.77", "throughput": "29.91", "file": "xml"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "7.77", "throughput": "29.90", "file": "xml"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "7.77", "throughput": "29.67", "file": "xml"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "7.77", "throughput": "29.89", "file": "xml"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "7.77", "throughput": "29.89", "file": "xml"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "7.77", "throughput": "50.20", "file": "xml"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "7.77", "throughput": "50.17", "file": "xml"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "7.77", "throughput": "49.77", "file": "xml"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "7.77", "throughput": "50.17", "file": "xml"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "7.77", "throughput": "50.12", "file": "xml"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "7.77", "throughput": "29.43", "file": "xml"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "7.77", "throughput": "29.40", "file": "xml"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "7.77", "throughput": "29.31", "file": "xml"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "7.77", "throughput": "29.47", "file": "xml"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "7.77", "throughput": "29.47", "file": "xml"},
+{"level": "6", "type": "openjdk-system", "ratio": "7.77", "throughput": "29.35", "file": "xml"},
+{"level": "6", "type": "openjdk-system", "ratio": "7.77", "throughput": "29.33", "file": "xml"},
+{"level": "6", "type": "openjdk-system", "ratio": "7.77", "throughput": "29.11", "file": "xml"},
+{"level": "6", "type": "openjdk-system", "ratio": "7.77", "throughput": "29.34", "file": "xml"},
+{"level": "6", "type": "openjdk-system", "ratio": "7.77", "throughput": "29.33", "file": "xml"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.40", "throughput": "53.24", "file": "x.ray"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.40", "throughput": "53.47", "file": "x.ray"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.40", "throughput": "53.52", "file": "x.ray"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.40", "throughput": "53.33", "file": "x.ray"},
+{"level": "6", "type": "openjdk-bundled", "ratio": "1.40", "throughput": "52.00", "file": "x.ray"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.40", "throughput": "65.55", "file": "x.ray"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.40", "throughput": "65.13", "file": "x.ray"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.40", "throughput": "65.38", "file": "x.ray"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.40", "throughput": "65.42", "file": "x.ray"},
+{"level": "6", "type": "openjdk-chromium", "ratio": "1.40", "throughput": "64.41", "file": "x.ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.16", "file": "x.ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.38", "file": "x.ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.33", "file": "x.ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.55", "file": "x.ray"},
+{"level": "6", "type": "openjdk-cloudflare", "ratio": "1.40", "throughput": "53.13", "file": "x.ray"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.40", "throughput": "53.16", "file": "x.ray"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.40", "throughput": "53.21", "file": "x.ray"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.40", "throughput": "52.93", "file": "x.ray"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.40", "throughput": "52.96", "file": "x.ray"},
+{"level": "6", "type": "openjdk-system", "ratio": "1.40", "throughput": "52.30", "file": "x.ray"}
+    ]
+  },
+  "transform": [
+    {
+      "filter": "datum.type == 'isal' ? datum.level == 3 : datum.level == 6"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "throughput",
+          "as": "throughput_mean"
+        }
+      ],
+      "groupby": ["type", "file"]
+    },
+    {
+      "lookup": "type",
+      "from": {
+        "data": {
+          "values": [
+            {"type": "openjdk-bundled", "new-type": "ojdk / zlib-bundled"},
+{"type": "openjdk-chromium", "new-type": "ojdk / zlib-chromium"},
+{"type": "openjdk-cloudflare", "new-type": "ojdk / zlib-cloudflare"},
+{"type": "openjdk-system", "new-type": "ojdk / zlib-system"}
+          ]
+        },
+        "key": "type",
+        "fields": ["new-type"]
+      }
+    },
+    {
+      "lookup": "file",
+      "from": {
+        "data": {
+          "values": [
+             {"file": "sao", "default_val": "66.432"},
+{"file": "reymont", "default_val": "36.588"},
+{"file": "x.ray", "default_val": "53.112"},
+{"file": "xml", "default_val": "29.851999999999997"},
+{"file": "webster", "default_val": "37.092"},
+{"file": "samba", "default_val": "42.99"}
+          ]
+        },
+        "key": "file",
+        "fields": ["default_val"]
+      }
+    },
+    {
+      "calculate": "datum.throughput_mean/datum.default_val",
+      "as" : "default-val"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "file",
+      "type": "nominal",
+      "title": "",
+      "header": {
+        "labelAngle": 0,
+        "labelAlign": "center",
+        "labelAnchor": "middle",
+        "labelOrient": "bottom"
+      },
+      "sort": [
+        "reymont", "samba", "sao", "webster", "xml", "x.ray"
+      ]
+    }
+  },
+  "spec": {
+    "encoding": {
+      "y": {
+        "field": "throughput_mean",
+        "type": "quantitative",
+        "axis": {
+          "title": "Throughput (kb/ms)",
+          "grid": true
+        }
+      },
+      "x": {
+        "field": "new-type",
+        "type": "nominal",
+        "axis": {
+          "labels": false,
+          "ticks":false,
+          "domainWidth": 0,
+          "title": ""
+        },
+        "sort" : [
+          "ojdk / zlib-bundled", "ojdk / zlib-system", "ojdk / zlib-cloudflare", "ojdk / zlib-chromium"
+        ]
+      }
+    },
+    "layer": [{
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "new-type",
+          "type": "nominal",
+          "legend": {
+            "title" : "",
+            "offset" : null,
+            "zindex": 1
+          },
+          "sort" : [
+            "ojdk / zlib-bundled", "ojdk / zlib-system", "ojdk / zlib-cloudflare", "ojdk / zlib-chromium"
+          ]
+        }
+      }
+    }, {
+      "mark": {
+        "type": "text",
+        "dx": 5,
+        "angle": 270,
+        "baseline": "middle",
+        "align": "left"  
+      },
+      "encoding": {
+        "text": {
+          "field": "default-val",
+          "type": "nominal",
+          "format": ".0%"
+        }
+      }
+    }]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"domainWidth": 1}
+  }
+}
