@@ -4,7 +4,7 @@ The following results were measured on a Laptop with an Intel i7-8650U CPU runni
 
 ### Java benchmarks on Intel i7-8650U
 
-For the Java benchmarks I've used the program [`ZBench.java`](benchmarks/java/io/simonis/ZBench.java) (which is basically a Java version of the corresponding C benchmark [`zbench.c`](benchmarks/c/zbench.c)). To dispatch between the various implementations I've used the new `org.openjdk.zlib.implementation` system properties proposed by [JDK-1234567](). For details you can take a look at the the harness script [`run-java-deflate.sh`](benchmarks/bash/run-java-deflate.sh).
+For the Java benchmarks I've used the program [`ZBench.java`](benchmarks/java/io/simonis/ZBench.java) (which is basically a Java version of the corresponding C benchmark [`zbench.c`](benchmarks/c/zbench.c)). To dispatch between the various implementations I've used the new `org.openjdk.zlib.implementation` system properties proposed by "[JDK-8249963: Make the zlib implementation selectively configurable at startup](https://bugs.openjdk.java.net/browse/JDK-8249963)". For details you can take a look at the the harness script [`run-java-deflate.sh`](benchmarks/bash/run-java-deflate.sh).
 
 Like for the [native benchmarks](Results.md) I've measured deflation throughput (in kb/ms) and the compression ratio for each compression level from 1 to 9 for every file from the [Silesia text corpus](http://www.data-compression.info/Corpora/SilesiaCorpus/index.html).
 
