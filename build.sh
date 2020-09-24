@@ -14,5 +14,6 @@ bash build/zlib-chromium/build.sh
 bash build/zlib-ipp/build.sh
 bash build/zlib-madler/build.sh
 bash build/zlib-ng/build.sh
+bash build/zlib-jtkukunas/build.sh
 
 popd

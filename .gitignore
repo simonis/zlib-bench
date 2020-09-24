@@ -9,6 +9,8 @@
 !/build/zlib-ipp/build.sh
 /build/zlib-madler/*
 !/build/zlib-madler/build.sh
+/build/zlib-jtkukunas/*
+!/build/zlib-jtkukunas/build.sh
 /build/zlib-ng/*
 !/build/zlib-ng/build.sh
 /build/zlib-chromium/*

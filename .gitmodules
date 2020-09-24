@@ -18,3 +18,7 @@
 [submodule "isa-l"]
 	path = isa-l
 	url = https://github.com/intel/isa-l.git
+[submodule "zlib-jtkukunas"]
+	path = zlib-jtkukunas
+	url = https://github.com/jtkukunas/zlib
+	branch = master

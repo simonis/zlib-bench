@@ -1,0 +1,353 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "title": {
+    "text" : "Inflater throughput for Silesia corpus (part1) at compression level 6 on i7-8650U / 1900MHz",
+    "anchor": "middle",
+    "offset": 20
+  },
+  "data": {
+    "values" : [
+        {"level": "6", "type": "chromium", "ratio": "2.63", "throughput": "57.45", "file": "dickens"},
+{"level": "6", "type": "chromium", "ratio": "2.63", "throughput": "57.45", "file": "dickens"},
+{"level": "6", "type": "chromium", "ratio": "2.63", "throughput": "57.42", "file": "dickens"},
+{"level": "6", "type": "chromium", "ratio": "2.63", "throughput": "57.42", "file": "dickens"},
+{"level": "6", "type": "chromium", "ratio": "2.63", "throughput": "57.45", "file": "dickens"},
+{"level": "6", "type": "cloudflare", "ratio": "2.63", "throughput": "36.82", "file": "dickens"},
+{"level": "6", "type": "cloudflare", "ratio": "2.63", "throughput": "36.80", "file": "dickens"},
+{"level": "6", "type": "cloudflare", "ratio": "2.63", "throughput": "36.87", "file": "dickens"},
+{"level": "6", "type": "cloudflare", "ratio": "2.63", "throughput": "36.86", "file": "dickens"},
+{"level": "6", "type": "cloudflare", "ratio": "2.63", "throughput": "36.87", "file": "dickens"},
+{"level": "6", "type": "ipp", "ratio": "2.63", "throughput": "52.34", "file": "dickens"},
+{"level": "6", "type": "ipp", "ratio": "2.63", "throughput": "52.32", "file": "dickens"},
+{"level": "6", "type": "ipp", "ratio": "2.63", "throughput": "52.34", "file": "dickens"},
+{"level": "6", "type": "ipp", "ratio": "2.63", "throughput": "52.32", "file": "dickens"},
+{"level": "6", "type": "ipp", "ratio": "2.63", "throughput": "52.37", "file": "dickens"},
+{"level": "6", "type": "isal", "ratio": "2.63", "throughput": "107.32", "file": "dickens"},
+{"level": "6", "type": "isal", "ratio": "2.63", "throughput": "107.20", "file": "dickens"},
+{"level": "6", "type": "isal", "ratio": "2.63", "throughput": "107.20", "file": "dickens"},
+{"level": "6", "type": "isal", "ratio": "2.63", "throughput": "107.08", "file": "dickens"},
+{"level": "6", "type": "isal", "ratio": "2.63", "throughput": "107.08", "file": "dickens"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.63", "throughput": "50.99", "file": "dickens"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.63", "throughput": "51.12", "file": "dickens"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.63", "throughput": "51.09", "file": "dickens"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.63", "throughput": "51.09", "file": "dickens"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.63", "throughput": "51.09", "file": "dickens"},
+{"level": "6", "type": "ng", "ratio": "2.63", "throughput": "52.79", "file": "dickens"},
+{"level": "6", "type": "ng", "ratio": "2.63", "throughput": "52.79", "file": "dickens"},
+{"level": "6", "type": "ng", "ratio": "2.63", "throughput": "52.77", "file": "dickens"},
+{"level": "6", "type": "ng", "ratio": "2.63", "throughput": "52.71", "file": "dickens"},
+{"level": "6", "type": "ng", "ratio": "2.63", "throughput": "52.79", "file": "dickens"},
+{"level": "6", "type": "zlib", "ratio": "2.63", "throughput": "36.90", "file": "dickens"},
+{"level": "6", "type": "zlib", "ratio": "2.63", "throughput": "36.90", "file": "dickens"},
+{"level": "6", "type": "zlib", "ratio": "2.63", "throughput": "36.91", "file": "dickens"},
+{"level": "6", "type": "zlib", "ratio": "2.63", "throughput": "36.71", "file": "dickens"},
+{"level": "6", "type": "zlib", "ratio": "2.63", "throughput": "36.84", "file": "dickens"},
+{"level": "6", "type": "chromium", "ratio": "2.68", "throughput": "61.93", "file": "mozilla"},
+{"level": "6", "type": "chromium", "ratio": "2.68", "throughput": "61.97", "file": "mozilla"},
+{"level": "6", "type": "chromium", "ratio": "2.68", "throughput": "62.00", "file": "mozilla"},
+{"level": "6", "type": "chromium", "ratio": "2.68", "throughput": "61.97", "file": "mozilla"},
+{"level": "6", "type": "chromium", "ratio": "2.68", "throughput": "61.93", "file": "mozilla"},
+{"level": "6", "type": "cloudflare", "ratio": "2.68", "throughput": "44.19", "file": "mozilla"},
+{"level": "6", "type": "cloudflare", "ratio": "2.68", "throughput": "44.12", "file": "mozilla"},
+{"level": "6", "type": "cloudflare", "ratio": "2.68", "throughput": "44.16", "file": "mozilla"},
+{"level": "6", "type": "cloudflare", "ratio": "2.68", "throughput": "44.14", "file": "mozilla"},
+{"level": "6", "type": "cloudflare", "ratio": "2.68", "throughput": "44.17", "file": "mozilla"},
+{"level": "6", "type": "ipp", "ratio": "2.68", "throughput": "69.60", "file": "mozilla"},
+{"level": "6", "type": "ipp", "ratio": "2.68", "throughput": "69.56", "file": "mozilla"},
+{"level": "6", "type": "ipp", "ratio": "2.68", "throughput": "69.51", "file": "mozilla"},
+{"level": "6", "type": "ipp", "ratio": "2.68", "throughput": "66.98", "file": "mozilla"},
+{"level": "6", "type": "ipp", "ratio": "2.68", "throughput": "69.51", "file": "mozilla"},
+{"level": "6", "type": "isal", "ratio": "2.68", "throughput": "87.31", "file": "mozilla"},
+{"level": "6", "type": "isal", "ratio": "2.68", "throughput": "87.25", "file": "mozilla"},
+{"level": "6", "type": "isal", "ratio": "2.68", "throughput": "87.66", "file": "mozilla"},
+{"level": "6", "type": "isal", "ratio": "2.68", "throughput": "87.66", "file": "mozilla"},
+{"level": "6", "type": "isal", "ratio": "2.68", "throughput": "87.59", "file": "mozilla"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.68", "throughput": "48.48", "file": "mozilla"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.68", "throughput": "48.59", "file": "mozilla"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.68", "throughput": "48.57", "file": "mozilla"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.68", "throughput": "48.32", "file": "mozilla"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.68", "throughput": "48.48", "file": "mozilla"},
+{"level": "6", "type": "ng", "ratio": "2.68", "throughput": "56.15", "file": "mozilla"},
+{"level": "6", "type": "ng", "ratio": "2.68", "throughput": "56.18", "file": "mozilla"},
+{"level": "6", "type": "ng", "ratio": "2.68", "throughput": "56.18", "file": "mozilla"},
+{"level": "6", "type": "ng", "ratio": "2.68", "throughput": "56.18", "file": "mozilla"},
+{"level": "6", "type": "ng", "ratio": "2.68", "throughput": "56.21", "file": "mozilla"},
+{"level": "6", "type": "zlib", "ratio": "2.68", "throughput": "44.17", "file": "mozilla"},
+{"level": "6", "type": "zlib", "ratio": "2.68", "throughput": "44.19", "file": "mozilla"},
+{"level": "6", "type": "zlib", "ratio": "2.68", "throughput": "44.19", "file": "mozilla"},
+{"level": "6", "type": "zlib", "ratio": "2.68", "throughput": "44.17", "file": "mozilla"},
+{"level": "6", "type": "zlib", "ratio": "2.68", "throughput": "44.19", "file": "mozilla"},
+{"level": "6", "type": "chromium", "ratio": "2.71", "throughput": "56.88", "file": "mr"},
+{"level": "6", "type": "chromium", "ratio": "2.71", "throughput": "56.95", "file": "mr"},
+{"level": "6", "type": "chromium", "ratio": "2.71", "throughput": "56.95", "file": "mr"},
+{"level": "6", "type": "chromium", "ratio": "2.71", "throughput": "56.95", "file": "mr"},
+{"level": "6", "type": "chromium", "ratio": "2.71", "throughput": "56.88", "file": "mr"},
+{"level": "6", "type": "cloudflare", "ratio": "2.71", "throughput": "40.93", "file": "mr"},
+{"level": "6", "type": "cloudflare", "ratio": "2.71", "throughput": "40.83", "file": "mr"},
+{"level": "6", "type": "cloudflare", "ratio": "2.71", "throughput": "40.93", "file": "mr"},
+{"level": "6", "type": "cloudflare", "ratio": "2.71", "throughput": "40.93", "file": "mr"},
+{"level": "6", "type": "cloudflare", "ratio": "2.71", "throughput": "40.96", "file": "mr"},
+{"level": "6", "type": "ipp", "ratio": "2.71", "throughput": "64.39", "file": "mr"},
+{"level": "6", "type": "ipp", "ratio": "2.71", "throughput": "64.31", "file": "mr"},
+{"level": "6", "type": "ipp", "ratio": "2.71", "throughput": "64.23", "file": "mr"},
+{"level": "6", "type": "ipp", "ratio": "2.71", "throughput": "64.31", "file": "mr"},
+{"level": "6", "type": "ipp", "ratio": "2.71", "throughput": "64.31", "file": "mr"},
+{"level": "6", "type": "isal", "ratio": "2.71", "throughput": "99.13", "file": "mr"},
+{"level": "6", "type": "isal", "ratio": "2.71", "throughput": "99.13", "file": "mr"},
+{"level": "6", "type": "isal", "ratio": "2.71", "throughput": "99.13", "file": "mr"},
+{"level": "6", "type": "isal", "ratio": "2.71", "throughput": "99.13", "file": "mr"},
+{"level": "6", "type": "isal", "ratio": "2.71", "throughput": "99.03", "file": "mr"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.71", "throughput": "47.17", "file": "mr"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.71", "throughput": "47.26", "file": "mr"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.71", "throughput": "47.08", "file": "mr"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.71", "throughput": "47.26", "file": "mr"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.71", "throughput": "47.23", "file": "mr"},
+{"level": "6", "type": "ng", "ratio": "2.71", "throughput": "52.76", "file": "mr"},
+{"level": "6", "type": "ng", "ratio": "2.71", "throughput": "52.79", "file": "mr"},
+{"level": "6", "type": "ng", "ratio": "2.71", "throughput": "52.79", "file": "mr"},
+{"level": "6", "type": "ng", "ratio": "2.71", "throughput": "52.79", "file": "mr"},
+{"level": "6", "type": "ng", "ratio": "2.71", "throughput": "52.79", "file": "mr"},
+{"level": "6", "type": "zlib", "ratio": "2.71", "throughput": "40.68", "file": "mr"},
+{"level": "6", "type": "zlib", "ratio": "2.71", "throughput": "40.73", "file": "mr"},
+{"level": "6", "type": "zlib", "ratio": "2.71", "throughput": "40.69", "file": "mr"},
+{"level": "6", "type": "zlib", "ratio": "2.71", "throughput": "40.74", "file": "mr"},
+{"level": "6", "type": "zlib", "ratio": "2.71", "throughput": "40.69", "file": "mr"},
+{"level": "6", "type": "chromium", "ratio": "10.48", "throughput": "37.15", "file": "nci"},
+{"level": "6", "type": "chromium", "ratio": "10.48", "throughput": "37.18", "file": "nci"},
+{"level": "6", "type": "chromium", "ratio": "10.48", "throughput": "37.16", "file": "nci"},
+{"level": "6", "type": "chromium", "ratio": "10.48", "throughput": "37.18", "file": "nci"},
+{"level": "6", "type": "chromium", "ratio": "10.48", "throughput": "37.18", "file": "nci"},
+{"level": "6", "type": "cloudflare", "ratio": "10.48", "throughput": "23.42", "file": "nci"},
+{"level": "6", "type": "cloudflare", "ratio": "10.48", "throughput": "23.45", "file": "nci"},
+{"level": "6", "type": "cloudflare", "ratio": "10.48", "throughput": "23.44", "file": "nci"},
+{"level": "6", "type": "cloudflare", "ratio": "10.48", "throughput": "23.46", "file": "nci"},
+{"level": "6", "type": "cloudflare", "ratio": "10.48", "throughput": "23.45", "file": "nci"},
+{"level": "6", "type": "ipp", "ratio": "10.48", "throughput": "36.94", "file": "nci"},
+{"level": "6", "type": "ipp", "ratio": "10.48", "throughput": "37.05", "file": "nci"},
+{"level": "6", "type": "ipp", "ratio": "10.48", "throughput": "37.00", "file": "nci"},
+{"level": "6", "type": "ipp", "ratio": "10.48", "throughput": "37.04", "file": "nci"},
+{"level": "6", "type": "ipp", "ratio": "10.48", "throughput": "37.07", "file": "nci"},
+{"level": "6", "type": "isal", "ratio": "10.48", "throughput": "55.84", "file": "nci"},
+{"level": "6", "type": "isal", "ratio": "10.48", "throughput": "55.65", "file": "nci"},
+{"level": "6", "type": "isal", "ratio": "10.48", "throughput": "55.81", "file": "nci"},
+{"level": "6", "type": "isal", "ratio": "10.48", "throughput": "55.74", "file": "nci"},
+{"level": "6", "type": "isal", "ratio": "10.48", "throughput": "55.71", "file": "nci"},
+{"level": "6", "type": "jtkukunas", "ratio": "10.48", "throughput": "29.13", "file": "nci"},
+{"level": "6", "type": "jtkukunas", "ratio": "10.48", "throughput": "29.37", "file": "nci"},
+{"level": "6", "type": "jtkukunas", "ratio": "10.48", "throughput": "29.40", "file": "nci"},
+{"level": "6", "type": "jtkukunas", "ratio": "10.48", "throughput": "29.38", "file": "nci"},
+{"level": "6", "type": "jtkukunas", "ratio": "10.48", "throughput": "29.35", "file": "nci"},
+{"level": "6", "type": "ng", "ratio": "10.48", "throughput": "30.95", "file": "nci"},
+{"level": "6", "type": "ng", "ratio": "10.48", "throughput": "30.98", "file": "nci"},
+{"level": "6", "type": "ng", "ratio": "10.48", "throughput": "30.82", "file": "nci"},
+{"level": "6", "type": "ng", "ratio": "10.48", "throughput": "30.81", "file": "nci"},
+{"level": "6", "type": "ng", "ratio": "10.48", "throughput": "30.96", "file": "nci"},
+{"level": "6", "type": "zlib", "ratio": "10.48", "throughput": "23.56", "file": "nci"},
+{"level": "6", "type": "zlib", "ratio": "10.48", "throughput": "23.54", "file": "nci"},
+{"level": "6", "type": "zlib", "ratio": "10.48", "throughput": "23.51", "file": "nci"},
+{"level": "6", "type": "zlib", "ratio": "10.48", "throughput": "23.54", "file": "nci"},
+{"level": "6", "type": "zlib", "ratio": "10.48", "throughput": "23.54", "file": "nci"},
+{"level": "6", "type": "chromium", "ratio": "1.99", "throughput": "57.30", "file": "ooffice"},
+{"level": "6", "type": "chromium", "ratio": "1.99", "throughput": "57.27", "file": "ooffice"},
+{"level": "6", "type": "chromium", "ratio": "1.99", "throughput": "57.30", "file": "ooffice"},
+{"level": "6", "type": "chromium", "ratio": "1.99", "throughput": "57.33", "file": "ooffice"},
+{"level": "6", "type": "chromium", "ratio": "1.99", "throughput": "57.30", "file": "ooffice"},
+{"level": "6", "type": "cloudflare", "ratio": "1.99", "throughput": "42.12", "file": "ooffice"},
+{"level": "6", "type": "cloudflare", "ratio": "1.99", "throughput": "42.04", "file": "ooffice"},
+{"level": "6", "type": "cloudflare", "ratio": "1.99", "throughput": "42.06", "file": "ooffice"},
+{"level": "6", "type": "cloudflare", "ratio": "1.99", "throughput": "42.06", "file": "ooffice"},
+{"level": "6", "type": "cloudflare", "ratio": "1.99", "throughput": "42.04", "file": "ooffice"},
+{"level": "6", "type": "ipp", "ratio": "1.99", "throughput": "66.37", "file": "ooffice"},
+{"level": "6", "type": "ipp", "ratio": "1.99", "throughput": "66.32", "file": "ooffice"},
+{"level": "6", "type": "ipp", "ratio": "1.99", "throughput": "66.45", "file": "ooffice"},
+{"level": "6", "type": "ipp", "ratio": "1.99", "throughput": "66.41", "file": "ooffice"},
+{"level": "6", "type": "ipp", "ratio": "1.99", "throughput": "66.50", "file": "ooffice"},
+{"level": "6", "type": "isal", "ratio": "1.99", "throughput": "90.41", "file": "ooffice"},
+{"level": "6", "type": "isal", "ratio": "1.99", "throughput": "90.25", "file": "ooffice"},
+{"level": "6", "type": "isal", "ratio": "1.99", "throughput": "90.33", "file": "ooffice"},
+{"level": "6", "type": "isal", "ratio": "1.99", "throughput": "90.33", "file": "ooffice"},
+{"level": "6", "type": "isal", "ratio": "1.99", "throughput": "90.33", "file": "ooffice"},
+{"level": "6", "type": "jtkukunas", "ratio": "1.99", "throughput": "47.28", "file": "ooffice"},
+{"level": "6", "type": "jtkukunas", "ratio": "1.99", "throughput": "47.31", "file": "ooffice"},
+{"level": "6", "type": "jtkukunas", "ratio": "1.99", "throughput": "47.33", "file": "ooffice"},
+{"level": "6", "type": "jtkukunas", "ratio": "1.99", "throughput": "47.31", "file": "ooffice"},
+{"level": "6", "type": "jtkukunas", "ratio": "1.99", "throughput": "47.28", "file": "ooffice"},
+{"level": "6", "type": "ng", "ratio": "1.99", "throughput": "53.32", "file": "ooffice"},
+{"level": "6", "type": "ng", "ratio": "1.99", "throughput": "53.32", "file": "ooffice"},
+{"level": "6", "type": "ng", "ratio": "1.99", "throughput": "53.26", "file": "ooffice"},
+{"level": "6", "type": "ng", "ratio": "1.99", "throughput": "53.32", "file": "ooffice"},
+{"level": "6", "type": "ng", "ratio": "1.99", "throughput": "53.35", "file": "ooffice"},
+{"level": "6", "type": "zlib", "ratio": "1.99", "throughput": "41.92", "file": "ooffice"},
+{"level": "6", "type": "zlib", "ratio": "1.99", "throughput": "41.90", "file": "ooffice"},
+{"level": "6", "type": "zlib", "ratio": "1.99", "throughput": "41.87", "file": "ooffice"},
+{"level": "6", "type": "zlib", "ratio": "1.99", "throughput": "41.94", "file": "ooffice"},
+{"level": "6", "type": "zlib", "ratio": "1.99", "throughput": "41.94", "file": "ooffice"},
+{"level": "6", "type": "chromium", "ratio": "2.73", "throughput": "59.29", "file": "osdb"},
+{"level": "6", "type": "chromium", "ratio": "2.73", "throughput": "59.43", "file": "osdb"},
+{"level": "6", "type": "chromium", "ratio": "2.73", "throughput": "59.37", "file": "osdb"},
+{"level": "6", "type": "chromium", "ratio": "2.73", "throughput": "59.33", "file": "osdb"},
+{"level": "6", "type": "chromium", "ratio": "2.73", "throughput": "59.26", "file": "osdb"},
+{"level": "6", "type": "cloudflare", "ratio": "2.73", "throughput": "43.95", "file": "osdb"},
+{"level": "6", "type": "cloudflare", "ratio": "2.73", "throughput": "43.97", "file": "osdb"},
+{"level": "6", "type": "cloudflare", "ratio": "2.73", "throughput": "44.04", "file": "osdb"},
+{"level": "6", "type": "cloudflare", "ratio": "2.73", "throughput": "44.03", "file": "osdb"},
+{"level": "6", "type": "cloudflare", "ratio": "2.73", "throughput": "44.03", "file": "osdb"},
+{"level": "6", "type": "ipp", "ratio": "2.73", "throughput": "67.05", "file": "osdb"},
+{"level": "6", "type": "ipp", "ratio": "2.73", "throughput": "66.96", "file": "osdb"},
+{"level": "6", "type": "ipp", "ratio": "2.73", "throughput": "67.00", "file": "osdb"},
+{"level": "6", "type": "ipp", "ratio": "2.73", "throughput": "67.05", "file": "osdb"},
+{"level": "6", "type": "ipp", "ratio": "2.73", "throughput": "66.96", "file": "osdb"},
+{"level": "6", "type": "isal", "ratio": "2.73", "throughput": "101.65", "file": "osdb"},
+{"level": "6", "type": "isal", "ratio": "2.73", "throughput": "101.55", "file": "osdb"},
+{"level": "6", "type": "isal", "ratio": "2.73", "throughput": "100.84", "file": "osdb"},
+{"level": "6", "type": "isal", "ratio": "2.73", "throughput": "101.45", "file": "osdb"},
+{"level": "6", "type": "isal", "ratio": "2.73", "throughput": "101.55", "file": "osdb"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.73", "throughput": "53.32", "file": "osdb"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.73", "throughput": "53.38", "file": "osdb"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.73", "throughput": "53.40", "file": "osdb"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.73", "throughput": "53.40", "file": "osdb"},
+{"level": "6", "type": "jtkukunas", "ratio": "2.73", "throughput": "53.38", "file": "osdb"},
+{"level": "6", "type": "ng", "ratio": "2.73", "throughput": "54.56", "file": "osdb"},
+{"level": "6", "type": "ng", "ratio": "2.73", "throughput": "54.47", "file": "osdb"},
+{"level": "6", "type": "ng", "ratio": "2.73", "throughput": "54.47", "file": "osdb"},
+{"level": "6", "type": "ng", "ratio": "2.73", "throughput": "54.50", "file": "osdb"},
+{"level": "6", "type": "ng", "ratio": "2.73", "throughput": "54.47", "file": "osdb"},
+{"level": "6", "type": "zlib", "ratio": "2.73", "throughput": "43.53", "file": "osdb"},
+{"level": "6", "type": "zlib", "ratio": "2.73", "throughput": "43.57", "file": "osdb"},
+{"level": "6", "type": "zlib", "ratio": "2.73", "throughput": "43.53", "file": "osdb"},
+{"level": "6", "type": "zlib", "ratio": "2.73", "throughput": "43.51", "file": "osdb"},
+{"level": "6", "type": "zlib", "ratio": "2.73", "throughput": "43.35", "file": "osdb"}
+    ]
+  },
+  "transform": [
+    {
+      "filter": "datum.type == 'isal' ? datum.level == 6 : datum.level == 6"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "throughput",
+          "as": "throughput_mean"
+        }
+      ],
+      "groupby": ["type", "file"]
+    },
+    {
+      "lookup": "type",
+      "from": {
+        "data": {
+          "values": [
+            {"type": "chromium", "new-type": "chromium"},
+{"type": "cloudflare", "new-type": "cloudflare"},
+{"type": "ipp", "new-type": "ipp"},
+{"type": "isal", "new-type": "isal"},
+{"type": "jtkukunas", "new-type": "jtkukunas"},
+{"type": "ng", "new-type": "ng"},
+{"type": "zlib", "new-type": "zlib"}
+          ]
+        },
+        "key": "type",
+        "fields": ["new-type"]
+      }
+    },
+    {
+      "lookup": "file",
+      "from": {
+        "data": {
+          "values": [
+             {"file": "ooffice", "default_val": "41.914"},
+{"file": "nci", "default_val": "23.538"},
+{"file": "mr", "default_val": "40.706"},
+{"file": "osdb", "default_val": "43.498000000000005"},
+{"file": "mozilla", "default_val": "44.182"},
+{"file": "dickens", "default_val": "36.852"}
+          ]
+        },
+        "key": "file",
+        "fields": ["default_val"]
+      }
+    },
+    {
+      "calculate": "datum.throughput_mean/datum.default_val",
+      "as" : "default-val"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "file",
+      "type": "nominal",
+      "title": "",
+      "header": {
+        "labelAngle": 0,
+        "labelAlign": "center",
+        "labelAnchor": "middle",
+        "labelOrient": "bottom"
+      },
+      "sort": [
+        "dickens", "mozilla", "mr", "nci", "ooffice", "osdb"
+      ]
+    }
+  },
+  "spec": {
+    "encoding": {
+      "y": {
+        "field": "throughput_mean",
+        "type": "quantitative",
+        "axis": {
+          "title": "Throughput (kb/ms)",
+          "grid": true
+        }
+      },
+      "x": {
+        "field": "new-type",
+        "type": "nominal",
+        "axis": {
+          "labels": false,
+          "ticks":false,
+          "domainWidth": 0,
+          "title": ""
+        },
+        "sort" : [
+          "zlib", "cloudflare", "jtkukunas", "ng", "chromium", "ipp", "isal"
+        ]
+      }
+    },
+    "layer": [{
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "new-type",
+          "type": "nominal",
+          "legend": {
+            "title" : "",
+            "offset" : null,
+            "zindex": 1
+          },
+          "sort" : [
+            "zlib", "cloudflare", "jtkukunas", "ng", "chromium", "ipp", "isal"
+          ]
+        }
+      }
+    }, {
+      "mark": {
+        "type": "text",
+        "dx": 5,
+        "angle": 270,
+        "baseline": "middle",
+        "align": "left"  
+      },
+      "encoding": {
+        "text": {
+          "field": "default-val",
+          "type": "nominal",
+          "format": ".0%"
+        }
+      }
+    }]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"domainWidth": 1}
+  }
+}
