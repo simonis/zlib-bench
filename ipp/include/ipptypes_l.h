@@ -1,23 +1,13 @@
 /*
-// Copyright 2015-2019 Intel Corporation All Rights Reserved.
+// Copyright 2015 Intel Corporation All Rights Reserved.
 //
-// The source code, information and material ("Material") contained herein is
-// owned by Intel Corporation or its suppliers or licensors, and title
-// to such Material remains with Intel Corporation or its suppliers or
-// licensors. The Material contains proprietary information of Intel
-// or its suppliers and licensors. The Material is protected by worldwide
-// copyright laws and treaty provisions. No part of the Material may be used,
-// copied, reproduced, modified, published, uploaded, posted, transmitted,
-// distributed or disclosed in any way without Intel's prior express written
-// permission. No license under any patent, copyright or other intellectual
-// property rights in the Material is granted to or conferred upon you,
-// either expressly, by implication, inducement, estoppel or otherwise.
-// Any license under such intellectual property rights must be express and
-// approved by Intel in writing.
 //
-// Unless otherwise agreed by Intel in writing,
-// you may not remove or alter this notice or any other notice embedded in
-// Materials by Intel or Intel's suppliers or licensors in any way.
+// This software and the related documents are Intel copyrighted materials, and your use of them is governed by
+// the express license under which they were provided to you ('License'). Unless the License provides otherwise,
+// you may not use, modify, copy, publish, distribute, disclose or transmit this software or the related
+// documents without Intel's prior written permission.
+// This software and the related documents are provided as is, with no express or implied warranties, other than
+// those that are expressly stated in the License.
 //
 */
 
@@ -92,12 +82,12 @@ typedef enum _IpprBorderType {
     ipprBorderInMemFront   =  0x1000,
     ipprBorderInMemBack    =  0x2000,
 
-    ipprBorderInMem        =  ipprBorderInMemLeft|ipprBorderInMemTop|ipprBorderInMemRight|ipprBorderInMemBottom|ipprBorderInMemFront|ipprBorderInMemBack,
+    ipprBorderInMem        =  ipprBorderInMemLeft|ipprBorderInMemTop|ipprBorderInMemRight|ipprBorderInMemBottom|ipprBorderInMemFront|ipprBorderInMemBack
 } IpprBorderType;
 
 
 typedef enum {
-    IPP_MORPH_DEFAULT          = 0x0000, /* Default, flip before second opation(erode,dilate), threshold above zero in Black/TopHat */
+    IPP_MORPH_DEFAULT          = 0x0000, /* Default, flip before second operation(erode,dilate), threshold above zero in Black/TopHat */
     IPP_MORPH_MASK_NO_FLIP     = 0x0001, /* Never flip mask */
     IPP_MORPH_NO_THRESHOLD     = 0x0004  /* No threshold in Black/TopHat */
 } IppiMorphMode;
@@ -115,9 +105,29 @@ typedef struct FilterMedianSpecV       IpprFilterMedianSpec;
 typedef struct IpprFilterBorderType_T  IpprFilterBorderSpec_T;
 typedef struct IpprFilterBorderType_LT IpprFilterBorderSpec_LT;
 typedef struct IpprFilterMedianType_T  IpprFilterMedianSpec_T;
+typedef struct FilterSeparableType_T   IppiFilterSeparableSpec_T;
+typedef struct FilterSeparableType_LT  IppiFilterSeparableSpec_LT;
 #ifdef __cplusplus
 }
 #endif
+
+/*****************************************************************************/
+/*                   Below are ippCV domain specific definitions             */
+/*****************************************************************************/
+
+typedef struct PyramidStateL IppiPyramidStateL;
+typedef IppiPyramidStateL IppiPyramidUpState_32f_C1R_L;
+typedef IppiPyramidStateL IppiPyramidDownState_32f_C1R_L;
+
+typedef struct _IppiPyramidL {
+    Ipp8u        **pImage;
+    IppiSizeL     *pRoi;
+    Ipp64f        *pRate;
+    IppSizeL      *pStep;
+    Ipp8u         *pState;
+    int            level;
+} IppiPyramidL;
+
 
 #endif /* _OWN_BLDPCS */
 

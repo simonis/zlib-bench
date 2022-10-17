@@ -1,23 +1,13 @@
 /*
-// Copyright 1999-2019 Intel Corporation All Rights Reserved.
+// Copyright 1999 Intel Corporation All Rights Reserved.
 //
-// The source code, information and material ("Material") contained herein is
-// owned by Intel Corporation or its suppliers or licensors, and title
-// to such Material remains with Intel Corporation or its suppliers or
-// licensors. The Material contains proprietary information of Intel
-// or its suppliers and licensors. The Material is protected by worldwide
-// copyright laws and treaty provisions. No part of the Material may be used,
-// copied, reproduced, modified, published, uploaded, posted, transmitted,
-// distributed or disclosed in any way without Intel's prior express written
-// permission. No license under any patent, copyright or other intellectual
-// property rights in the Material is granted to or conferred upon you,
-// either expressly, by implication, inducement, estoppel or otherwise.
-// Any license under such intellectual property rights must be express and
-// approved by Intel in writing.
 //
-// Unless otherwise agreed by Intel in writing,
-// you may not remove or alter this notice or any other notice embedded in
-// Materials by Intel or Intel's suppliers or licensors in any way.
+// This software and the related documents are Intel copyrighted materials, and your use of them is governed by
+// the express license under which they were provided to you ('License'). Unless the License provides otherwise,
+// you may not use, modify, copy, publish, distribute, disclose or transmit this software or the related
+// documents without Intel's prior written permission.
+// This software and the related documents are provided as is, with no express or implied warranties, other than
+// those that are expressly stated in the License.
 //
 */
 
@@ -47,47 +37,51 @@ extern "C" {
 #ifndef IPP_CPU_FEATURES__
 #define IPP_CPU_FEATURES__
 
-#define   ippCPUID_MMX             0x00000001   /* Intel(R) Architecture MMX technology supported                              */
-#define   ippCPUID_SSE             0x00000002   /* Intel(R) Streaming SIMD Extensions                                          */
-#define   ippCPUID_SSE2            0x00000004   /* Intel(R) Streaming SIMD Extensions 2                                        */
-#define   ippCPUID_SSE3            0x00000008   /* Intel(R) Streaming SIMD Extensions 3                                        */
-#define   ippCPUID_SSSE3           0x00000010   /* Supplemental Streaming SIMD Extensions 3                                    */
-#define   ippCPUID_MOVBE           0x00000020   /* Intel(R) MOVBE instruction                                                  */
-#define   ippCPUID_SSE41           0x00000040   /* Intel(R) Streaming SIMD Extensions 4.1                                      */
-#define   ippCPUID_SSE42           0x00000080   /* Intel(R) Streaming SIMD Extensions 4.2                                      */
-#define   ippCPUID_AVX             0x00000100   /* Intel(R) Advanced Vector Extensions instruction set                         */
-#define   ippAVX_ENABLEDBYOS       0x00000200   /* Intel(R) Advanced Vector Extensions instruction set is supported by OS      */
-#define   ippCPUID_AES             0x00000400   /* Intel(R) AES New Instructions                                               */
-#define   ippCPUID_CLMUL           0x00000800   /* Intel(R) CLMUL instruction                                                  */
-#define   ippCPUID_ABR             0x00001000   /* Reserved                                                                    */
-#define   ippCPUID_RDRAND          0x00002000   /* Intel(R) RDRAND instruction                                                 */
-#define   ippCPUID_F16C            0x00004000   /* Intel(R) F16C new instructions                                              */
-#define   ippCPUID_AVX2            0x00008000   /* Intel(R) Advanced Vector Extensions 2 instruction set                       */
-#define   ippCPUID_ADCOX           0x00010000   /* Intel(R) ADOX/ADCX new instructions                                         */
-#define   ippCPUID_RDSEED          0x00020000   /* Intel(R) RDSEED instruction                                                 */
-#define   ippCPUID_PREFETCHW       0x00040000   /* Intel(R) PREFETCHW instruction                                              */
-#define   ippCPUID_SHA             0x00080000   /* Intel(R) SHA new instructions                                               */
-#define   ippCPUID_AVX512F         0x00100000   /* Intel(R) Advanced Vector Extensions 512 Foundation instruction set          */
-#define   ippCPUID_AVX512CD        0x00200000   /* Intel(R) Advanced Vector Extensions 512 CD instruction set                  */
-#define   ippCPUID_AVX512ER        0x00400000   /* Intel(R) Advanced Vector Extensions 512 ER instruction set                  */
-#define   ippCPUID_AVX512PF        0x00800000   /* Intel(R) Advanced Vector Extensions 512 PF instruction set                  */
-#define   ippCPUID_AVX512BW        0x01000000   /* Intel(R) Advanced Vector Extensions 512 BW instruction set                  */
-#define   ippCPUID_AVX512DQ        0x02000000   /* Intel(R) Advanced Vector Extensions 512 DQ instruction set                  */
-#define   ippCPUID_AVX512VL        0x04000000   /* Intel(R) Advanced Vector Extensions 512 VL instruction set                  */
-#define   ippCPUID_AVX512VBMI      0x08000000   /* Intel(R) Advanced Vector Extensions 512 Bit Manipulation instructions       */
-#define   ippCPUID_MPX             0x10000000   /* Intel(R) Memory Protection Extensions                                       */
-#define   ippCPUID_AVX512_4FMADDPS 0x20000000   /* Intel(R) Advanced Vector Extensions 512 DL floating-point single precision  */
-#define   ippCPUID_AVX512_4VNNIW   0x40000000   /* Intel(R) Advanced Vector Extensions 512 DL enhanced word variable precision */
-#define   ippCPUID_KNC             0x80000000   /* Intel(R) Xeon Phi(TM) Coprocessor                                           */
+#define   ippCPUID_MMX             0x00000001  /* Intel(R) Architecture MMX technology supported                                          */
+#define   ippCPUID_SSE             0x00000002  /* Intel(R) Streaming SIMD Extensions                                                      */
+#define   ippCPUID_SSE2            0x00000004  /* Intel(R) Streaming SIMD Extensions 2                                                    */
+#define   ippCPUID_SSE3            0x00000008  /* Intel(R) Streaming SIMD Extensions 3                                                    */
+#define   ippCPUID_SSSE3           0x00000010  /* Supplemental Streaming SIMD Extensions 3                                                */
+#define   ippCPUID_MOVBE           0x00000020  /* Intel(R) MOVBE instruction                                                              */
+#define   ippCPUID_SSE41           0x00000040  /* Intel(R) Streaming SIMD Extensions 4.1                                                  */
+#define   ippCPUID_SSE42           0x00000080  /* Intel(R) Streaming SIMD Extensions 4.2                                                  */
+#define   ippCPUID_AVX             0x00000100  /* Intel(R) Advanced Vector Extensions instruction set                                     */
+#define   ippAVX_ENABLEDBYOS       0x00000200  /* Intel(R) Advanced Vector Extensions instruction set is supported by OS                  */
+#define   ippCPUID_AES             0x00000400  /* Intel(R) AES New Instructions                                                           */
+#define   ippCPUID_CLMUL           0x00000800  /* Intel(R) CLMUL instruction                                                              */
+#define   ippCPUID_ABR             0x00001000  /* Reserved                                                                                */
+#define   ippCPUID_RDRAND          0x00002000  /* Intel(R) RDRAND instruction                                                             */
+#define   ippCPUID_F16C            0x00004000  /* Intel(R) F16C new instructions                                                          */
+#define   ippCPUID_AVX2            0x00008000  /* Intel(R) Advanced Vector Extensions 2 instruction set                                   */
+#define   ippCPUID_ADCOX           0x00010000  /* Intel(R) ADOX/ADCX new instructions                                                     */
+#define   ippCPUID_RDSEED          0x00020000  /* Intel(R) RDSEED instruction                                                             */
+#define   ippCPUID_PREFETCHW       0x00040000  /* Intel(R) PREFETCHW instruction                                                          */
+#define   ippCPUID_SHA             0x00080000  /* Intel(R) SHA new instructions                                                           */
+#define   ippCPUID_AVX512F         0x00100000  /* Intel(R) Advanced Vector Extensions 512 Foundation instruction set                      */
+#define   ippCPUID_AVX512CD        0x00200000  /* Intel(R) Advanced Vector Extensions 512 CD instruction set                              */
+#define   ippCPUID_AVX512ER        0x00400000  /* Intel(R) Advanced Vector Extensions 512 ER instruction set                              */
+#define   ippCPUID_AVX512PF        0x00800000  /* Intel(R) Advanced Vector Extensions 512 PF instruction set                              */
+#define   ippCPUID_AVX512BW        0x01000000  /* Intel(R) Advanced Vector Extensions 512 BW instruction set                              */
+#define   ippCPUID_AVX512DQ        0x02000000  /* Intel(R) Advanced Vector Extensions 512 DQ instruction set                              */
+#define   ippCPUID_AVX512VL        0x04000000  /* Intel(R) Advanced Vector Extensions 512 VL instruction set                              */
+#define   ippCPUID_AVX512VBMI      0x08000000  /* Intel(R) Advanced Vector Extensions 512 Bit Manipulation instructions                   */
+#define   ippCPUID_MPX             0x10000000  /* Intel(R) Memory Protection Extensions                                                   */
+#define   ippCPUID_AVX512_4FMADDPS 0x20000000  /* Intel(R) Advanced Vector Extensions 512 DL floating-point single precision              */
+#define   ippCPUID_AVX512_4VNNIW   0x40000000  /* Intel(R) Advanced Vector Extensions 512 DL enhanced word variable precision             */
+#define   ippCPUID_KNC             0x80000000  /* Intel(R) Xeon Phi(TM) Coprocessor                                                       */
+
 #if defined( _WIN32 ) || defined ( _WIN64 )
   #define INT64_SUFFIX(name) name##L
 #else
   #define INT64_SUFFIX(name) name##LL
 #endif
- #define   ippCPUID_AVX512IFMA   INT64_SUFFIX(0x100000000)        /* Intel(R) Advanced Vector Extensions 512 IFMA (PMADD52) instruction set      */
- #define   ippCPUID_NOCHECK      INT64_SUFFIX(0x8000000000000000) /* Force ippSetCpuFeatures to set CPU features without check                   */
- #define   ippCPUID_GETINFO_A    INT64_SUFFIX(0x616f666e69746567) /* Force ippGetCpuFeatures to work as cpuid instruction                        */
- #define   ippAVX512_ENABLEDBYOS INT64_SUFFIX(0x200000000)        /* Intel(R) Advanced Vector Extensions 512 is supported by OS                  */
+ #define   ippCPUID_AVX512IFMA      INT64_SUFFIX(0x100000000)        /* Intel(R) Advanced Vector Extensions 512 IFMA (PMADD52) instruction set  */
+ #define   ippCPUID_NOCHECK         INT64_SUFFIX(0x8000000000000000) /* Force ippSetCpuFeatures to set CPU features without check               */
+ #define   ippCPUID_GETINFO_A       INT64_SUFFIX(0x616f666e69746567) /* Force ippGetCpuFeatures to work as cpuid instruction                    */
+ #define   ippAVX512_ENABLEDBYOS    INT64_SUFFIX(0x200000000)        /* Intel(R) Advanced Vector Extensions 512 is supported by OS              */
+ #define   ippCPUID_AVX512VPOPCNTDQ INT64_SUFFIX(0x400000000)        /* Intel(R) Advanced Vector Extensions 512 VPOPCNTDQ instruction set       */
+ #define   ippCPUID_AVX512_BITALG   INT64_SUFFIX(0x800000000)        /* Intel(R) Advanced Vector Extensions 512 BITALG instruction set          */
+ #define   ippCPUID_AVX512_FP16     INT64_SUFFIX(0x1000000000)       /* Intel(R) Advanced Vector Extensions 512 16-bit floating point (FP16) instruction set */
 
 
 #endif /* IPP_CPU_FEATURES__ */
@@ -198,6 +192,8 @@ typedef struct RandGaussState_16s IppsRandGaussState_16s;
 typedef struct RandGaussState_32f IppsRandGaussState_32f;
 typedef struct RandGaussState_64f IppsRandGaussState_64f;
 
+typedef struct FFTSpec_C_16fc   IppsFFTSpec_C_16fc;
+
 typedef struct FFTSpec_C_32fc   IppsFFTSpec_C_32fc;
 typedef struct FFTSpec_C_32f    IppsFFTSpec_C_32f;
 typedef struct FFTSpec_R_32f    IppsFFTSpec_R_32f;
@@ -205,6 +201,8 @@ typedef struct FFTSpec_R_32f    IppsFFTSpec_R_32f;
 typedef struct FFTSpec_C_64fc   IppsFFTSpec_C_64fc;
 typedef struct FFTSpec_C_64f    IppsFFTSpec_C_64f;
 typedef struct FFTSpec_R_64f    IppsFFTSpec_R_64f;
+
+typedef struct DFTSpec_C_16fc       IppsDFTSpec_C_16fc;
 
 typedef struct DFTSpec_C_32fc       IppsDFTSpec_C_32fc;
 typedef struct DFTSpec_C_32f        IppsDFTSpec_C_32f;
@@ -255,6 +253,8 @@ typedef struct HilbertSpec IppsHilbertSpec;
 
 typedef struct FIRSparseState_32f IppsFIRSparseState_32f;
 typedef struct IIRSparseState_32f IppsIIRSparseState_32f;
+
+typedef struct FIRSparseState_32fc IppsFIRSparseState_32fc;
 
 typedef struct ResamplingPolyphase_16s      IppsResamplingPolyphase_16s;
 typedef struct ResamplingPolyphaseFixed_16s IppsResamplingPolyphaseFixed_16s;
@@ -434,6 +434,13 @@ typedef enum {
 typedef struct FilterBilateralSpec IppiFilterBilateralSpec;
 
 typedef enum {
+    ippiFilterILS_Norm  = 100,
+    ippiFilterILS_Welsch = 101
+} IppiFilterILSType;
+
+typedef struct FilterILSSpec IppiFilterILSSpec;
+
+typedef enum {
     ippDistNormL1   =   0x00000002,
     ippDistNormL2   =   0x00000004
 } IppiDistanceMethodType;
@@ -480,11 +487,11 @@ typedef struct HistogramSpec IppiHistogramSpec;
 
 typedef struct {
    int   cvCompatible;  /* openCV compatible output format */
-   int   cellSize;      /* squre cell size (pixels) */
+   int   cellSize;      /* square cell size (pixels) */
    int   blockSize;     /* square block size (pixels) */
    int   blockStride;   /* block displacement (the same for x- and y- directions) */
    int   nbins;         /* required number of bins */
-   Ipp32f   sigma;      /* gaussian factor of HOG block weights */
+   Ipp32f   sigma;      /* Gaussian factor of HOG block weights */
    Ipp32f   l2thresh;   /* normalization factor */
    IppiSize winSize;    /* detection window size (pixels) */
 } IppiHOGConfig;
@@ -840,6 +847,11 @@ typedef enum {
     ippPatternMatchDirect = 1,
     ippPatternMatchTable = 2
 } IppPatternMatchMode;
+typedef enum {
+    ippTopKAuto = 0,
+    ippTopKDirect = 1,
+    ippTopKRadix = 2
+} IppTopKMode;
 
 #endif /* _OWN_BLDPCS */
 
@@ -962,6 +974,7 @@ typedef signed int IppStatus;
   #define ippStsNoOperation                    1 /* No operation has been executed. */
   #define ippStsDivByZero                      2 /* Zero value(s) for the divisor in the Div function. */
   #define ippStsWaterfall                     43 /* Cannot load required library, waterfall is used. */
+  #define ippStsOperationNotSupported         44 /* Operation is not supported for the configuration. */
     /* end of common with ippCrypto part */
 #endif /* IPPSTATUS_H__ */
 
@@ -996,8 +1009,8 @@ typedef signed int IppStatus;
 #define ippStsFeatureNotSupported           49 /* Current CPU doesn't support at least 1 of the desired features. */
 #define ippStsUnknownFeature                50 /* At least one of the desired features is unknown. */
 #define ippStsFeaturesCombination           51 /* Wrong combination of features. */
-#define ippStsAccurateModeNotSupported      52/* Accurate mode is not supported. */
-
+#define ippStsAccurateModeNotSupported      52 /* Accurate mode is not supported. */
+#define ippStsNonOptimalPathSelected        53 /* The function is inefficient due to the combination of input parameters. */
 #define ippStsOk ippStsNoErr
 
 #endif

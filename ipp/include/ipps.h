@@ -1,23 +1,13 @@
 /*
-// Copyright 1999-2019 Intel Corporation All Rights Reserved.
+// Copyright 1999 Intel Corporation All Rights Reserved.
 //
-// The source code, information and material ("Material") contained herein is
-// owned by Intel Corporation or its suppliers or licensors, and title
-// to such Material remains with Intel Corporation or its suppliers or
-// licensors. The Material contains proprietary information of Intel
-// or its suppliers and licensors. The Material is protected by worldwide
-// copyright laws and treaty provisions. No part of the Material may be used,
-// copied, reproduced, modified, published, uploaded, posted, transmitted,
-// distributed or disclosed in any way without Intel's prior express written
-// permission. No license under any patent, copyright or other intellectual
-// property rights in the Material is granted to or conferred upon you,
-// either expressly, by implication, inducement, estoppel or otherwise.
-// Any license under such intellectual property rights must be express and
-// approved by Intel in writing.
 //
-// Unless otherwise agreed by Intel in writing,
-// you may not remove or alter this notice or any other notice embedded in
-// Materials by Intel or Intel's suppliers or licensors in any way.
+// This software and the related documents are Intel copyrighted materials, and your use of them is governed by
+// the express license under which they were provided to you ('License'). Unless the License provides otherwise,
+// you may not use, modify, copy, publish, distribute, disclose or transmit this software or the related
+// documents without Intel's prior written permission.
+// This software and the related documents are provided as is, with no express or implied warranties, other than
+// those that are expressly stated in the License.
 //
 */
 
@@ -248,7 +238,7 @@ IPPAPI(IppStatus, ippsZero_64sc, (Ipp64sc* pDst, int len))
 //    magn        - Magnitude of tone (maximum value attained by wave)
 //    rFreq       - Frequency of tone relative to sampling frequency
 //                  It must be in range [0.0, 0.5) for real, and [0.0, 1.0) for complex tone
-//    pPhase      - Phase of tone relative to cosinewave. It must be in range [0.0, 2*PI)
+//    pPhase      - Phase of tone relative to cosine wave. It must be in range [0.0, 2*PI)
 //    hint        - Fast or accurate algorithm
 //  Returns:
 //    ippStsNullPtrErr   - One of pointers is NULL
@@ -278,7 +268,7 @@ IPPAPI(IppStatus, ippsTone_64fc, (Ipp64fc* pDst, int len, Ipp64f magn, Ipp64f rF
 //    len         - Vector length
 //    magn        - Magnitude of Triangle
 //    rFreq       - Frequency of Triangle relative to sampling frequency (must be in range [0.0, 0.5))
-//    pPhase      - Pointer to phase of Triangle relative to acosinewave (must be in range [0.0, 2*PI))
+//    pPhase      - Pointer to phase of Triangle relative to acosine wave (must be in range [0.0, 2*PI))
 //                  Returned value can be used to compute the next continuous data block
 //    asym        - Asymmetry of Triangle (must be in range [-PI,PI))
 //  Returns:
@@ -644,7 +634,7 @@ IPPAPI(IppStatus, ippsAdd_64fc,      (const Ipp64fc* pSrc1, const Ipp64fc* pSrc2
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsAddProductC
-//  Purpose:    multiplies elements of of a vector by a constant and adds product to
+//  Purpose:    multiplies elements of a vector by a constant and adds product to
 //              the accumulator vector
 //  Parameters:
 //    pSrc                 pointer to the source vector
@@ -1277,7 +1267,7 @@ IPPAPI(IppStatus, ippsNormalize_64fc,     (const Ipp64fc* pSrc, Ipp64fc* pDst,  
 /* ////////////////////////////////////////////////////////////////////////////
 //  Names:      ippsSortAscend, ippsSortDescend
 //
-//  Purpose:    Execute sorting of all elemens of the vector.
+//  Purpose:    Execute sorting of all elements of the vector.
 //              ippsSortAscend  is sorted in increasing order.
 //              ippsSortDescend is sorted in decreasing order.
 //  Arguments:
@@ -1385,7 +1375,7 @@ IPPAPI(IppStatus, ippsSortRadixDescend_64f_I, (Ipp64f *pSrcDst, int    len, Ipp8
 //    pBuffer           pointer to the work buffer
 //  Return:
 //    ippStsNoErr       OK
-//    ippStsNullPtrErr  pointers to the vectors or poiter to work buffer is NULL
+//    ippStsNullPtrErr  pointers to the vectors or pointer to work buffer is NULL
 //    ippStsSizeErr     length of the vector is less or equal zero
 */
 IPPAPI(IppStatus, ippsSortRadixIndexAscend_8u,  (const Ipp8u*  pSrc, Ipp32s srcStrideBytes, Ipp32s *pDstIndx, int len, Ipp8u *pBuffer))
@@ -1607,7 +1597,7 @@ IPPAPI(IppStatus, ippsPhase_32f,     (const Ipp32f* pSrcRe, const Ipp32f* pSrcIm
 //    pSrcIm    - pointer to the image part of input vector.
 //    pDst      - pointer to the result.
 //    len       - vector length.
-//    scaleFactor   - scale factor for rezult (only for integer data).
+//    scaleFactor   - scale factor for result (only for integer data).
 //  Return:
 //   ippStsNullPtrErr  indicates that one or more pointers to the data is NULL.
 //   ippStsSizeErr     indicates that vector length is less or equal zero.
@@ -1978,8 +1968,8 @@ IPPAPI(IppStatus, ippsCartToPolar_32f,  (const Ipp32f* pSrcRe, const Ipp32f* pSr
 IPPAPI(IppStatus, ippsCartToPolar_64f,  (const Ipp64f* pSrcRe, const Ipp64f* pSrcIm, Ipp64f* pDstMagn, Ipp64f* pDstPhase, int len))
 
 /*  Additional parameters for integer version:
-//   magnScaleFactor   Scale factor for magnitude companents
-//   phaseScaleFactor  Scale factor for phase companents
+//   magnScaleFactor   Scale factor for magnitude components
+//   phaseScaleFactor  Scale factor for phase components
 */
 IPPAPI(IppStatus, ippsCartToPolar_16sc_Sfs, (const Ipp16sc* pSrc, Ipp16s* pDstMagn, Ipp16s* pDstPhase, int len, int magnScaleFactor, int phaseScaleFactor))
 
@@ -2011,8 +2001,8 @@ IPPAPI(IppStatus, ippsPolarToCart_32f,  (const Ipp32f* pSrcMagn, const Ipp32f* p
 IPPAPI(IppStatus, ippsPolarToCart_64f,  (const Ipp64f* pSrcMagn, const Ipp64f* pSrcPhase, Ipp64f* pDstRe, Ipp64f* pDstIm, int len))
 
 /*  Additional parameters for integer version:
-//   magnScaleFactor   Scale factor for magnitude companents
-//   phaseScaleFactor  Scale factor for phase companents
+//   magnScaleFactor   Scale factor for magnitude components
+//   phaseScaleFactor  Scale factor for phase components
 */
 IPPAPI(IppStatus, ippsPolarToCart_16sc_Sfs, (const Ipp16s* pSrcMagn, const Ipp16s* pSrcPhase, Ipp16sc* pDst, int len, int magnScaleFactor, int phaseScaleFactor))
 
@@ -2664,7 +2654,7 @@ IPPAPI(IppStatus, ippsZeroCrossing_32f,    (const Ipp32f* pSrc, Ipp32u len, Ipp3
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsSampleUp
 //  Purpose:    upsampling, i.e. expansion of input vector to get output vector
-//              by simple adding zeroes between input elements
+//              by simple adding zeros between input elements
 //  Parameters:
 //   pSrc   (in)    pointer to the input vector
 //   pDst   (in)    pointer to the output vector
@@ -2739,7 +2729,7 @@ IPPAPI(IppStatus, ippsSampleDown_64fc, (const Ipp64fc* pSrc, int  srcLen, Ipp64f
 //  Parameters:
 //     srcLen      - Source vector length.
 //     dstLen      - Length of auto-correlation.
-//     dataType    - Data type for auto corelation {Ipp32f|Ipp32fc|Ipp64f|Ipp64fc}.
+//     dataType    - Data type for auto correlation {Ipp32f|Ipp32fc|Ipp64f|Ipp64fc}.
 //     algType     - Selector for the algorithm type.  Possible values are the results of
 //                   composition of the IppAlgType and IppsNormOp values.
 //     pBufferSize - Pointer to the calculated buffer size (in bytes).
@@ -2884,7 +2874,7 @@ IPPAPI(IppStatus, ippsConvolve_64f, (const Ipp64f* pSrc1, int src1Len, const Ipp
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsConvBiased_32f
-//  Purpose:    Linear Convolution of 1D signals whith a bias.
+//  Purpose:    Linear Convolution of 1D signals with a bias.
 //  Parameters:
 //      pSrc1               pointer to the first source vector
 //      pSrc2               pointer to the second source vector
@@ -3029,7 +3019,7 @@ IPPAPI(IppStatus, ippsFIRMR32f_32fc, (const Ipp32fc* pSrc, Ipp32fc* pDst, int nu
 //      ppState     - pointer to the FIRSparse state created or NULL;
 //      order       - order of FIRSparse filter
 //      pStateSize  - pointer where to store the calculated FIRSparse State
-//                    structuresize (in bytes);
+//                    structure size (in bytes);
 //   Return:
 //      status      - status value returned, its value are
 //         ippStsNullPtrErr       - pointer(s) to the data is NULL
@@ -3040,10 +3030,12 @@ IPPAPI(IppStatus, ippsFIRMR32f_32fc, (const Ipp32fc* pSrc, Ipp32fc* pDst, int nu
 */
 IPPAPI(IppStatus, ippsFIRSparseGetStateSize_32f, (int nzTapsLen, int order, int *pStateSize))
 IPPAPI(IppStatus, ippsFIRSparseInit_32f, (IppsFIRSparseState_32f** ppState, const Ipp32f *pNZTaps, const Ipp32s* pNZTapPos, int nzTapsLen, const Ipp32f *pDlyLine, Ipp8u *pBuffer))
+IPPAPI(IppStatus, ippsFIRSparseGetStateSize_32fc, (int nzTapsLen, int order, int *pStateSize))
+IPPAPI(IppStatus, ippsFIRSparseInit_32fc, (IppsFIRSparseState_32fc** ppState, const Ipp32fc *pNZTaps, const Ipp32s* pNZTapPos, int nzTapsLen, const Ipp32fc *pDlyLine, Ipp8u *pBuffer))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Names:         ippsFIRSparse
-//  Purpose:       FIRSparse filter with float taps. Vector filtering
+//  Purpose:       FIRSparse filter with float or complex float taps. Vector filtering
 //  Parameters:
 //      pSrc        - pointer to the input vector
 //      pDst        - pointer to the output vector
@@ -3055,6 +3047,7 @@ IPPAPI(IppStatus, ippsFIRSparseInit_32f, (IppsFIRSparseState_32f** ppState, cons
 //      ippStsNoErr            - otherwise
 */
 IPPAPI(IppStatus, ippsFIRSparse_32f, (const Ipp32f* pSrc, Ipp32f* pDst, int len, IppsFIRSparseState_32f* pState))
+IPPAPI(IppStatus, ippsFIRSparse_32fc, (const Ipp32fc* pSrc, Ipp32fc* pDst, int len, IppsFIRSparseState_32fc* pState))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Names:         ippsFIRSparseSetDlyLine_32f
@@ -3068,6 +3061,8 @@ IPPAPI(IppStatus, ippsFIRSparse_32f, (const Ipp32f* pSrc, Ipp32f* pDst, int len,
 */
 IPPAPI(IppStatus, ippsFIRSparseSetDlyLine_32f, (IppsFIRSparseState_32f* pState, const Ipp32f* pDlyLine))
 IPPAPI(IppStatus, ippsFIRSparseGetDlyLine_32f, (const IppsFIRSparseState_32f* pState, Ipp32f* pDlyLine))
+IPPAPI(IppStatus, ippsFIRSparseSetDlyLine_32fc, (IppsFIRSparseState_32fc* pState, const Ipp32fc* pDlyLine))
+IPPAPI(IppStatus, ippsFIRSparseGetDlyLine_32fc, (const IppsFIRSparseState_32fc* pState, Ipp32fc* pDlyLine))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Names:      ippsFIRGenGetBufferSize
@@ -3479,7 +3474,7 @@ IPPAPI(IppStatus, ippsIIRGenGetBufferSize, (int order, int *pBufferSize))
 //   pBufferSize        pointer to buffer size
 //  Return:
 //   ippStsNullPtrErr              pointer to pBufferSize is NULL
-//   ippStsMaskSizeErr             maskSize is is less or equal zero
+//   ippStsMaskSizeErr             maskSize is less or equal zero
 //   ippStsDataTypeErr             data type is incorrect or not supported.
 //   ippStsNoErr                   otherwise
 */
@@ -3489,7 +3484,7 @@ IPPAPI(IppStatus, ippsFilterMedianGetBufferSize, (int maskSize, IppDataType data
 //  Names:      ippsFilterMedian
 //  Purpose:    filter source data by the Median Filter
 //  Parameters:
-//   pSrcDst            pointer to the source and destinaton vector
+//   pSrcDst            pointer to the source and destination vector
 //   pSrc               pointer to the source vector
 //   pDst               pointer to the destination vector
 //   len                length of the vector(s)
@@ -3500,7 +3495,7 @@ IPPAPI(IppStatus, ippsFilterMedianGetBufferSize, (int maskSize, IppDataType data
 //  Return:
 //   ippStsNullPtrErr              pointer(s) to the data is NULL
 //   ippStsSizeErr                 length of the vector(s) is less or equal zero
-//   ippStsMaskSizeErr             maskSize is is less or equal zero
+//   ippStsMaskSizeErr             maskSize is less or equal zero
 //   ippStsEvenMedianMaskSize      median mask size is even warning
 //   ippStsNoErr                   otherwise
 //  Notes:
@@ -3597,7 +3592,7 @@ IPPAPI(IppStatus, ippsResamplePolyphaseFixedInit_32f, (int inRate, int outRate, 
 //   Arguments:
 //      pSpec           The pointer to the resampling specification structure to be created.
 //      pSrc            Input vector of filter coefficients [height][step]
-//      step            Lenght of filter
+//      step            Length of filter
 //      height          Number of filter
 //   Return Value
 //      ippStsNoErr       Indicates no error.
@@ -3613,7 +3608,7 @@ IPPAPI(IppStatus, ippsResamplePolyphaseSetFixedFilter_32f, (const Ipp32f* pSrc, 
 //   Arguments:
 //      pSpec           The pointer to the resampling specification structure to be created.
 //      pDst            Input vector of filter coefficients [height][step]
-//      step            Lenght of filter
+//      step            Length of filter
 //      height          Number of filter
 //   Return Value
 //      ippStsNoErr       Indicates no error.
@@ -3758,6 +3753,7 @@ of the required work buffer (in bytes)
 //     ippStsFftOrderErr      FFT order value is illegal
 //     ippStsFFTFlagErr       Incorrect normalization flag value
 */
+IPPAPI(IppStatus, ippsFFTGetSize_C_16fc,(int order, int flag, IppHintAlgorithm hint, int* pSpecSize, int* pSpecBufferSize, int* pBufferSize))
 IPPAPI(IppStatus, ippsFFTGetSize_C_32f, (int order, int flag, IppHintAlgorithm hint, int* pSpecSize, int* pSpecBufferSize, int* pBufferSize))
 IPPAPI(IppStatus, ippsFFTGetSize_R_32f, (int order, int flag, IppHintAlgorithm hint, int* pSpecSize, int* pSpecBufferSize, int* pBufferSize))
 IPPAPI(IppStatus, ippsFFTGetSize_C_32fc,(int order, int flag, IppHintAlgorithm hint, int* pSpecSize, int* pSpecBufferSize, int* pBufferSize))
@@ -3783,6 +3779,7 @@ IPPAPI(IppStatus, ippsFFTGetSize_C_64fc,(int order, int flag, IppHintAlgorithm h
 //     ippStsFFTFlagErr       Incorrect normalization flag value
 */
 
+IPPAPI(IppStatus, ippsFFTInit_C_16fc,(IppsFFTSpec_C_16fc** ppFFTSpec, int order, int flag, IppHintAlgorithm hint, Ipp8u* pSpec, Ipp8u* pSpecBuffer))
 IPPAPI(IppStatus, ippsFFTInit_C_32f, (IppsFFTSpec_C_32f**  ppFFTSpec, int order, int flag, IppHintAlgorithm hint, Ipp8u* pSpec, Ipp8u* pSpecBuffer))
 IPPAPI(IppStatus, ippsFFTInit_R_32f, (IppsFFTSpec_R_32f**  ppFFTSpec, int order, int flag, IppHintAlgorithm hint, Ipp8u* pSpec, Ipp8u* pSpecBuffer))
 IPPAPI(IppStatus, ippsFFTInit_C_32fc,(IppsFFTSpec_C_32fc** ppFFTSpec, int order, int flag, IppHintAlgorithm hint, Ipp8u* pSpec, Ipp8u* pSpecBuffer))
@@ -3815,6 +3812,8 @@ IPPAPI(IppStatus, ippsFFTInit_C_64fc,(IppsFFTSpec_C_64fc** ppFFTSpec, int order,
 //     ippStsContextMatchErr  Invalid context structure
 //     ippStsMemAllocErr      Memory allocation fails
 */
+IPPAPI(IppStatus, ippsFFTFwd_CToC_16fc,   (const Ipp16fc* pSrc, Ipp16fc* pDst, const IppsFFTSpec_C_16fc* pFFTSpec, Ipp8u* pBuffer))
+IPPAPI(IppStatus, ippsFFTInv_CToC_16fc,   (const Ipp16fc* pSrc, Ipp16fc* pDst, const IppsFFTSpec_C_16fc* pFFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsFFTFwd_CToC_32fc,   (const Ipp32fc* pSrc, Ipp32fc* pDst, const IppsFFTSpec_C_32fc* pFFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsFFTInv_CToC_32fc,   (const Ipp32fc* pSrc, Ipp32fc* pDst, const IppsFFTSpec_C_32fc* pFFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsFFTFwd_CToC_64fc,   (const Ipp64fc* pSrc, Ipp64fc* pDst, const IppsFFTSpec_C_64fc* pFFTSpec, Ipp8u* pBuffer))
@@ -3846,7 +3845,7 @@ IPPAPI(IppStatus, ippsFFTInv_CToC_64f,    (const Ipp64f* pSrcRe, const Ipp64f* p
 //  Arguments:
 //     pFFTSpec       Pointer to the FFT context
 //     pSrc           Pointer to the source signal
-//     pDst           Pointer to thedestination signal
+//     pDst           Pointer to the destination signal
 //     pSrcDst        Pointer to the source/destination signal (in-place)
 //     pBuffer        Pointer to the work buffer
 //     scaleFactor    Scale factor for output result
@@ -3908,6 +3907,7 @@ of the required work buffer (in bytes)
 //     ippStsFFTFlagErr       Incorrect normalization flag value
 //     ippStsSizeErr          Indicates an error when length is less than or equal to 0
 */
+IPPAPI(IppStatus, ippsDFTGetSize_C_16fc,(int length, int flag, IppHintAlgorithm hint, int* pSizeSpec, int* pSizeInit, int* pSizeBuf))
 IPPAPI(IppStatus, ippsDFTGetSize_C_32f, (int length, int flag, IppHintAlgorithm hint, int* pSizeSpec, int* pSizeInit, int* pSizeBuf))
 IPPAPI(IppStatus, ippsDFTGetSize_R_32f, (int length, int flag, IppHintAlgorithm hint, int* pSizeSpec, int* pSizeInit, int* pSizeBuf))
 IPPAPI(IppStatus, ippsDFTGetSize_C_32fc,(int length, int flag, IppHintAlgorithm hint, int* pSizeSpec, int* pSizeInit, int* pSizeBuf))
@@ -3935,6 +3935,7 @@ IPPAPI(IppStatus, ippsDFTGetSize_C_64fc,(int length, int flag, IppHintAlgorithm 
 //     ippStsFFTFlagErr       Incorrect normalization flag value
 //     ippStsSizeErr          Indicates an error when length is less than or equal to 0
 */
+IPPAPI(IppStatus, ippsDFTInit_C_16fc,(int length, int flag, IppHintAlgorithm hint, IppsDFTSpec_C_16fc* pDFTSpec, Ipp8u* pMemInit))
 IPPAPI(IppStatus, ippsDFTInit_C_32f, (int length, int flag, IppHintAlgorithm hint, IppsDFTSpec_C_32f*  pDFTSpec, Ipp8u* pMemInit))
 IPPAPI(IppStatus, ippsDFTInit_R_32f, (int length, int flag, IppHintAlgorithm hint, IppsDFTSpec_R_32f*  pDFTSpec, Ipp8u* pMemInit))
 IPPAPI(IppStatus, ippsDFTInit_C_32fc,(int length, int flag, IppHintAlgorithm hint, IppsDFTSpec_C_32fc* pDFTSpec, Ipp8u* pMemInit))
@@ -3962,8 +3963,9 @@ IPPAPI(IppStatus, ippsDFTInit_C_64fc,(int length, int flag, IppHintAlgorithm hin
 //     ippStsNoErr            No errors
 //     ippStsNullPtrErr       At least one of pointers is NULL
 //     ippStsContextMatchErr  Invalid context structure
-//     ippStsMemAllocErr      Memory allocation fails
 */
+IPPAPI(IppStatus, ippsDFTFwd_CToC_16fc, (const Ipp16fc* pSrc, Ipp16fc* pDst, const IppsDFTSpec_C_16fc* pDFTSpec, Ipp8u* pBuffer))
+IPPAPI(IppStatus, ippsDFTInv_CToC_16fc, (const Ipp16fc* pSrc, Ipp16fc* pDst, const IppsDFTSpec_C_16fc* pDFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsDFTFwd_CToC_32fc, (const Ipp32fc* pSrc, Ipp32fc* pDst, const IppsDFTSpec_C_32fc* pDFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsDFTInv_CToC_32fc, (const Ipp32fc* pSrc, Ipp32fc* pDst, const IppsDFTSpec_C_32fc* pDFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsDFTFwd_CToC_64fc, (const Ipp64fc* pSrc, Ipp64fc* pDst, const IppsDFTSpec_C_64fc* pDFTSpec, Ipp8u* pBuffer))
@@ -3973,6 +3975,31 @@ IPPAPI(IppStatus, ippsDFTFwd_CToC_32f, (const Ipp32f* pSrcRe, const Ipp32f* pSrc
 IPPAPI(IppStatus, ippsDFTInv_CToC_32f, (const Ipp32f* pSrcRe, const Ipp32f* pSrcIm, Ipp32f* pDstRe, Ipp32f* pDstIm, const IppsDFTSpec_C_32f* pDFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsDFTFwd_CToC_64f, (const Ipp64f* pSrcRe, const Ipp64f* pSrcIm, Ipp64f* pDstRe, Ipp64f* pDstIm, const IppsDFTSpec_C_64f* pDFTSpec, Ipp8u* pBuffer))
 IPPAPI(IppStatus, ippsDFTInv_CToC_64f, (const Ipp64f* pSrcRe, const Ipp64f* pSrcIm, Ipp64f* pDstRe, Ipp64f* pDstIm, const IppsDFTSpec_C_64f* pDFTSpec, Ipp8u* pBuffer))
+
+
+/* /////////////////////////////////////////////////////////////////////////////
+//                  DFT Direct Complex Transforms
+///////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////
+//  Name:       ippsDFTFwdDirect_CToC, ippsDFTInvDirect_CToC
+//  Purpose:    Computes forward and inverse DFT of a complex signal
+//  Arguments:
+//     pSrc         Pointer to the source complex signal
+//     pDst         Pointer to the destination complex signal
+//     length       Length of transform
+//  Return:
+//     ippStsNoErr               No errors
+//     ippStsNullPtrErr          At least one of pointers is NULL
+//     ippStsSizeErr             This length is not supported by direct function
+//
+//  Note: supports only limited set of lengths: 47 DFT lengths and 11 FFT lengths
+//        12, 24, 36, 48, 60, 72, 96, 108, 120, 144, 180, 192, 216, 240, 288, 300, 324, 360, 384, 432, 480,
+//        540, 576, 600, 648, 720, 768, 864, 900, 960, 972, 1080, 1152, 1200, 1296, 1440, 1500, 1536, 1620,
+//        1920, 1944, 2160, 2400, 2700, 2916, 3000, 3240     - DFT
+//        4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096  - FFT
+*/
+IPPAPI(IppStatus, ippsDFTFwd_Direct_CToC_16fc, (const Ipp16fc *pSrc, Ipp16fc *pDst, int length))
+IPPAPI(IppStatus, ippsDFTInv_Direct_CToC_16fc, (const Ipp16fc *pSrc, Ipp16fc *pDst, int length))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //                  DFT Real Packed Transforms
@@ -3988,7 +4015,6 @@ IPPAPI(IppStatus, ippsDFTInv_CToC_64f, (const Ipp64f* pSrcRe, const Ipp64f* pSrc
 //     pDst           Pointer to the destination signal
 //     pSrcDst        Pointer to the source/destination signal (in-place)
 //     pBuffer        Pointer to the work buffer
-//     scaleFactor    Scale factor for output result
 //  Return:
 //     ippStsNoErr            No errors
 //     ippStsNullPtrErr       At least one of pointers is NULL
@@ -4171,6 +4197,7 @@ IPPAPI(IppStatus, ippsDCTInv_64f,   (const Ipp64f* pSrc, Ipp64f* pDst,    const 
 //    ippStsSizeErr     - Error when length is less than 1.
 */
 IPPAPI(IppStatus, ippsHilbertGetSize_32f32fc, (int length, IppHintAlgorithm hint, int *pSpecSize, int *pBufferSize))
+IPPAPI(IppStatus, ippsHilbertGetSize_64f64fc, (int length, IppHintAlgorithm hint, int *pSpecSize, int *pBufferSize))
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Name:       ippsHilbertInit
@@ -4186,6 +4213,7 @@ IPPAPI(IppStatus, ippsHilbertGetSize_32f32fc, (int length, IppHintAlgorithm hint
 //    ippStsSizeErr     - Error when length is less than 1.
 */
 IPPAPI(IppStatus, ippsHilbertInit_32f32fc, (int length, IppHintAlgorithm hint, IppsHilbertSpec *pSpec, Ipp8u *pBuffer))
+IPPAPI(IppStatus, ippsHilbertInit_64f64fc, (int length, IppHintAlgorithm hint, IppsHilbertSpec *pSpec, Ipp8u *pBuffer))
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Name:       ippsHilbert
@@ -4199,9 +4227,10 @@ IPPAPI(IppStatus, ippsHilbertInit_32f32fc, (int length, IppHintAlgorithm hint, I
 // Return:
 //    ippStsNoErr           - OK.
 //    ippStsNullPtrErr      - Error when any of the specified pointers is NULL.
-//    ippStsContextMatchErr - Error when pSpec initialized incorect.
+//    ippStsContextMatchErr - Error when pSpec initialized incorrect.
 */
 IPPAPI(IppStatus, ippsHilbert_32f32fc, (const Ipp32f *pSrc, Ipp32fc *pDst, IppsHilbertSpec *pSpec, Ipp8u *pBuffer))
+IPPAPI(IppStatus, ippsHilbert_64f64fc, (const Ipp64f *pSrc, Ipp64fc *pDst, IppsHilbertSpec *pSpec, Ipp8u *pBuffer))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //          Wavelet Transform Functions for Fixed Filter Banks
@@ -4232,7 +4261,7 @@ IPPAPI(IppStatus, ippsWTHaarInv_32f,     (const Ipp32f* pSrcLow, const Ipp32f* p
 IPPAPI(IppStatus, ippsWTHaarInv_64f,     (const Ipp64f* pSrcLow, const Ipp64f* pSrcHigh, Ipp64f* pDst, int len))
 
 /* /////////////////////////////////////////////////////////////////////////////
-//          Wavelet Transform Fucntions for User Filter Banks
+//          Wavelet Transform Functions for User Filter Banks
 ///////////////////////////////////////////////////////////////////////////// */
 
 /* //////////////////////////////////////////////////////////////////////
@@ -4315,7 +4344,7 @@ IPPAPI(IppStatus, ippsWTFwdSetDlyLine_32f,    (IppsWTFwdState_32f*    pState, co
 //              ippsWTFwdGetDlyLine_8u32f, ippsWTFwdGetDlyLine_16s32f,
 //              ippsWTFwdGetDlyLine_16u32f
 //
-// Purpose:     The function copies data from interanl delay lines
+// Purpose:     The function copies data from internal delay lines
 //                to the pointed vectors.
 // Parameters:
 //   pState   - pointer to pState structure;
@@ -4448,7 +4477,7 @@ IPPAPI(IppStatus, ippsWTInvSetDlyLine_32f,    (IppsWTInvState_32f*    pState, co
 //              ippsWTInvGetDlyLine_32f8u, ippsWTInvGetDlyLine_32f16s,
 //              ippsWTInvGetDlyLine_32f16u
 //
-// Purpose:     The function copies data from interanl delay lines
+// Purpose:     The function copies data from internal delay lines
 //                to the pointed vectors.
 // Parameters:
 //   pState   - pointer to pState structure;
@@ -4536,6 +4565,33 @@ IPPAPI(IppStatus, ippsReplaceNAN_64f_I, (Ipp64f* pSrcDst, int len, Ipp64f value)
 */
 IPPAPI(IppStatus, ippsPatternMatchGetBufferSize, (int srcLen, int patternLen, int patternSize, IppPatternMatchMode hint, int* bufSize))
 IPPAPI(IppStatus, ippsPatternMatch_8u16u, (const Ipp8u* pSrc, int srcStep, int srcLen, const Ipp8u* pPattern, int patternStep, int patternLen, int patternSize, Ipp16u* pDst, IppPatternMatchMode hint, Ipp8u* pBuffer))
+
+/* /////////////////////////////////////////////////////////////////////////////
+//  Names:      ippsTopK_32s/ippsTopK_32f
+//  Purpose:    Top K elements of vector
+//  Parameters:
+//   pSrc        - The pointer to the  source vector.
+//   srcIndex    - The start index (index of pSrc[0]).
+//   srcStride   - The stride between elements in source array.
+//   srcLen      - The number of elements in source array.
+//   pDstValue   - The pointer to the  array of destination values.
+//   pDstIndex   - The pointer to the  array of destination indexes.
+//   dstLen      - The number elements in destination vector (K)
+//   hint        - The hint of special optimization method.
+//   pBuffer     - The pointer to work buffer
+//   bufSize     - The size of requested buffer size
+//  Return:
+//  ippStsNullPtrErr - one of the pointers is NULL
+//  ippStsStepErr    - one of srcStride, patternStep is not positive
+//  ippStsSizeErr    - one of srcLen, dstLen or K is not positive or size is too big
+//  ippStsBadArgErr  - hint is not element from ippsTopKMode
+*/
+
+IPPAPI(IppStatus, ippsTopKGetBufferSize, (Ipp64s srcLen, Ipp64s dstLen, IppDataType dataType, IppTopKMode hint, Ipp64s* bufSize))
+IPPAPI(IppStatus, ippsTopKInit_32s, (Ipp32s* pDstValue, Ipp64s* pDstIndex, Ipp64s dstLen))
+IPPAPI(IppStatus, ippsTopKInit_32f, (Ipp32f* pDstValue, Ipp64s* pDstIndex, Ipp64s dstLen))
+IPPAPI(IppStatus, ippsTopK_32s, (const Ipp32s* pSrc, Ipp64s srcIndex, Ipp64s srcStride, Ipp64s srcLen, Ipp32s* pDstValue, Ipp64s* pDstIndex, Ipp64s dstLen, IppTopKMode hint, Ipp8u* pBuffer))
+IPPAPI(IppStatus, ippsTopK_32f, (const Ipp32f* pSrc, Ipp64s srcIndex, Ipp64s srcStride, Ipp64s srcLen, Ipp32f* pDstValue, Ipp64s* pDstIndex, Ipp64s dstLen, IppTopKMode hint, Ipp8u* pBuffer))
 
 #ifdef __cplusplus
 }

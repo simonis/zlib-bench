@@ -1,23 +1,13 @@
 /*
-// Copyright 1999-2019 Intel Corporation All Rights Reserved.
+// Copyright 1999 Intel Corporation All Rights Reserved.
 //
-// The source code, information and material ("Material") contained herein is
-// owned by Intel Corporation or its suppliers or licensors, and title
-// to such Material remains with Intel Corporation or its suppliers or
-// licensors. The Material contains proprietary information of Intel
-// or its suppliers and licensors. The Material is protected by worldwide
-// copyright laws and treaty provisions. No part of the Material may be used,
-// copied, reproduced, modified, published, uploaded, posted, transmitted,
-// distributed or disclosed in any way without Intel's prior express written
-// permission. No license under any patent, copyright or other intellectual
-// property rights in the Material is granted to or conferred upon you,
-// either expressly, by implication, inducement, estoppel or otherwise.
-// Any license under such intellectual property rights must be express and
-// approved by Intel in writing.
 //
-// Unless otherwise agreed by Intel in writing,
-// you may not remove or alter this notice or any other notice embedded in
-// Materials by Intel or Intel's suppliers or licensors in any way.
+// This software and the related documents are Intel copyrighted materials, and your use of them is governed by
+// the express license under which they were provided to you ('License'). Unless the License provides otherwise,
+// you may not use, modify, copy, publish, distribute, disclose or transmit this software or the related
+// documents without Intel's prior written permission.
+// This software and the related documents are provided as is, with no express or implied warranties, other than
+// those that are expressly stated in the License.
 //
 */
 
@@ -34,11 +24,6 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif
-
-
-#if defined( _IPP_PARALLEL_STATIC ) || defined( _IPP_PARALLEL_DYNAMIC )
-  #pragma message("Threaded versions of Intel(R) IPP libraries are deprecated and will be removed in one of the future Intel(R) IPP releases. Use the following link for details: https://software.intel.com/sites/products/ipp-deprecated-features-feedback/")
 #endif
 
 #if defined (_WIN64)
@@ -62,6 +47,23 @@ extern "C" {
 
 #endif
 
+/* icc 2021 supports short float data type, icx supports _Float16 data type */
+#define _FLOAT_16    2
+#define _SHORT_FLOAT 1
+#define _NO_FLOAT_16 0
+#if defined(__INTEL_LLVM_COMPILER) && defined(__AVX512FP16__)
+#    define COMPILER_SUPPORT_SHORT_FLOAT _FLOAT_16
+#else
+#    if defined(__INTEL_COMPILER)
+#        if(__INTEL_COMPILER >= 2021)
+#            define COMPILER_SUPPORT_SHORT_FLOAT _SHORT_FLOAT
+#        endif
+#    endif
+#endif
+#if !(defined(COMPILER_SUPPORT_SHORT_FLOAT))
+#    define COMPILER_SUPPORT_SHORT_FLOAT _NO_FLOAT_16
+#endif
+
 #if (defined( __ICL ) || defined( __ECL ) || defined(_MSC_VER)) && !defined( _PCS ) && !defined( _PCS_GENSTUBS )
   #if( __INTEL_COMPILER >= 1100 ) /* icl 11.0 supports additional comment */
     #if( _MSC_VER >= 1400 )
@@ -81,7 +83,7 @@ extern "C" {
   #endif
 #elif (defined(__ICC) || defined(__ECC) || defined( __GNUC__ )) && !defined( _PCS ) && !defined( _PCS_GENSTUBS )
   #if defined( __GNUC__ )
-    #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 5
+    #if ( __GNUC__ * 100 + __GNUC_MINOR__ ) >= 405
       #define IPP_DEPRECATED( message ) __attribute__(( deprecated( message )))
     #else
       #define IPP_DEPRECATED( message ) __attribute__(( deprecated ))

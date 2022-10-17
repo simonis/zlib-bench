@@ -1,23 +1,13 @@
 /* 
-// Copyright 1999-2019 Intel Corporation All Rights Reserved.
+// Copyright 1999 Intel Corporation All Rights Reserved.
 // 
-// The source code, information and material ("Material") contained herein is
-// owned by Intel Corporation or its suppliers or licensors, and title
-// to such Material remains with Intel Corporation or its suppliers or
-// licensors. The Material contains proprietary information of Intel
-// or its suppliers and licensors. The Material is protected by worldwide
-// copyright laws and treaty provisions. No part of the Material may be used,
-// copied, reproduced, modified, published, uploaded, posted, transmitted,
-// distributed or disclosed in any way without Intel's prior express written
-// permission. No license under any patent, copyright or other intellectual
-// property rights in the Material is granted to or conferred upon you,
-// either expressly, by implication, inducement, estoppel or otherwise.
-// Any license under such intellectual property rights must be express and
-// approved by Intel in writing.
 // 
-// Unless otherwise agreed by Intel in writing,
-// you may not remove or alter this notice or any other notice embedded in
-// Materials by Intel or Intel's suppliers or licensors in any way.
+// This software and the related documents are Intel copyrighted materials, and your use of them is governed by
+// the express license under which they were provided to you ('License'). Unless the License provides otherwise,
+// you may not use, modify, copy, publish, distribute, disclose or transmit this software or the related
+// documents without Intel's prior written permission.
+// This software and the related documents are provided as is, with no express or implied warranties, other than
+// those that are expressly stated in the License.
 // 
 */
 
@@ -117,10 +107,19 @@ typedef signed char    Ipp8s;
 typedef signed short   Ipp16s;
 typedef signed int     Ipp32s;
 typedef float          Ipp32f;
-typedef IPP_INT64        Ipp64s;
-typedef IPP_UINT64       Ipp64u;
+typedef IPP_INT64      Ipp64s;
+typedef IPP_UINT64     Ipp64u;
 typedef double         Ipp64f;
-typedef Ipp16s         Ipp16f;
+
+#if (COMPILER_SUPPORT_SHORT_FLOAT == _FLOAT_16)
+    typedef _Float16       Ipp16f;
+#endif
+#if (COMPILER_SUPPORT_SHORT_FLOAT == _SHORT_FLOAT)
+    typedef short float    Ipp16f;
+#endif
+#if (COMPILER_SUPPORT_SHORT_FLOAT == _NO_FLOAT_16)
+    typedef Ipp16s         Ipp16f;
+#endif
 
 typedef struct {
     Ipp8s  re;
@@ -141,6 +140,11 @@ typedef struct {
     Ipp32s  re;
     Ipp32s  im;
 } Ipp32sc;
+
+typedef struct {
+    Ipp16f  re;
+    Ipp16f  im;
+} Ipp16fc;
 
 typedef struct {
     Ipp32f  re;
@@ -179,7 +183,8 @@ typedef enum {
    ipp64s   = 17,
    ipp64sc  = 18,
    ipp64f   = 19,
-   ipp64fc  = 20
+   ipp64fc  = 20,
+   ipp16fc  = 21 /* This is necessary for TS */
 } IppDataType;
 
 typedef enum { 

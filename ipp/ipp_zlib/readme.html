@@ -894,21 +894,8 @@ accompanying materials are being provided to you under the terms and
 conditions of the End User License Agreement for the Intel&#174;
 Integrated Performance Primitives (Intel&#174; IPP) product previously accepted by you.</p></div>
 <h1 id="_system_requirements">System Requirements</h1>
-<div class="paragraph"><p>Recommended hardware:</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-A system based on 4th Generation Intel&#174; Core&#8482; i3, i5, i7 or newer processor
-</p>
-</li>
-</ul></div>
 <div class="paragraph"><p>Hardware requirements:</p></div>
 <div class="ulist"><ul>
-<li>
-<p>
-A system based on Intel&#174; Quark&#8482; System-on-Chip processors;
-</p>
-</li>
 <li>
 <p>
 A system based on Intel&#174; Pentium&#174; processor, Intel&#174; Xeon&#174; processor, or subsequent IA-32
@@ -931,7 +918,7 @@ the corresponding Release Notes document.
 </li>
 </ul></div>
 <div class="paragraph"><p>For more information please see
-<a href="http://software.intel.com/en-us/intel-ipp/">Intel&reg; IPP System Requirements</a>.</p></div>
+<a href="https://software.intel.com/en-us/ipp">https://software.intel.com/en-us/ipp</a> [Intel&#174; Integrated Performance Primitives].</p></div>
 <h1 id="_what_8217_s_new">What&#8217;s New</h1>
 <div class="paragraph"><p>The following updates have been made to Intel&#174; IPP functions for Zlib:</p></div>
 <div class="ulist"><ul>
@@ -1103,7 +1090,7 @@ Change directory to the <code>zlib-&lt;version&gt;</code> folder.
 </li>
 <li>
 <p>
-Apply the corresponding source code patch file <code>zlib-&lt;version&gt;.patch</code> from Intel&#174;
+Apply the corresponding source code patch file <code>zlib-&lt;version&gt;.patch.bin</code> from Intel&#174;
 IPP product distribution with the following command
 </p>
 </li>
@@ -1116,7 +1103,7 @@ IPP product distribution with the following command
 the following command</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>$ patch -p1 &lt; ../zlib-1.2.6.1.patch</code></pre>
+<pre><code>$ patch -p1 &lt; ../zlib-1.2.6.1.patch.bin</code></pre>
 </div></div>
 <div class="paragraph"><p>If the patching process completed successfully, you will see the following messages:</p></div>
 <div class="listingblock">
@@ -1158,12 +1145,12 @@ Add the <code>$IPPROOT/include</code> directory to the list of header files sear
 </li>
 <li>
 <p>
-Add Intel&#174; IPP libraries to the list of <code>ld</code> input files.
+Add Intel&#174; IPP libraries to the list of linker input files.
 </p>
 </li>
 </ul></div>
 <div class="paragraph"><p>On Linux* OS, you can implement the above steps with the standard Zlib
-<code>configure/make</code> sequence and the following commands (32-bit example):</p></div>
+configure/make sequence and the following commands (32-bit example):</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code># Build dynamic Zlib library with static Intel(R) IPP linkage on Linux*
@@ -1172,41 +1159,11 @@ $ export LDFLAGS="$IPPROOT/lib/ia32/libippdc.a $IPPROOT/lib/ia32/libipps.a $IPPR
 $ ./configure
 $ make shared</code></pre>
 </div></div>
-<div class="paragraph"><p>On macOS*, there is no separation between 32- and 64-bit libraries, and you
-don&#8217;t need to specify different set of libraries for different architectures. Use
-the following commands (32-bit example):</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code># Build dynamic Zlib library with static Intel(R) IPP linkage on macOS*
-$ export CFLAGS="-m32 -DWITH_IPP -I$IPPROOT/include"
-$ export LDFLAGS="$IPPROOT/lib/libippdc.a $IPPROOT/lib/libipps.a $IPPROOT/lib/libippcore.a"
-$ ./configure
-$ make shared</code></pre>
-</div></div>
 <div class="paragraph"><p>Here, the <code>-m32</code> option specifies IA-32 target CPU architecture. For Intel&#174; 64
 architecture the compiler option should be <code>-m64</code>.</p></div>
 <div class="paragraph"><p>The above commands assume that <code>IPPROOT</code> environment variable points to
 head of Intel&#174; IPP location.</p></div>
-<div class="paragraph"><p>The best way is to set up Intel&#174; software tools environment using
-the environment setup file</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>$ source &lt;composer_loc&gt;/bin/compilervars.sh &lt;arch&gt;</code></pre>
-</div></div>
-<div class="paragraph"><p>where &lt;arch&gt; is <code>ia32</code> (for 32-bit tools), or <code>intel64</code> for 64-bit tools.
-For example, for 64-bit tools from Intel&#174; Parallel Studio XE 2017 package, the command
-line should be</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>$ source /opt/intel/compilers_and_libraries_2017/linux/bin/compilervars.sh intel64</code></pre>
-</div></div>
-<div class="paragraph"><p>The <code>IPPROOT</code> environment variable can be set manually, as</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>$ export IPPROOT=&lt;composer_loc&gt;/ipp</code></pre>
-</div></div>
-<div class="paragraph"><p>where <code>&lt;composer_loc&gt;</code> is location of Intel&#174; C++ Composer XE or Intel&#174; Parallel
-Studio XE suite.</p></div>
+<div class="paragraph"><p>Configure your Intel&#174; IPP working environment according to "Get Started with Intel&reg; Integrated Performance Primitives" document.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -1304,34 +1261,16 @@ that use <code>libz</code>.</p></div>
 dynamic linking to the Intel&#174; IPP libraries (64-bit example).</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>$ source /opt/intel/compilers_and_libraries_2016/linux/bin/compilervars.sh intel64
+<pre><code>$ &lt;Configure Intel(R) IPP environment&gt;
 $ export CFLAGS="-m64 -DWITH_IPP -I$IPPROOT/include"
 $ export LDFLAGS="-L$IPPROOT/lib/intel64 -lippdc -lipps -lippcore"
 $ ./configure
 $ make shared</code></pre>
 </div></div>
-<div class="paragraph"><p>To check how <code>libz.so</code> is built:</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>$ ldd libz.so
-        linux-vdso.so.1 =&gt;  (0x00007fff347fe000)
-        libc.so.6 =&gt; /lib64/libc.so.6 (0x00007f9210e35000)
-        libippdc.so.9.0 =&gt; /opt/intel/compilers_and_libraries_2016.1.125/linux/ipp/lib/intel64/libippdc.so.9.0 (0x00007f9210c2f000)
-        libipps.so.9.0 =&gt; /opt/intel/compilers_and_libraries_2016.1.125/linux/ipp/lib/intel64/libipps.so.9.0 (0x00007f92109ed000)
-        libippcore.so.9.0 =&gt; /opt/intel/compilers_and_libraries_2016.1.125/linux/ipp/lib/intel64/libippcore.so.9.0 (0x00007f92107e1000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007f921143d000)
-        libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007f92105dc000)
-        libm.so.6 =&gt; /lib64/libm.so.6 (0x00007f92102da000)</code></pre>
-</div></div>
-<div class="paragraph"><p>On your computer, the actual library name and address can be different, e.g.
-instead of <code>&#8230;/compilers_and_libraries_2016.1.125&#8230;</code> you may have different
-package number and location. The above "ldd" output shows that the <code>libz.so</code>
-shared object is built dynamically with Intel&#174; IPP <code>libippdc.so</code>, <code>libipps.so</code>
-and <code>libippcore.so</code> dynamic libraries.</p></div>
 <div class="paragraph"><p>On macOS* system, the corresponding set of command will be:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>$ source /opt/intel/compilers_and_libraries_2016/mac/bin/compilervars.sh intel64
+<pre><code>$ &lt;Configure Intel(R) IPP environment&gt;
 $ export CFLAGS="-m64 -DWITH_IPP -I$IPPROOT/include"
 $ export LDFLAGS="-L$IPPROOT/lib -lippdc -lipps -lippcore"
 $ ./configure
@@ -1430,7 +1369,7 @@ Linux*/Windows* "end-of-line" character difference.</p></div>
 <div class="content">
 <pre><code>&gt; tar.exe xvf zlib-1.2.7.3.tar.gz
 &gt; cd zlib-1.2.7.3
-&gt; patch.exe -p1 --binary &lt; ..\zlib-1.2.7.3.patch
+&gt; patch.exe -p1 --binary &lt; ..\zlib-1.2.7.3.patch.bin
 patching file adler32.c
 patching file crc32.c
 patching file deflate.c
@@ -1451,7 +1390,7 @@ execute the following command from the root of Zlib source code tree
 <div class="content">
 <pre><code>&gt; nmake -f win32\Makefile.msc LOC="-DWITH_IPP -I\"%IPPROOT%\include\"" ^
        LDFLAGS="-nologo -incremental:no ^
-       -opt:ref /LIBPATH:\"%IPPROOT%\lib\ia32_win\" ^
+       -opt:ref /LIBPATH:\"%IPPROOT%\lib\ia32\" ^
        ippdcmt.lib ippsmt.lib ippcoremt.lib"</code></pre>
 </div></div>
 <div class="paragraph"><p>Dynamic linking:</p></div>
@@ -1459,13 +1398,12 @@ execute the following command from the root of Zlib source code tree
 <div class="content">
 <pre><code>&gt; nmake -f win32\Makefile.msc LOC="-DWITH_IPP -I\"%IPPROOT%\include\"" ^
         LDFLAGS="-nologo -incremental:no ^
-        -opt:ref /LIBPATH:\"%IPPROOT%\lib\ia32_win\" ^
+        -opt:ref /LIBPATH:\"%IPPROOT%\lib\ia32\" ^
         ippdc.lib ipps.lib ippcore.lib"</code></pre>
 </div></div>
 <div class="paragraph"><p>In the first case the "nmake" creates the <code>zlib1.dll</code> file not depending on
 dynamic Intel&#174; IPP libraries. In the second, <code>zlib1.dll</code> depends on
-<code>ippdc-x.y.dll</code>, <code>ipps-x.y.dll</code> and <code>ippcore-x.y.dll</code>, where "x.y" are major and
-minor version numbers of the corresponding Intel&#174; IPP library.</p></div>
+<code>ippdc.dll</code>, <code>ipps.dll</code> and <code>ippcore.dll</code> dynamic libraries.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_building_user_application_with_the_static_code_zlib_lib_code_library">Building User Application with the Static <code>zlib.lib</code> library</h3>
@@ -1606,7 +1544,7 @@ inflate with dictionary: hello, hello!
 <div class="content">
 <pre><code>nmake -f win32\Makefile.msc LOC="-DWITH_IPP -I\"%IPPROOT%\include\"" ^
     LDFLAGS="-nologo -incremental :no -opt:ref ^
-    /LIBPATH:\"%IPPROOT%\lib\ia32_win\" ^
+    /LIBPATH:\"%IPPROOT%\lib\ia32\" ^
     ippdcmt.lib ippsmt.lib ippcoremt.lib" testdll
 
 Microsoft (R) Program Maintenance Utility Version 14.00.23506.0
@@ -2340,7 +2278,7 @@ add four new functions as exported symbols of dynamic library.</p></div>
        LDFLAGS="-nologo -incremental:no -opt:ref ^
        /EXPORT:zzdeflateCreateStat /EXPORT:zzdeflateGetTabLen /EXPORT:zzdeflateGetTab ^
        /EXPORT:zzdeflateUseTab ^
-       /LIBPATH:\"%IPPROOT%\lib\ia32_win\" ^
+       /LIBPATH:\"%IPPROOT%\lib\ia32\" ^
        ippdcmt.lib ippsmt.lib ippcoremt.lib"</code></pre>
 </div></div>
 <div class="paragraph"><p>Dynamic Intel&#174; IPP linking:</p></div>
@@ -2350,7 +2288,7 @@ add four new functions as exported symbols of dynamic library.</p></div>
        LDFLAGS="-nologo -incremental:no -opt:ref ^
        /EXPORT:zzdeflateCreateStat /EXPORT:zzdeflateGetTabLen /EXPORT:zzdeflateGetTab ^
        /EXPORT:zzdeflateUseTab ^
-       /LIBPATH:\"%IPPROOT%\lib\ia32_win\" ^
+       /LIBPATH:\"%IPPROOT%\lib\ia32\" ^
        ippdc.lib ipps.lib ippcore.lib"</code></pre>
 </div></div>
 </div>
@@ -2375,7 +2313,7 @@ them rather than Intel.</td>
 </div>
 <div class="paragraph"><p>For technical information about the Intel&#174; IPP library, including FAQ&#8217;s,
 tips and tricks, and other support information, please visit the
-Intel&#174; IPP forum: (<a href="http://software.intel.com/en-us/forums/intel-integrated-performance-primitives">http://software.intel.com/en-us/forums/intel-integrated-performance-primitives</a>)
+Intel&#174; IPP forum: (<a href="https://community.intel.com/t5/Intel-Integrated-Performance/bd-p/integrated-performance-primitives">https://community.intel.com/t5/Intel-Integrated-Performance/bd-p/integrated-performance-primitives</a>)
 and browse the Intel&#174; IPP support page:
 <a href="https://software.intel.com/en-us/intel-ipp-support/">https://software.intel.com/en-us/intel-ipp-support/</a>.</p></div>
 </div>

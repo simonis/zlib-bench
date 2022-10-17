@@ -1,24 +1,13 @@
-
 /*
-// Copyright 2004-2019 Intel Corporation All Rights Reserved.
+// Copyright 2004 Intel Corporation All Rights Reserved.
 //
-// The source code, information and material ("Material") contained herein is
-// owned by Intel Corporation or its suppliers or licensors, and title
-// to such Material remains with Intel Corporation or its suppliers or
-// licensors. The Material contains proprietary information of Intel
-// or its suppliers and licensors. The Material is protected by worldwide
-// copyright laws and treaty provisions. No part of the Material may be used,
-// copied, reproduced, modified, published, uploaded, posted, transmitted,
-// distributed or disclosed in any way without Intel's prior express written
-// permission. No license under any patent, copyright or other intellectual
-// property rights in the Material is granted to or conferred upon you,
-// either expressly, by implication, inducement, estoppel or otherwise.
-// Any license under such intellectual property rights must be express and
-// approved by Intel in writing.
 //
-// Unless otherwise agreed by Intel in writing,
-// you may not remove or alter this notice or any other notice embedded in
-// Materials by Intel or Intel's suppliers or licensors in any way.
+// This software and the related documents are Intel copyrighted materials, and your use of them is governed by
+// the express license under which they were provided to you ('License'). Unless the License provides otherwise,
+// you may not use, modify, copy, publish, distribute, disclose or transmit this software or the related
+// documents without Intel's prior written permission.
+// This software and the related documents are provided as is, with no express or implied warranties, other than
+// those that are expressly stated in the License.
 //
 */
 
@@ -326,7 +315,7 @@ IPPAPI(IppStatus, ippsEncodeLZSS_8u, ( Ipp8u** ppSrc, int* pSrcLen, Ipp8u** ppDs
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:               ippsEncodeLZSSFlush_8u
-//  Purpose:            Flushes the last few bits from the bit stream and alignes
+//  Purpose:            Flushes the last few bits from the bit stream and aligns
 //                      output data on the byte boundary
 //
 //  Parameters:
@@ -417,7 +406,7 @@ IPPAPI( IppStatus, ippsCRC32_8u, (const Ipp8u* pSrc, int srcLen, Ipp32u* pCRC32)
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:               ippsCRC32C
-//  Purpose:            Computes the CRC32C (the polinomial 0x11EDC6F41) value
+//  Purpose:            Computes the CRC32C (the polynomial 0x11EDC6F41) value
 //                      for the source vector.
 //                      Reference: "Optimization of cyclic redundancy-check
 //                      codes with 24 and 32 parity bits". Castagnoli, G.;
@@ -505,7 +494,7 @@ IPPAPI(IppStatus, ippsInflate_8u, ( Ipp8u** ppSrc, unsigned int* pSrcLen,
 //    pSrcLen           Pointer to the length of the source vector
 //    pSrcIdx           Pointer to the index of the current position in
 //                      the source vector. This parameter is used by
-//                      the function for correlation current possition of
+//                      the function for correlation current position of
 //                      the source vector and indexes in the hash tables.
 //                      The normalization of this index and the hash tables
 //                      must only be done every 2GB of the source data
@@ -660,7 +649,7 @@ IPPAPI( IppStatus, ippsDeflateDictionarySet_8u, (
 //    pDictSrc         Pointer to the source vector
 //    srcIdx           Index of the current position in the source vector.
 //                     This parameter is used by the function
-//                     for correlation current possition of the source vector
+//                     for correlation current position of the source vector
 //                     and indexes in the hash tables.
 //                     The normalization of this index and the hash tables
 //                     must only be done every 2GB of the source data
@@ -1182,75 +1171,75 @@ IPPAPI(IppStatus, ippsDecodeBlock_BZ2_16u8u, ( const Ipp16u* pSrc, int srcLen, I
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZOGetSize
-//  Purpose:    returns structure size necessary for compression
+//  Purpose:    Returns structure size necessary for compression
 //
 //  Arguments:
 //     method           LZO method to be used during compression
-//     maxInputLen      maximum length of input buffer, which will be processed by Encode
-//     pSize            pointer to size variable
+//     maxInputLen      Maximum length of input buffer, which will be processed by Encode
+//     pSize            Pointer to size variable
 //
 //  Return:
-//      ippStsBadArgErr          illegal method
+//      ippStsBadArgErr          Illegal method
 //      ippStsNullPtrErr         NULL pointer detected
-//      ippStsNoErr              no error
+//      ippStsNoErr              No error
 //
 */
 IPPAPI(IppStatus, ippsEncodeLZOGetSize, (IppLZOMethod method, Ipp32u maxInputLen, Ipp32u *pSize))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZO_8u
-//  Purpose:    compresses specified input buffer
+//  Purpose:    Compresses specified input buffer
 //
 //  Arguments:
-//      pSrc                   input data address
-//      srcLen                 input data length
-//      pDst                   output buffer address
-//      pDstLen                pointer to resulting length variable, must contain output buffer length upon start
-//      pLZOState              pointer to IppLZOState structure variable
+//      pSrc                   Input data address
+//      srcLen                 Input data length
+//      pDst                   Output buffer address
+//      pDstLen                Pointer to resulting length variable, must contain output buffer length upon start
+//      pLZOState              Pointer to IppLZOState structure variable
 //
 //  Return:
-//      ippStsNullPtrErr            one of the pointers is NULL
-//      ippStsDstSizeLessExpected   output buffer is too short for compressed data
-//      ippStsNoErr                 no error detected
+//      ippStsNullPtrErr            One of the pointers is NULL
+//      ippStsDstSizeLessExpected   Output buffer is too short for compressed data
+//      ippStsNoErr                 No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeLZO_8u, (const Ipp8u *pSrc, Ipp32u srcLen, Ipp8u *pDst, Ipp32u *pDstLen, IppLZOState_8u *pLZOState ))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZOInit
-//  Purpose:    initializes IppLZOState_8u structure
+//  Purpose:    Initializes IppLZOState_8u structure
 //
 //  Arguments:
 //      method                  LZO compression method desired
-//      maxInputLen             maximum length of input buffer, which will be processed by Encode
-//      pLZOState               pointer to IppLZOState structure variable
+//      maxInputLen             Maximum length of input buffer, which will be processed by Encode
+//      pLZOState               Pointer to IppLZOState structure variable
 //
 //  Return:
-//      ippStsNullPtrErr            one of the pointers is NULL
-//      ippStsBadArgErr             illegal method
-//      ippStsNoErr                 no error detected
+//      ippStsNullPtrErr            One of the pointers is NULL
+//      ippStsBadArgErr             Illegal method
+//      ippStsNoErr                 No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeLZOInit_8u, (IppLZOMethod method, Ipp32u maxInputLen, IppLZOState_8u *pLZOState))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeLZO_8u
-//      Purpose:    decompresses specified input buffer to output buffer, returns decompressed data length
+//      Purpose:    Decompresses specified input buffer to output buffer, returns decompressed data length
 //  Name:       ippsDecodeLZOSafe_8u
-//      Purpose:    decompresses specified input buffer to output buffer with checking output buffer boundaries, returns decompressed data length
+//      Purpose:    Decompresses specified input buffer to output buffer with checking output buffer boundaries, returns decompressed data length
 //
 //  Arguments:
-//      pSrc                  pointer to input buffer
-//      srcLen                input data length
-//      pDst                  pointer to output buffer
-//      pDstLen               pointer to output data length variable. Initially contains output buffer length
+//      pSrc                  Pointer to input buffer
+//      srcLen                Input data length
+//      pDst                  Pointer to output buffer
+//      pDstLen               Pointer to output data length variable. Initially contains output buffer length
 //
 //  Return:
-//      ippStsNullPtrErr            one of the pointers is NULL
-//      ippStsDstSizeLessExpected   output buffer is too short for compressed data
-//      ippStsSrcSizeLessExpected   input buffer data is not complete, i.e. no EOF found
+//      ippStsNullPtrErr            One of the pointers is NULL
+//      ippStsDstSizeLessExpected   Output buffer is too short for compressed data
+//      ippStsSrcSizeLessExpected   Input buffer data is not complete, i.e. no EOF found
 //      ippStsLzoBrokenStreamErr    ippsDecodeLZOSafe_8u detected output buffer boundary violation
-//      ippStsNoErr                 no error detected
+//      ippStsNoErr                 No error detected
 //
 */
 IPPAPI(IppStatus, ippsDecodeLZO_8u, (const Ipp8u *pSrc, Ipp32u srcLen, Ipp8u *pDst, Ipp32u *pDstLen))
@@ -1262,14 +1251,14 @@ Intel(R) IPP LZ4 Definitions
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZ4HashTableGetSize_8u
-//  Purpose:    get size of buffer for Hash Table
+//  Purpose:    Gets size of buffer for hash table
 //
 //  Arguments:
-//      pHashTableSize        pointer to size of buffer for Hash Table
+//      pHashTableSize        Pointer to size of buffer for hash table
 //
 //  Return:
-//      ippStsNullPtrErr      pointer is NULL
-//      ippStsNoErr           no error detected
+//      ippStsNullPtrErr      Pointer is NULL
+//      ippStsNoErr           No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeLZ4HashTableGetSize_8u,(int *pHashTableSize))
@@ -1277,42 +1266,62 @@ IPPAPI(IppStatus, ippsEncodeLZ4HashTableGetSize_8u,(int *pHashTableSize))
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZ4HashTableInit_8u
 //              ippsEncodeLZ4DictHashTableInit_8u
-//  Purpose:    init of Hash Table
+//  Purpose:    Initializes hash table
 //
 //  Arguments:
-//      pHashTable      pointer to Hash Table
-//      srcLen          length of source
+//      pHashTable      Pointer to hash table
+//      srcLen          Length of source
 //
 //  Return:
-//      ippStsNullPtrErr  pointer is NULL
-//      ippStsSizeErr     length of source is less or equal zero
-//      ippStsNoErr       no error detected
+//      ippStsNullPtrErr  Pointer is NULL
+//      ippStsSizeErr     Length of source is less or equal zero
+//      ippStsNoErr       No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeLZ4HashTableInit_8u,(Ipp8u* pHashTable, int srcLen))
 IPPAPI(IppStatus, ippsEncodeLZ4DictHashTableInit_8u,(Ipp8u* pHashTable, int srcLen))
 
+/* /////////////////////////////////////////////////////////////////////////////
+//  Name:       ippsEncodeLZ4LoadDict_8u
+//  Purpose:    Initializes hash table using dictionary
+//
+//  Arguments:
+//      pHashTable      Pointer to hash table
+//      pDict           Pointer to dictionary
+//      dictLen         Length of dictionary
+//
+//  Return:
+//      ippStsNullPtrErr  One of the pointers is NULL
+//      ippStsSizeErr     Length of dictionary is less or equal zero
+//      ippStsNoErr       No error detected
+//
+*/
+IPPAPI(IppStatus, ippsEncodeLZ4LoadDict_8u,(Ipp8u* pHashTable, const Ipp8u* pDict, int dictLen))
+
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZ4_8u
+//              ippsEncodeLZ4Fast_8u
 //              ippsEncodeLZ4Safe_8u
 //  Purpose:    LZ4 encoder
 //
 //  Arguments:
-//      pSrc            pointer to source
-//      srcLen          length of source
-//      pSrcLen         pointer to length of source / to length of proccesed input data
-//      pDst            pointer to destination
-//      pDstLen         pointer to length of destination buffer/ to length of compressed output data
-//      pHashTable      pointer to Hash Table
+//      pSrc            Pointer to source
+//      srcLen          Length of source
+//      pSrcLen         Pointer to length of source / to length of processed input data
+//      pDst            Pointer to destination
+//      pDstLen         Pointer to length of destination buffer/ to length of compressed output data
+//      pHashTable      Pointer to hash table
+//      acceleration    Acceleration value
 //
 //  Return:
-//      ippStsNullPtrErr            one of the pointers is NULL
-//      ippStsSizeErr               length of source is less or equal zero
-//      ippStsNoErr                 no error detected
-//      ippStsDstSizeLessExpected   the length of destination buffer is not enough
+//      ippStsNullPtrErr            One of the pointers is NULL
+//      ippStsSizeErr               Length of source is less or equal zero
+//      ippStsNoErr                 No error detected
+//      ippStsDstSizeLessExpected   Insufficient length of destination buffer
 */
 IPPAPI(IppStatus, ippsEncodeLZ4_8u,(const Ipp8u* pSrc, int srcLen, Ipp8u* pDst, int *pDstLen, Ipp8u *pHashTable))
+IPPAPI(IppStatus, ippsEncodeLZ4Fast_8u,(const Ipp8u* pSrc, int srcLen, Ipp8u* pDst, int *pDstLen, Ipp8u *pHashTable, int acceleration))
 IPPAPI(IppStatus, ippsEncodeLZ4Safe_8u,(const Ipp8u* pSrc, int *srcLen, Ipp8u* pDst, int *pDstLen, Ipp8u *pHashTable))
 
 /* /////////////////////////////////////////////////////////////////////////////
@@ -1321,22 +1330,22 @@ IPPAPI(IppStatus, ippsEncodeLZ4Safe_8u,(const Ipp8u* pSrc, int *srcLen, Ipp8u* p
 //  Purpose:    LZ4 encoder
 //
 //  Arguments:
-//      pSrc            pointer to source
-//      srcIdx          index of start byte in source vector
-//      srcLen          length of source
-//      pSrcLen         pointer to length of source / to length of proccesed input data
-//      pDst            pointer to destination
-//      pDstLen         pointer to length of destination buffer/ to length of compressed output data
-//      pHashTable      pointer to Hash Table
-//      pDict           pointer to dictinary
-//      dictLen         length of dictinary
+//      pSrc            Pointer to source
+//      srcIdx          Index of start byte in source vector
+//      srcLen          Length of source
+//      pSrcLen         Pointer to length of source / to length of processed input data
+//      pDst            Pointer to destination buffer
+//      pDstLen         Pointer to length of destination buffer/ to length of compressed output data
+//      pHashTable      Pointer to hash table
+//      pDict           Pointer to dictionary
+//      dictLen         Length of dictionary
 //
 //  Return:
-//      ippStsNullPtrErr            one of the pointers is NULL
-//      ippStsSizeErr               length of source is less or equal zero
-//      ippStsNoErr                 no error detected
-//      ippStsBadArgErr             index of start byte is less then zero
-//      ippStsDstSizeLessExpected   thre length of destination buffer is not enough
+//      ippStsNullPtrErr            One of the pointers is NULL
+//      ippStsSizeErr               Length of source is less or equal zero
+//      ippStsNoErr                 No error detected
+//      ippStsBadArgErr             Index of start byte is less then zero
+//      ippStsDstSizeLessExpected   Insufficient length of destination buffer
 */
 IPPAPI(IppStatus, ippsEncodeLZ4Dict_8u,(const Ipp8u* pSrc, int srcIdx, int srcLen, Ipp8u* pDst, int *pDstLen,
     Ipp8u *pHashTable, const Ipp8u* pDict, int dictLen))
@@ -1345,15 +1354,15 @@ IPPAPI(IppStatus, ippsEncodeLZ4DictSafe_8u,(const Ipp8u* pSrc, int srcIdx, int *
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZ4HCHashTableGetSize_8u
-//  Purpose:    get size of buffer for Hash Table and for Prev Table
+//  Purpose:    Gets size of buffer for hash table and for prev table
 //
 //  Arguments:
-//      pHashTableSize        pointer to size of buffer for Hash Table
-//      pPrevTableSize        pointer to size of buffer for Prev Table
+//      pHashTableSize        Pointer to size of buffer for hash table
+//      pPrevTableSize        Pointer to size of buffer for prev table
 //
 //  Return:
-//      ippStsNullPtrErr      any pointer is NULL
-//      ippStsNoErr           no error detected
+//      ippStsNullPtrErr      One of pointers is NULL
+//      ippStsNoErr           No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeLZ4HCHashTableGetSize_8u,(int *pHashTableSize, int *pPrevTableSize))
@@ -1361,70 +1370,74 @@ IPPAPI(IppStatus, ippsEncodeLZ4HCHashTableGetSize_8u,(int *pHashTableSize, int *
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZ4HCHashTableInit_8u
 //
-//  Purpose:    init of Tables (Hash & Prev) for LZ4 encoding
+//  Purpose:    Initializes tables (hash & prev) for LZ4 encoding
 //              in HC (High Compression) mode
 //
 //  Arguments:
-//      ppHashTable     pointer to pointer to Tables (Hash & Prev)
+//      ppHashTables    Pointer to pointer to tables (hash & prev)
 //                      ppHashTables[0] = pHachTable
 //                      ppHashTables[1] = pPrevTable
 //
 //  Return:
-//      ippStsNullPtrErr  if any pointer is NULL
-//      ippStsNoErr       no error detected
+//      ippStsNullPtrErr  One of pointers is NULL
+//      ippStsNoErr       No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeLZ4HCHashTableInit_8u,(Ipp8u** ppHashTables))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeLZ4HC_8u
+//              ippsEncodeLZ4HCDictLimit_8u
 //  Purpose:    LZ4 encoder for HC (High Compression) mode
 //
 //  Arguments:
-//      pSrc            pointer to source
-//      srcIdx          index of start byte in source vector
-//      pSrcLen         pointer to length of source / to length of proccesed input data
-//      pDst            pointer to destination
-//      pDstLen         pointer to length of destination buffer/ to length of compressed output data
-//      ppHashTablep    pointer to pointer array (pHashTable & pPrevTable)
+//      pSrc            Pointer to source buffer
+//      srcIdx          Index of start byte in source vector
+//      pSrcLen         Pointer to length of source / to length of processed input data
+//      pDst            Pointer to destination
+//      pDstLen         Pointer to length of destination buffer/ to length of compressed output data
+//      ppHashTables    Pointer to pointer array (pHashTable & pPrevTable)
 //                      ppHashTable[0] = pHashTable
 //                      ppPrevTable[1] = pPrevTable
-//      pDict           pointer to dictinary
-//      dictLen         length of dictinary
-//      level           compression level
+//      pDict           Pointer to dictionary
+//      dictLen         Length of dictionary
+//      level           Compression level
+//      lowDictIdx      Lowest valid index in dictionary
 //
 //  Return:
-//      ippStsNullPtrErr            one of the pointers is NULL
-//      ippStsSizeErr               length of source is less or equal zero
-//      ippStsBadArgErr             index of start byte is less then zero
-//      ippStsNotSupportedModeErr   this case is not supprted
-//      ippStsNoErr                 no error detected
+//      ippStsNullPtrErr            One of the pointers is NULL
+//      ippStsSizeErr               Length of source is less or equal zero
+//      ippStsBadArgErr             Index of start byte is less then zero
+//      ippStsNotSupportedModeErr   Not supported mode
+//      ippStsNoErr                 No error detected
 */
 
 IPPAPI(IppStatus, ippsEncodeLZ4HC_8u,(const Ipp8u* pSrc, int srcIdx, int* pSrcLen, Ipp8u* pDst, int *pDstLen,
     Ipp8u **ppHashTables, const Ipp8u* pDict, int dictLen, int level))
+IPPAPI(IppStatus, ippsEncodeLZ4HCDictLimit_8u,(const Ipp8u* pSrc, int srcIdx, int* pSrcLen, Ipp8u* pDst, int *pDstLen,
+    Ipp8u **ppHashTables, const Ipp8u* pDict, int dictLen, int level, int lowDictIdx))
 
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeLZ4_8u
-//  Purpose:    LZ4 encoder
+//  Purpose:    LZ4 decoder
 //
 //  Arguments:
-//      pSrc            pointer to source
-//      srcLen          length of source
-//      pDst            pointer to destination
-//      pDstLen         pointer to size of buffer for destination / length of compressed data
-//      dstIdx          index of start byte in desination vector
-//      pDict           pointer to dictinary
-//      dictLen         length of dictinary
+//      pSrc            Pointer to source buffer
+//      srcLen          Length of source
+//      pDst            Pointer to destination buffer
+//      pDstLen         Pointer to size of buffer for destination / length of compressed data
+//      dstIdx          Index of start byte in destination vector
+//      pDict           Pointer to dictionary
+//      dictLen         Length of dictionary
 //
 //  Return:
-//      ippStsNullPtrErr            one of the pointers is NULL
-//      ippStsSizeErr               length of source or buffer destination is less or equal zero
+//      ippStsNullPtrErr            One of the pointers is NULL
+//      ippStsSizeErr               Length of source or destination buffer is less or equal zero
 //                                  or destination buffer length is insufficient
-//      ippStsDstSizeLessExpected   desination buffer is too short for uncompressed data
-//      ippStsSrcSizeLessExpected   source buffer data is incomplete
-//      ippStsNoErr                 no error detected
+//      ippStsDstSizeLessExpected   Destination buffer is too short for uncompressed data
+//      ippStsSrcSizeLessExpected   Source buffer data is incomplete
+//      ippStsNoErr                 No error detected
 //
 */
 IPPAPI(IppStatus, ippsDecodeLZ4_8u,(const Ipp8u* pSrc, int srcLen, Ipp8u* pDst, int *pDstLen))
@@ -1436,57 +1449,59 @@ ZFP Definitions
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeZfpGetStateSize_32f
-//  Purpose:    get size of buffer for IppEncodeZfpState_32f state
+//  Purpose:    Gets size of buffer for IppEncodeZfpState_32f state
 //
 //  Arguments:
-//      pStateSize            pointer to size of IppEncodeZfpState_32f structure
+//      pStateSize            Pointer to size of IppEncodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr      pointer is NULL
-//      ippStsNoErr           no error detected
+//      ippStsNullPtrErr      Pointer is NULL
+//      ippStsNoErr           No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeZfpGetStateSize_32f,(int *pStateSize))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeZfpInit_32f,
+//              ippsEncodeZfpInitLong_32f
 //
-//  Purpose:    init of IppEncodeZfpState_32f state with default values
+//  Purpose:    Initializes IppEncodeZfpState_32f state structure with default values
 //              described in ippsSetZfpSet_32f function
 //
 //  Arguments:
-//      pDst            pointer to destination data
-//      dstLen          size of buffer for destination
-//      pState          pointer to IppEncodeZfpState_32f spec
+//      pDst            Pointer to destination data buffer
+//      dstLen          Size of destination buffer
+//      pState          Pointer to IppEncodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNoErr       no error detected
-//      ippStsNullPtrErr  if pDst or pState pointer is NULL
-//      ippStsSizeErr     length of destination buffer is less or equal zero
+//      ippStsNoErr       No error detected
+//      ippStsNullPtrErr  Source or destination pointer is NULL
+//      ippStsSizeErr     Length of destination buffer is less or equal zero
 //
 */
 IPPAPI(IppStatus, ippsEncodeZfpInit_32f,(Ipp8u *pDst, int dstLen, IppEncodeZfpState_32f *pState))
+IPPAPI(IppStatus, ippsEncodeZfpInitLong_32f,(Ipp8u *pDst, Ipp64u dstLen, IppEncodeZfpState_32f *pState))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeZfpSet_32f
 //
-//  Purpose:    set of fields for IppEncodeZfpState_32f state
+//  Purpose:    Sets corresponding values in IppEncodeZfpState_32f structure fields
 //
 //  Arguments:
-//      minBits         minimum number of bits for compressed block,
+//      minBits         Minimum number of bits for compressed block,
 //                      default value is IppZFPMINBITS
-//      maxBits         maximum number of bits for compressed block,
+//      maxBits         Maximum number of bits for compressed block,
 //                      default value is IppZFPMAXBITS
-//      maxPrec         maximum level of precision,
+//      maxPrec         Maximum level of precision,
 //                      default value is IppZFPMAXPREC
-//      minExp          minimum level of exponent,
+//      minExp          Minimum level of exponent,
 //                      default value is IppZFPMINEXP
-//      pState          pointer to IppEncodeZfpState_32f spec
+//      pState          Pointer to IppEncodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr        if pState pointer is NULL
-//      ippStsContextMatchErr   if context is not appropriate
-//      ippStsNoErr             no error detected
+//      ippStsNullPtrErr        pState pointer is NULL
+//      ippStsContextMatchErr   Structure context is not appropriate
+//      ippStsNoErr             No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeZfpSet_32f,(int minBits, int maxBits, int maxPrec,
@@ -1495,17 +1510,17 @@ IPPAPI(IppStatus, ippsEncodeZfpSet_32f,(int minBits, int maxBits, int maxPrec,
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeZfpSetAccuracy_32f
 //
-//  Purpose:    set of fields for IppEncodeZfpState_32f state
-//              accordingly value of precision
+//  Purpose:    Sets corresponding values in IppEncodeZfpState_32f structure fields
+//              according to value of precision
 //
 //  Arguments:
-//      precision       precision for encoding
-//      pState          pointer to IppEncodeZfpState_32f spec
+//      precision       Precision for encoding
+//      pState          Pointer to IppEncodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr        if pState pointer is NULL
-//      ippStsContextMatchErr   if context is not appropriate
-//      ippStsNoErr             no error detected
+//      ippStsNullPtrErr        pState pointer is NULL
+//      ippStsContextMatchErr   Structure context is not appropriate
+//      ippStsNoErr             No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeZfpSetAccuracy_32f,(Ipp64f precision, IppEncodeZfpState_32f *pState))
@@ -1513,18 +1528,18 @@ IPPAPI(IppStatus, ippsEncodeZfpSetAccuracy_32f,(Ipp64f precision, IppEncodeZfpSt
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeZfp444_32f
 //
-//  Purpose:    encoding of block 4x4x4 of Ipp32f type
+//  Purpose:    Encodes block 4x4x4 of Ipp32f type values
 //
 //  Arguments:
-//      pSrc            pointer to blcok
-//      srcStep         row step
-//      srcPlaneStep    plane step
-//      pState          pointer to IppEncodeZfpState_32f spec
+//      pSrc            Pointer to block
+//      srcStep         Row step
+//      srcPlaneStep    Plane step
+//      pState          Pointer to IppEncodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr        if pSrc or pState pointer is NULL
-//      ippStsContextMatchErr   if context is not appropriate
-//      ippStsNoErr             no error detected
+//      ippStsNullPtrErr        pSrc or pState pointer is NULL
+//      ippStsContextMatchErr   Structure context is not appropriate
+//      ippStsNoErr             No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeZfp444_32f,(const Ipp32f *pSrc, int srcStep, int srcPlaneStep, IppEncodeZfpState_32f *pState))
@@ -1532,82 +1547,102 @@ IPPAPI(IppStatus, ippsEncodeZfp444_32f,(const Ipp32f *pSrc, int srcStep, int src
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeZfpFlush_32f
 //
-//  Purpose:    put data from internal buffer to destination buffer
+//  Purpose:    Flushes data from internal buffer to destination buffer
 //
 //  Arguments:
-//      pState          pointer to IppEncodeZfpState_32f spec
+//      pState          Pointer to IppEncodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr        if pState pointer is NULL
-//      ippStsNoErr             no error detected
+//      ippStsNullPtrErr        pState pointer is NULL
+//      ippStsNoErr             No error detected
 //
 */
 IPPAPI(IppStatus, ippsEncodeZfpFlush_32f,(IppEncodeZfpState_32f *pState))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsEncodeZfpGetCompressedSize_32f,
+//              ippsEncodeZfpGetCompressedSizeLong_32f
 //
-//  Purpose:    returns size in bytes of compressed data
+//  Purpose:    Returns size in bytes of compressed data
 //
 //  Arguments:
-//      pState          pointer to IppEncodeZfpState_32f spec
-//      pCompressedSize pointer to compressed data size
+//      pState          Pointer to IppEncodeZfpState_32f structure
+//      pCompressedSize Pointer to compressed data size
 //
 //  Return:
-//      ippStsNoErr             no error detected
-//      ippStsContextMatchErr   if context is not appropriate
-//      ippStsNullPtrErr        if pState or pCompressedSize pointer is NULL
+//      ippStsNoErr             No error detected
+//      ippStsContextMatchErr   Structure context is not appropriate
+//      ippStsNullPtrErr        pState or pCompressedSize pointer is NULL
 //
 */
 IPPAPI(IppStatus, ippsEncodeZfpGetCompressedSize_32f,(IppEncodeZfpState_32f *pState, int *pCompressedSize))
+IPPAPI(IppStatus, ippsEncodeZfpGetCompressedSizeLong_32f,(IppEncodeZfpState_32f *pState, Ipp64u *pCompressedSize))
+
+/* /////////////////////////////////////////////////////////////////////////////
+//  Name:       ippsEncodeZfpGetCompressedBitSize_32f
+//
+//  Purpose:    Returns size in bits of compressed data
+//
+//  Arguments:
+//      pState             Pointer to IppEncodeZfpState_32f state structure
+//      pCompressedBitSize Pointer to compressed data size in bits
+//
+//  Return:
+//      ippStsNoErr             No error detected
+//      ippStsNullPtrErr        pState or pCompressedBitSize pointer is NULL
+//
+*/
+IPPAPI(IppStatus, ippsEncodeZfpGetCompressedBitSize_32f,(IppEncodeZfpState_32f *pState, Ipp64u* pCompressedBitSize))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeZfpGetStateSize_32f
-//  Purpose:    get size of buffer for IppDecodeZfpState_32f state
+//  Purpose:    Returns size of buffer for IppDecodeZfpState_32f structure
 //
 //  Arguments:
-//      pStateSize            pointer to size of IppDecodeZfpState_32f structure
+//      pStateSize            Pointer to size of IppDecodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr      pointer is NULL
-//      ippStsNoErr           no error detected
+//      ippStsNullPtrErr      Pointer is NULL
+//      ippStsNoErr           No error detected
 //
 */
 IPPAPI(IppStatus, ippsDecodeZfpGetStateSize_32f,(int *pStateSize))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeZfpInit_32f,
+//              ippsDecodeZfpInitLong_32f
 //
-//  Purpose:    init of IppDecodeZfpState_32f state with default values
+//  Purpose:    Initializes IppDecodeZfpState_32f structure with default values
 //              described in ippsSetZfpSet_32f function
 //
 //  Arguments:
-//      pSrc            pointer to source data
-//      srcLen          size of buffer for source data
-//      pState          pointer to IppDecodeZfpState_32f spec
+//      pSrc            Pointer to source data buffer
+//      srcLen          Size of buffer for source data
+//      pState          Pointer to IppDecodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr  if pSrc or pState pointer is NULL
-//      ippStsSizeErr     length of source buffer is less or equal zero
-//      ippStsNoErr       no error detected
+//      ippStsNullPtrErr  pSrc or pState pointer is NULL
+//      ippStsSizeErr     Length of source buffer is less or equal zero
+//      ippStsNoErr       No error detected
 //
 */
 IPPAPI(IppStatus, ippsDecodeZfpInit_32f,(const Ipp8u *pSrc, int srcLen, IppDecodeZfpState_32f *pState))
+IPPAPI(IppStatus, ippsDecodeZfpInitLong_32f,(const Ipp8u *pSrc, Ipp64u srcLen, IppDecodeZfpState_32f *pState))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeZfpSetAccuracy_32f
 //
-//  Purpose:    set of fields for IppDecodeZfpState_32f state
-//              accordingly value of precision
+//  Purpose:    Set corresponding fields of IppDecodeZfpState_32f structure
+//              according to value of precision
 //
 //  Arguments:
-//      precision       precision for encoding
-//      pState          pointer to IppDecodeZfpState_32f spec
+//      precision       Precision for encoding
+//      pState          Pointer to IppDecodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr        if pState pointer is NULL
-//      ippStsContextMatchErr   if context is not appropriate
-//      ippStsNoErr             no error detected
+//      ippStsNullPtrErr        pState pointer is NULL
+//      ippStsContextMatchErr   Structure context is not appropriate
+//      ippStsNoErr             No error detected
 //
 */
 IPPAPI(IppStatus, ippsDecodeZfpSetAccuracy_32f,(Ipp64f precision, IppDecodeZfpState_32f *pState))
@@ -1616,23 +1651,23 @@ IPPAPI(IppStatus, ippsDecodeZfpSetAccuracy_32f,(Ipp64f precision, IppDecodeZfpSt
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeZfpSet_32f
 //
-//  Purpose:    set of fields for IppDecodeZfpState_32f state
+//  Purpose:    Sets corresponding fields of IppDecodeZfpState_32f structure
 //
 //  Arguments:
-//      minBits         minimum number of bits for compressed block,
+//      minBits         Minimum number of bits for compressed block,
 //                      default value is IppZFPMINBITS
-//      maxBits         pointer to maximum number of bits for compressed block,
+//      maxBits         Maximum number of bits for compressed block,
 //                      default value is IppZFPMAXBITS
-//      maxPrec         pointer to maximum level of precision,
+//      maxPrec         Maximum level of precision,
 //                      default value is IppZFPMAXPREC
-//      minExp          pointer to minimum level of exponent,
+//      minExp          Minimum level of exponent,
 //                      default value is IppZFPMINEXP
-//      pState          pointer to IppDecodeZfpState_32f spec
+//      pState          Pointer to IppDecodeZfpState_32f structure
 //
 //  Return:
-//      ippStsNullPtrErr        if pState pointer is NULL
-//      ippStsContextMatchErr   if context is not appropriate
-//      ippStsNoErr             no error detected
+//      ippStsNullPtrErr        pState pointer is NULL
+//      ippStsContextMatchErr   Structure context is not appropriate
+//      ippStsNoErr             No error detected
 //
 */
 IPPAPI(IppStatus, ippsDecodeZfpSet_32f,(int minBits, int maxBits, int maxPrec,
@@ -1641,38 +1676,40 @@ IPPAPI(IppStatus, ippsDecodeZfpSet_32f,(int minBits, int maxBits, int maxPrec,
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeZfp444_32f
 //
-//  Purpose:    encoding of block 4x4x4 of Ipp32f type
+//  Purpose:    Decodes block 4x4x4 of Ipp32f type
 //
 //  Arguments:
-//      pState          pointer to IppDecodeZfpState_32f spec
-//      pDst            pointer to destination
-//      dstStep         row step
-//      dstPlaneStep    plane step
+//      pState          Pointer to IppDecodeZfpState_32f structure
+//      pDst            Pointer to destination buffer
+//      dstStep         Row step
+//      dstPlaneStep    Plane step
 //
 //  Return:
-//      ippStsNullPtrErr        if pSrc or pState pointer is NULL
-//      ippStsContextMatchErr   if context is not appropriate
-//      ippStsNoErr             no error detected
+//      ippStsNullPtrErr        pSrc or pState pointer is NULL
+//      ippStsContextMatchErr   Structure context is not appropriate
+//      ippStsNoErr             No error detected
 //
 */
 IPPAPI(IppStatus, ippsDecodeZfp444_32f,(IppDecodeZfpState_32f *pState, Ipp32f *pDst, int dstStep, int dstPlaneStep))
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippsDecodeZfpGetDecompressedSize_32f,
+//              ippsDecodeZfpGetDecompressedSizeLong_32f
 //
-//  Purpose:    returns size of decompressed data in bytes
+//  Purpose:    Returns size of decompressed data in bytes
 //
 //  Arguments:
-//      pState          pointer to IppDecodeZfpState_32f spec
-//      pDecompressedSize pointer to decompressed data size
+//      pState            Pointer to IppDecodeZfpState_32f structure
+//      pDecompressedSize Pointer to decompressed data size
 //
 //  Return:
-//      ippStsNoErr             no error detected
-//      ippStsNullPtrErr        if pState or pDecompressedSize pointer is NULL
-//      ippStsContextMatchErr   if context is not appropriate
+//      ippStsNoErr             No error detected
+//      ippStsNullPtrErr        pState or pDecompressedSize pointer is NULL
+//      ippStsContextMatchErr   Structure context is not appropriate
 //
 */
 IPPAPI(IppStatus, ippsDecodeZfpGetDecompressedSize_32f,(IppDecodeZfpState_32f *pState, int *pDecompressedSize))
+IPPAPI(IppStatus, ippsDecodeZfpGetDecompressedSizeLong_32f,(IppDecodeZfpState_32f *pState, Ipp64u *pDecompressedSize))
 
 #ifdef __cplusplus
 }

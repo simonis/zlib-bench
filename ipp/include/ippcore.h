@@ -1,23 +1,13 @@
 /* 
-// Copyright 2001-2019 Intel Corporation All Rights Reserved.
+// Copyright 2001 Intel Corporation All Rights Reserved.
 // 
-// The source code, information and material ("Material") contained herein is
-// owned by Intel Corporation or its suppliers or licensors, and title
-// to such Material remains with Intel Corporation or its suppliers or
-// licensors. The Material contains proprietary information of Intel
-// or its suppliers and licensors. The Material is protected by worldwide
-// copyright laws and treaty provisions. No part of the Material may be used,
-// copied, reproduced, modified, published, uploaded, posted, transmitted,
-// distributed or disclosed in any way without Intel's prior express written
-// permission. No license under any patent, copyright or other intellectual
-// property rights in the Material is granted to or conferred upon you,
-// either expressly, by implication, inducement, estoppel or otherwise.
-// Any license under such intellectual property rights must be express and
-// approved by Intel in writing.
 // 
-// Unless otherwise agreed by Intel in writing,
-// you may not remove or alter this notice or any other notice embedded in
-// Materials by Intel or Intel's suppliers or licensors in any way.
+// This software and the related documents are Intel copyrighted materials, and your use of them is governed by
+// the express license under which they were provided to you ('License'). Unless the License provides otherwise,
+// you may not use, modify, copy, publish, distribute, disclose or transmit this software or the related
+// documents without Intel's prior written permission.
+// This software and the related documents are provided as is, with no express or implied warranties, other than
+// those that are expressly stated in the License.
 // 
 */
 
@@ -104,7 +94,7 @@ IPPAPI( Ipp64u, ippGetCpuClocks, (void) )
 //          ippSetDenormAreZero.
 //
 //  Purpose: ippSetFlushToZero enables or disables the flush-to-zero mode,
-//           ippSetDenormAreZero enables or disables the denormals-are-zeros
+//           ippSetDenormAreZero enables or disables the denormals-are-zero
 //           mode.
 //
 //  Arguments:
@@ -165,7 +155,7 @@ IPPAPI( void, ippFree, (void* ptr) )
 
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippInit
-//  Purpose:    Automatic switching to best for current cpu library code using.
+//  Purpose:    Automatic switching to best for current CPU library code using.
 //  Returns:
 //   ippStsNoErr
 //
@@ -180,19 +170,19 @@ IPPAPI( IppStatus, ippInit, ( void ))
 /* ////////////////////////////////////////////////////////////////////////////
 //  Name:       ippGetCpuFreqMhz
 //
-//  Purpose:    the function estimates cpu frequency and returns
+//  Purpose:    the function estimates CPU frequency and returns
 //              its value in MHz as a integer
 //
 //  Return:
 //    ippStsNoErr              Ok
 //    ippStsNullPtrErr         null pointer to the freq value
-//    ippStsSizeErr            wrong num of tries, internal var
+//    ippStsSizeErr            wrong number of tries, internal var
 //  Arguments:
 //    pMhz                     pointer to the integer to write
-//                             cpu freq value estimated
+//                             CPU freq value estimated
 //
 //  Notes:      no exact value is guaranteed, the value could
-//              vary with cpu workloading
+//              vary with CPU workloading
 */
 
 IPPAPI(IppStatus, ippGetCpuFreqMhz, ( int* pMhz ) )
@@ -235,8 +225,8 @@ IPPAPI( IppStatus, ippGetNumThreads, (int* pNumThr) )
 //
 //  Return:
 //    ippStsNullPtrErr         The result's pointer is NULL.
-//    ippStsNotSupportedCpu    The cpu is not supported.
-//    ippStsUnknownCacheSize   The cpu is supported, but the size of the cache is unknown.
+//    ippStsNotSupportedCpu    The CPU is not supported.
+//    ippStsUnknownCacheSize   The CPU is supported, but the size of the cache is unknown.
 //    ippStsNoErr              Ok
 //
 //  Arguments:
@@ -364,7 +354,7 @@ IPPAPI( Ipp64u, ippGetEnabledCpuFeatures, ( void ) )
 //
 //  NOTE:       this function can re-initializes dispatcher and after the
 //              call another library (letter) may work
-//  CAUTION:    At the moment of this function excecution no any other Intel(R) IPP
+//  CAUTION:    At the moment of this function execution no any other Intel(R) IPP
 //              function has to be working
 //
 //  The next pre-defined sets of features can be used:
@@ -373,18 +363,18 @@ IPPAPI( Ipp64u, ippGetEnabledCpuFeatures, ( void ) )
 // #define W7_FM ( PX_FM | ippCPUID_SSE2 )
 // #define V8_FM ( W7_FM | ippCPUID_SSE3 | ippCPUID_SSSE3 )
 // #define S8_FM ( V8_FM | ippCPUID_MOVBE )
-// #define P8_FM ( V8_FM | ippCPUID_SSE41 | ippCPUID_SSE42 | ippCPUID_AES | ippCPUID_CLMUL | ippCPUID_SHA )
-// #define G9_FM ( P8_FM | ippCPUID_AVX | ippAVX_ENABLEDBYOS | ippCPUID_RDRAND | ippCPUID_F16C )
-// #define H9_FM ( G9_FM | ippCPUID_AVX2 | ippCPUID_MOVBE | ippCPUID_ADCOX | ippCPUID_RDSEED | ippCPUID_PREFETCHW )
+// #define P8_FM ( V8_FM | ippCPUID_SSE41 | ippCPUID_SSE42 )
+// #define G9_FM ( P8_FM | ippCPUID_AVX | ippAVX_ENABLEDBYOS | ippCPUID_F16C )
+// #define H9_FM ( G9_FM | ippCPUID_AVX2 | ippCPUID_MOVBE | ippCPUID_PREFETCHW )
 //
 // 64-bit code:
 // #define PX_FM ( ippCPUID_MMX | ippCPUID_SSE | ippCPUID_SSE2 )
 // #define M7_FM ( PX_FM | ippCPUID_SSE3 )
 // #define U8_FM ( M7_FM | ippCPUID_SSSE3 )
 // #define N8_FM ( U8_FM | ippCPUID_MOVBE )
-// #define Y8_FM ( U8_FM | ippCPUID_SSE41 | ippCPUID_SSE42 | ippCPUID_AES | ippCPUID_CLMUL | ippCPUID_SHA )
-// #define E9_FM ( Y8_FM | ippCPUID_AVX | ippAVX_ENABLEDBYOS | ippCPUID_RDRAND | ippCPUID_F16C )
-// #define L9_FM ( E9_FM | ippCPUID_MOVBE | ippCPUID_AVX2 | ippCPUID_ADCOX | ippCPUID_RDSEED | ippCPUID_PREFETCHW )
+// #define Y8_FM ( U8_FM | ippCPUID_SSE41 | ippCPUID_SSE42 )
+// #define E9_FM ( Y8_FM | ippCPUID_AVX | ippAVX_ENABLEDBYOS | ippCPUID_F16C )
+// #define L9_FM ( E9_FM | ippCPUID_MOVBE | ippCPUID_AVX2 | ippCPUID_PREFETCHW )
 // #define N0_FM ( L9_FM | ippCPUID_AVX512F | ippCPUID_AVX512CD | ippCPUID_AVX512PF | ippCPUID_AVX512ER | ippAVX512_ENABLEDBYOS )
 // #define K0_FM ( L9_FM | ippCPUID_AVX512F | ippCPUID_AVX512CD | ippCPUID_AVX512VL | ippCPUID_AVX512BW | ippCPUID_AVX512DQ | ippAVX512_ENABLEDBYOS )
 //
@@ -394,7 +384,7 @@ IPPAPI( IppStatus, ippSetCpuFeatures,( Ipp64u cpuFeatures ))
 /* /////////////////////////////////////////////////////////////////////////////
 //  Name:       ippGetCacheParams
 //  Purpose:    Retrieves cache parameters: cache type, level and size
-//  Parameter:  pointer to array of structures describing cpu cache:
+//  Parameter:  pointer to array of structures describing CPU cache:
 //              typedef struct {
 //                 int type;
 //                 int level;
@@ -408,7 +398,7 @@ IPPAPI( IppStatus, ippSetCpuFeatures,( Ipp64u cpuFeatures ))
 //              cache size field is in bytes
 //  Returns:
 //    ippStsNullPtrErr         Input pointer is NULL
-//    ippStsCpuNotSupportedErr Cpu arch is too old to be supported by this function
+//    ippStsCpuNotSupportedErr CPU arch is too old to be supported by this function
 //    ippStsNoErr              No error
 //
 //  Notes:      don't free pointer!
@@ -419,10 +409,10 @@ IPPAPI( IppStatus, ippGetCacheParams,( IppCache** ppCacheInfo ))
 //  Name:       ippGetL2CacheSize
 //  Purpose:    Retrieves L2 cache size in bytes
 //  Parameter:  pointer to int where to store L2 cache size
-//              if returned size is 0 - than cpu is not supported by this function
+//              if returned size is 0 - than CPU is not supported by this function
 //  Returns:
 //    ippStsNullPtrErr         Input pointer is NULL
-//    ippStsCpuNotSupportedErr Cpu arch is too old to be supported by this function
+//    ippStsCpuNotSupportedErr CPU arch is too old to be supported by this function
 //    ippStsNoErr              No error
 */
 IPPAPI( IppStatus, ippGetL2CacheSize,( int* pSize ))
