@@ -1,5 +1,5 @@
 diff --git a/Makefile.in b/Makefile.in
-index 23c09dd..a2e7ac3 100644
+index 22d1d79..fff70d2 100644
 --- a/Makefile.in
 +++ b/Makefile.in
 @@ -51,6 +51,9 @@ includedir = ${prefix}/include
@@ -10,9 +10,9 @@ index 23c09dd..a2e7ac3 100644
 +ZINC=
 +ZINCOUT=-I.
  
- OBJZ = adler32.o crc32.o deflate.o infback.o inffast.o inflate.o inftrees.o trees.o zutil.o
+ OBJZ = adler32.o adler32_simd.o crc32.o deflate.o infback.o inffast.o inflate.o inftrees.o trees.o zutil.o
  OBJG = compress.o uncompr.o gzclose.o gzlib.o gzread.o gzwrite.o
-@@ -111,8 +114,8 @@ test64: all64
+@@ -127,8 +130,8 @@ test64: all64
  	fi; \
  	rm -f $$TMP64
  
@@ -23,23 +23,7 @@ index 23c09dd..a2e7ac3 100644
  
  infcover: infcover.o libz.a
  	$(CC) $(CFLAGS) -o $@ infcover.o libz.a
-@@ -124,13 +127,13 @@ cover: infcover
- 
- ifneq ($(findstring -DHAS_PCLMUL, $(CFLAGS)),)
- OBJA += crc32-pclmul_asm.o
--crc32-pclmul_asm.o : contrib/amd64/crc32-pclmul_asm.S
-+crc32-pclmul_asm.o : $(SRCDIR)contrib/amd64/crc32-pclmul_asm.S
- 	$(CC) $(CFLAGS) -c $< -o $@
- endif
- 
- ifneq ($(findstring -DHAS_PCLMUL, $(SFLAGS)),)
- PIC_OBJA += crc32-pclmul_asm.lo
--crc32-pclmul_asm.lo : contrib/amd64/crc32-pclmul_asm.S
-+crc32-pclmul_asm.lo : $(SRCDIR)contrib/amd64/crc32-pclmul_asm.S
- 	$(CC) $(SFLAGS) -c $< -o $@
- endif
- 
-@@ -150,24 +153,137 @@ match.lo: match.S
+@@ -154,24 +157,161 @@ match.lo: match.S
  	mv _match.o match.lo
  	rm -f _match.s
  
@@ -68,8 +52,14 @@ index 23c09dd..a2e7ac3 100644
 +	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)adler32.c
  
 -.c.lo:
++adler32_simd.o: $(SRCDIR)adler32_simd.c
++	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)adler32_simd.c
++
 +crc32.o: $(SRCDIR)crc32.c
 +	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)crc32.c
++
++crc32_simd.o: $(SRCDIR)crc32_simd.c
++	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)crc32_simd.c
 +
 +deflate.o: $(SRCDIR)deflate.c
 +	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)deflate.c
@@ -79,6 +69,9 @@ index 23c09dd..a2e7ac3 100644
 +
 +inffast.o: $(SRCDIR)inffast.c
 +	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)inffast.c
++
++inffast_chunk.o: $(SRCDIR)inffast_chunk.c
++	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)inffast_chunk.c
 +
 +inflate.o: $(SRCDIR)inflate.c
 +	$(CC) $(CFLAGS) $(ZINCOUT) -c -o $@ $(SRCDIR)inflate.c
@@ -115,10 +108,20 @@ index 23c09dd..a2e7ac3 100644
 +	$(CC) $(SFLAGS) $(ZINCOUT) -DPIC -c -o objs/adler32.o $(SRCDIR)adler32.c
 +	-@mv objs/adler32.o $@
 +
++adler32_simd.lo: $(SRCDIR)adler32_simd.c
++	-@mkdir objs 2>/dev/null || test -d objs
++	$(CC) $(SFLAGS) $(ZINCOUT) -DPIC -c -o objs/adler32_simd.o $(SRCDIR)adler32_simd.c
++	-@mv objs/adler32_simd.o $@
++
 +crc32.lo: $(SRCDIR)crc32.c
 +	-@mkdir objs 2>/dev/null || test -d objs
 +	$(CC) $(SFLAGS) $(ZINCOUT) -DPIC -c -o objs/crc32.o $(SRCDIR)crc32.c
 +	-@mv objs/crc32.o $@
++
++crc32_simd.lo: $(SRCDIR)crc32_simd.c
++	-@mkdir objs 2>/dev/null || test -d objs
++	$(CC) $(SFLAGS) $(ZINCOUT) -DPIC -c -o objs/crc32_simd.o $(SRCDIR)crc32_simd.c
++	-@mv objs/crc32_simd.o $@
 +
 +deflate.lo: $(SRCDIR)deflate.c
 +	-@mkdir objs 2>/dev/null || test -d objs
@@ -134,6 +137,11 @@ index 23c09dd..a2e7ac3 100644
 +	-@mkdir objs 2>/dev/null || test -d objs
 +	$(CC) $(SFLAGS) $(ZINCOUT) -DPIC -c -o objs/inffast.o $(SRCDIR)inffast.c
 +	-@mv objs/inffast.o $@
++
++inffast_chunk.lo: $(SRCDIR)inffast_chunk.c
++	-@mkdir objs 2>/dev/null || test -d objs
++	$(CC) $(SFLAGS) $(ZINCOUT) -DPIC -c -o objs/inffast_chunk.o $(SRCDIR)inffast_chunk.c
++	-@mv objs/inffast_chunk.o $@
 +
 +inflate.lo: $(SRCDIR)inflate.c
 +	-@mkdir objs 2>/dev/null || test -d objs
@@ -189,7 +197,7 @@ index 23c09dd..a2e7ac3 100644
  
  placebo $(SHAREDLIBV): $(PIC_OBJS) libz.a
  	$(LDSHARED) $(SFLAGS) -o $@ $(PIC_OBJS) $(LDSHAREDLIBC) $(LDFLAGS)
-@@ -236,18 +352,18 @@ uninstall:
+@@ -240,18 +380,18 @@ uninstall:
  
  docs: zlib.3.pdf
  
@@ -215,50 +223,60 @@ index 23c09dd..a2e7ac3 100644
  
  mostlyclean: clean
  clean:
-@@ -277,22 +393,22 @@ depend:
+@@ -281,26 +421,28 @@ depend:
  
  # DO NOT DELETE THIS LINE -- make depend depends on it.
  
 -adler32.o zutil.o: zutil.h zlib.h zconf.h
+-adler32_simd.o: zlib.h
 -gzclose.o gzlib.o gzread.o gzwrite.o: zlib.h zconf.h gzguts.h
 -compress.o example.o minigzip.o uncompr.o: zlib.h zconf.h
 -crc32.o: zutil.h zlib.h zconf.h crc32.h
 -deflate.o: deflate.h zutil.h zlib.h zconf.h
--infback.o inflate.o: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast.h inffixed.h
+-infback.o inflate.o: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast.h inffixed.h inffast_chunk.h chunkcopy.h
 -inffast.o: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast.h
+-inffast_chunk.o: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast_chunk.h chunkcopy.h
 -inftrees.o: zutil.h zlib.h zconf.h inftrees.h
 -trees.o: deflate.h zutil.h zlib.h zconf.h trees.h
 -
 -adler32.lo zutil.lo: zutil.h zlib.h zconf.h
+-adler32_simd.o: zlib.h
 -gzclose.lo gzlib.lo gzread.lo gzwrite.lo: zlib.h zconf.h gzguts.h
 -compress.lo example.lo minigzip.lo uncompr.lo: zlib.h zconf.h
 -crc32.lo: zutil.h zlib.h zconf.h crc32.h
 -deflate.lo: deflate.h zutil.h zlib.h zconf.h
--infback.lo inflate.lo: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast.h inffixed.h
+-infback.lo inflate.lo: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast.h inffixed.h inffast_chunk.h chunkcopy.h
 -inffast.lo: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast.h
+-inffast_chunk.lo: zutil.h zlib.h zconf.h inftrees.h inflate.h inffast_chunk.h chunkcopy.h
 -inftrees.lo: zutil.h zlib.h zconf.h inftrees.h
 -trees.lo: deflate.h zutil.h zlib.h zconf.h trees.h
 +adler32.o zutil.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h
++adler32_simd.o: $(SRCDIR)zlib.h
 +gzclose.o gzlib.o gzread.o gzwrite.o: $(SRCDIR)zlib.h zconf.h $(SRCDIR)gzguts.h
 +compress.o example.o minigzip.o uncompr.o: $(SRCDIR)zlib.h zconf.h
 +crc32.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)crc32.h
++crc32_simd.o: $(SRCDIR)crc32_simd.h
 +deflate.o: $(SRCDIR)deflate.h $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h
-+infback.o inflate.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast.h $(SRCDIR)inffixed.h
++infback.o inflate.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast.h $(SRCDIR)inffixed.h $(SRCDIR)inffast_chunk.h $(SRCDIR)chunkcopy.h
 +inffast.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast.h
++inffast_chunk.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast_chunk.h $(SRCDIR)chunkcopy.h
 +inftrees.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h
 +trees.o: $(SRCDIR)deflate.h $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)trees.h
 +
 +adler32.lo zutil.lo: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h
++adler32_simd.lo: $(SRCDIR)zlib.h
 +gzclose.lo gzlib.lo gzread.lo gzwrite.lo: $(SRCDIR)zlib.h zconf.h $(SRCDIR)gzguts.h
 +compress.lo example.lo minigzip.lo uncompr.lo: $(SRCDIR)zlib.h zconf.h
 +crc32.lo: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)crc32.h
++crc32_simd.lo: $(SRCDIR)crc32_simd.h
 +deflate.lo: $(SRCDIR)deflate.h $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h
-+infback.lo inflate.lo: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast.h $(SRCDIR)inffixed.h
++infback.lo inflate.lo: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast.h $(SRCDIR)inffixed.h $(SRCDIR)inffast_chunk.h $(SRCDIR)chunkcopy.h
 +inffast.lo: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast.h
++inffast_chunk.lo: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast_chunk.h $(SRCDIR)chunkcopy.h
 +inftrees.lo: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h
 +trees.lo: $(SRCDIR)deflate.h $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)trees.h
 diff --git a/configure b/configure
-index aa01f7f..bc3b4fd 100755
+index 6e22cbd..6a9e89e 100755
 --- a/configure
 +++ b/configure
 @@ -18,6 +18,18 @@ echo -------------------- >> configure.log
@@ -326,7 +344,7 @@ index aa01f7f..bc3b4fd 100755
  
  echo >> configure.log
  
-@@ -827,6 +842,7 @@ echo STATICLIB = $STATICLIB >> configure.log
+@@ -863,6 +878,7 @@ echo STATICLIB = $STATICLIB >> configure.log
  echo TEST = $TEST >> configure.log
  echo VER = $VER >> configure.log
  echo Z_U4 = $Z_U4 >> configure.log
@@ -334,7 +352,7 @@ index aa01f7f..bc3b4fd 100755
  echo exec_prefix = $exec_prefix >> configure.log
  echo includedir = $includedir >> configure.log
  echo libdir = $libdir >> configure.log
-@@ -836,7 +852,7 @@ echo sharedlibdir = $sharedlibdir >> configure.log
+@@ -872,7 +888,7 @@ echo sharedlibdir = $sharedlibdir >> configure.log
  echo uname = $uname >> configure.log
  
  # udpate Makefile with the configure results
@@ -343,7 +361,7 @@ index aa01f7f..bc3b4fd 100755
  /^TGT_ARCH *=/s#=.*#=$TGT_ARCH#
  /^CC *=/s#=.*#=$CC#
  /^CFLAGS *=/s#=.*#=$CFLAGS#
-@@ -854,6 +870,9 @@ sed < Makefile.in "
+@@ -890,6 +906,9 @@ sed < Makefile.in "
  /^LDCONFIG *=/s#=.*#=$LDCONFIG#
  /^LDSHAREDLIBC *=/s#=.*#=$LDSHAREDLIBC#
  /^EXE *=/s#=.*#=$EXE#
@@ -353,7 +371,7 @@ index aa01f7f..bc3b4fd 100755
  /^prefix *=/s#=.*#=$prefix#
  /^exec_prefix *=/s#=.*#=$exec_prefix#
  /^libdir *=/s#=.*#=$libdir#
-@@ -867,7 +886,7 @@ sed < Makefile.in "
+@@ -903,7 +922,7 @@ sed < Makefile.in "
  " > Makefile
  
  # create zlib.pc with the configure results
