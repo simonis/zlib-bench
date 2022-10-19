@@ -20,20 +20,18 @@ SRC="adler32.c crc32.c gzclose.c gzread.c infback.c inflate.c trees.c zutil.c \
      contrib/optimizations/inffast_chunk.c contrib/optimizations/inflate.c"
 
 if test "$ARCH" = "x86_64"; then
-  SRC+=" crc_folding.c fill_window_sse.c"
+  SRC+=" crc_folding.c"
   if [[ "$OS" == "CYGWIN"* ]]; then
     FLAGS="-DCHROMIUM_ZLIB_NO_CHROMECONF -DX86_WINDOWS -DINFLATE_CHUNK_READ_64LE -DUNALIGNED_OK \
-           -DADLER32_SIMD_SSSE3 -DINFLATE_CHUNK_SIMD_SSE2 -DCRC32_SIMD_SSE42_PCLMUL -wd4244 -wd4267"
+           -DADLER32_SIMD_SSSE3 -DINFLATE_CHUNK_SIMD_SSE2 -DCRC32_SIMD_SSE42_PCLMUL -DDEFLATE_SLIDE_HASH_SSE2 -wd4244 -wd4267"
   else
     FLAGS="-DCHROMIUM_ZLIB_NO_CHROMECONF -DX86_NOT_WINDOWS -DINFLATE_CHUNK_READ_64LE -DUNALIGNED_OK \
-           -DADLER32_SIMD_SSSE3 -DINFLATE_CHUNK_SIMD_SSE2 -DCRC32_SIMD_SSE42_PCLMUL -msse4.2 -mpclmul"
+           -DADLER32_SIMD_SSSE3 -DINFLATE_CHUNK_SIMD_SSE2 -DCRC32_SIMD_SSE42_PCLMUL -DDEFLATE_SLIDE_HASH_SSE2 -msse4.2 -mpclmul"
   fi
 fi
 if test "$ARCH" = "aarch64"; then
   FLAGS="-DCHROMIUM_ZLIB_NO_CHROMECONF -DARMV8_OS_LINUX -DADLER32_SIMD_NEON -DINFLATE_CHUNK_SIMD_NEON \
-         -DCRC32_ARMV8_CRC32 -march=armv8-a+crc"
-  git -C ../../zlib-chromium checkout .
-  patch -p1 --directory=../../zlib-chromium < aarch64_build.patch
+         -DCRC32_ARMV8_CRC32 -DDEFLATE_SLIDE_HASH_NEON -march=armv8-a+crc"
 fi
 
 if [[ "$OS" == "CYGWIN"* ]]; then
@@ -81,10 +79,6 @@ else
 	  -o `basename $src .c`.o ${BASEDIR}/$src
   done
   ${CC} -shared -o libz.$LIB_EXT *.o -lc
-fi
-
-if test "$ARCH" = "aarch64"; then
-  git -C ../../zlib-chromium checkout .
 fi
 
 popd
