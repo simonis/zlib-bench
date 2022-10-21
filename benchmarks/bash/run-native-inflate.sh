@@ -56,12 +56,12 @@ echo "Running benchmarks from $MYDIR"
 declare -A IMPL_ENV
 declare -A IMPL_ARG
 
-IMPL_ENV["zlib"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-madler/libz.so.1.2.11"
+IMPL_ENV["zlib"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-madler/libz.so"
 IMPL_ENV["chromium"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-chromium/libz.so"
-IMPL_ENV["ng"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-ng/libz.so.1.2.11.zlib-ng"
-IMPL_ENV["cloudflare"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-cloudflare/libz.so.1.2.8"
-IMPL_ENV["jtkukunas"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-jtkukunas/libz.so.1.2.11.1-motley"
-IMPL_ENV["ipp"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-ipp/libz.so.1.2.11"
+IMPL_ENV["ng"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-ng/libz.so"
+IMPL_ENV["cloudflare"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-cloudflare/libz.so"
+IMPL_ENV["jtkukunas"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-jtkukunas/libz.so"
+IMPL_ENV["ipp"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-ipp/libz.so"
 IMPL_ENV["isal"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64"
 IMPL_ARG["zlib"]=""
 IMPL_ARG["chromium"]=""

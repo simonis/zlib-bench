@@ -7,6 +7,7 @@ echo 1 > /sys/devices/system/cpu/cpu6/online
 echo 1 > /sys/devices/system/cpu/cpu7/online
 
 # switch turbo boost on again
+modprobe msr
 wrmsr --all 0x1a0 0x850089
 
 # set variable CPU frequency
