@@ -7,8 +7,8 @@ GAS=${GAS:-as}
 
 ARCH=`uname -m`
 if test "$ARCH" = "aarch64"; then
-  AS=$GAS
-  AS_FLAGS="-c"
+  AS=$CC
+  AS_FLAGS="-D__ASSEMBLY__ -c -D NDEBUG -DAS_FEATURE_LEVEL=10 -DHAVE_AS_KNOWS_AVX512"
   SUFFIX=".S"
 else
   AS=$NASM
@@ -47,7 +47,7 @@ if test "$ARCH" = "x86_64"; then
   CRC_ASM_FILES+="crc32_ieee_02.asm crc32_ieee_by16_10.asm crc32_iscsi_by16_10.asm "
   CRC_ASM_FILES+="crc32_gzip_refl_by8_02.asm crc32_gzip_refl_by16_10.asm "
 else
-  CRC_C_FILES+="aarch64/crc_aarch64_dispatcher.c"
+  CRC_C_FILES+="aarch64/crc_aarch64_dispatcher.c crc64_base.c "
   CRC_ASM_FILES="aarch64/crc_multibinary_arm.S aarch64/crc16_t10dif_pmull.S aarch64/crc16_t10dif_copy_pmull.S "
   CRC_ASM_FILES+="aarch64/crc32_ieee_norm_pmull.S aarch64/crc64_ecma_refl_pmull.S aarch64/crc64_ecma_norm_pmull.S "
   CRC_ASM_FILES+="aarch64/crc64_iso_refl_pmull.S aarch64/crc64_iso_norm_pmull.S aarch64/crc64_jones_refl_pmull.S "
@@ -61,10 +61,10 @@ fi
 rm -f *.o *.so
 
 for FILE in $IGZIP_C_FILES; do
-  $CC -Wall -O2 -I$ISAL_DIR/include -fPIC -c $ISAL_DIR/igzip/$FILE
+  $CC -Wall -O2 -D NDEBUG -DAS_FEATURE_LEVEL=10 -DHAVE_AS_KNOWS_AVX512 -I$ISAL_DIR/include -fPIC -c $ISAL_DIR/igzip/$FILE
 done
 for FILE in $CRC_C_FILES; do
-  $CC -Wall -O2 -I$ISAL_DIR/include -fPIC -c $ISAL_DIR/crc/$FILE
+  $CC -Wall -O2 -D NDEBUG -DAS_FEATURE_LEVEL=10 -DHAVE_AS_KNOWS_AVX512 -I$ISAL_DIR/include -fPIC -c $ISAL_DIR/crc/$FILE
 done
 for FILE in $IGZIP_ASM_FILES; do
   $AS $AS_FLAGS -I$ISAL_DIR/include/ -I$ISAL_DIR/igzip/ -o `basename $FILE $SUFFIX`.o $ISAL_DIR/igzip/$FILE

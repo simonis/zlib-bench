@@ -31,7 +31,7 @@ if test "$ARCH" = "x86_64"; then
 fi
 if test "$ARCH" = "aarch64"; then
   FLAGS="-DCHROMIUM_ZLIB_NO_CHROMECONF -DARMV8_OS_LINUX -DADLER32_SIMD_NEON -DINFLATE_CHUNK_SIMD_NEON \
-         -DCRC32_ARMV8_CRC32 -DDEFLATE_SLIDE_HASH_NEON -march=armv8-a+crc"
+         -DCRC32_ARMV8_CRC32 -DDEFLATE_SLIDE_HASH_NEON -march=armv8-a+aes+crc"
 fi
 
 if [[ "$OS" == "CYGWIN"* ]]; then
@@ -75,6 +75,7 @@ if [[ "$OS" == "CYGWIN"* ]]; then
   cmd /c compile.bat
 else
   for src in $SRC; do
+    echo "${CC} ${FLAGS} -O3 -fPIC -I${BASEDIR} -I${BASEDIR}/contrib/optimizations -c -o `basename $src .c`.o ${BASEDIR}/$src"
     ${CC} ${FLAGS} -O3 -fPIC -I${BASEDIR} -I${BASEDIR}/contrib/optimizations -c \
 	  -o `basename $src .c`.o ${BASEDIR}/$src
   done

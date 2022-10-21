@@ -1,5 +1,6 @@
 #!/bin/bash
 MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+ARCH=`uname -m`
 
 ITERATIONS="5"
 DATA_SIZE="100000000"
@@ -60,8 +61,11 @@ IMPL_ENV["zlib"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib6
 IMPL_ENV["chromium"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-chromium/libz.so"
 IMPL_ENV["ng"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-ng/libz.so"
 IMPL_ENV["cloudflare"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-cloudflare/libz.so"
-IMPL_ENV["jtkukunas"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-jtkukunas/libz.so"
-IMPL_ENV["ipp"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-ipp/libz.so"
+if test "$ARCH" = "x86_64"; then
+  # The following versions are currently not supported on aarch64
+  IMPL_ENV["jtkukunas"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-jtkukunas/libz.so"
+  IMPL_ENV["ipp"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64 LD_PRELOAD=$MYDIR/../../build/zlib-ipp/libz.so"
+fi
 IMPL_ENV["isal"]="LD_LIBRARY_PATH=$MYDIR/../../build/isa-l:$MYDIR/../../ipp/lib64"
 IMPL_ARG["zlib"]=""
 IMPL_ARG["chromium"]=""
@@ -73,6 +77,7 @@ IMPL_ARG["isal"]="-l"
 
 for file in "${INPUT_FILES[@]}"; do
   for impl in "${!IMPL_ENV[@]}"; do
+    echo "bash -c \"${IMPL_ENV[$impl]} $MYDIR/../../build/benchmarks/zbench ${IMPL_ARG[$impl]} -n $ITERATIONS -i -c $START_LEVEL -c $END_LEVEL -p $DATA_SIZE -j $impl -a $file -z $file.zlib -b /tmp/`basename $file`.zlib\""
     bash -c "${IMPL_ENV[$impl]} $MYDIR/../../build/benchmarks/zbench \
              ${IMPL_ARG[$impl]} -n $ITERATIONS -i -c $START_LEVEL -c $END_LEVEL -p $DATA_SIZE \
              -j $impl -a $file -z $file.zlib -b /tmp/`basename $file`.zlib"
