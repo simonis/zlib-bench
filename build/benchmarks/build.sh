@@ -7,7 +7,7 @@ JAVAC=${JAVAC:-javac}
 ARCH=`uname -m`
 
 if test "$ARCH" = "x86_64"; then
-  LIBS=-L../../ipp/lib64 -lippcore -lipps -lippdc
+  LIBS="-L../../ipp/lib64 -lippcore -lipps -lippdc"
 fi
 
 $CC -std=c99 -D_POSIX_C_SOURCE=199309L -O2 -o zbench \
