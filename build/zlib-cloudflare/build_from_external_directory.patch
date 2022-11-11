@@ -1,3 +1,15 @@
+diff --git a/zlib.map b/zlib.map
+index 55c6647..bab8f2f 100644
+--- a/zlib.map
++++ b/zlib.map
+@@ -81,3 +81,7 @@ ZLIB_1.2.7.1 {
+     inflateGetDictionary;
+     gzvprintf;
+ } ZLIB_1.2.5.2;
++
++ZLIB_1.2.9 {
++    inflateValidate;
++} ZLIB_1.2.7.1;
 diff --git a/Makefile.in b/Makefile.in
 index 22d1d79..fff70d2 100644
 --- a/Makefile.in
