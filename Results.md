@@ -10,23 +10,23 @@ For deflation I've measured throughput (in kb/ms) and the compression ratio for 
 
 The next graph shows the deflation throughput of all implementations at the default compression level 6 (for "`isa-l`" I use level 3 which is  the closest to "`zlib`"'s level 6 from a compression ratio point of view). The original "`zlib`"'s throughput is defined to be 100%. You can click on a graph to get a larger version.
 
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/file-deflate-silesia-horizontal-part1.svg) |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/file-deflate-silesia-horizontal-part1.svg) |
 |-------|
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/file-deflate-silesia-horizontal-part2.svg) |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/file-deflate-silesia-horizontal-part2.svg) |
 
 The following set of graphs shows the deflate throughput and compression ratio for each of the Silesia files depending on the compression level. Click on a graph for a larger version.
 
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-dickens.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-mozilla.svg) |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-dickens.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-mozilla.svg) |
 |-----|-----|
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-mr.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-nci.svg) |
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-ooffice.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-reymont.svg) |
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-samba.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-sao.svg) |
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-webster.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-xml.svg) |
-| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-x-ray.svg) | ![]() |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-mr.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-nci.svg) |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-ooffice.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-reymont.svg) |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-samba.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-sao.svg) |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-webster.svg) | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-xml.svg) |
+| ![](graphs/i7-8650U-1900MHz-deflate-silesia-2022-10-21/ratio-silesia-x-ray.svg) | ![]() |
 
 And finally a comparison of the inflation throughput of the various versions. As input data for all implementations I took the original Silesia files compressed with the original "`zlib`" version at the default compression level 6.
 
-| ![](graphs/i7-8650U-1900MHz-inflate-silesia-2020-09-16/file-inflate-silesia-horizontal-part1.svg) |
+| ![](graphs/i7-8650U-1900MHz-inflate-silesia-2022-10-21/file-inflate-silesia-horizontal-part1.svg) |
 |-------|
-| ![](graphs/i7-8650U-1900MHz-inflate-silesia-2020-09-16/file-inflate-silesia-horizontal-part2.svg) |
+| ![](graphs/i7-8650U-1900MHz-inflate-silesia-2022-10-21/file-inflate-silesia-horizontal-part2.svg) |
 
