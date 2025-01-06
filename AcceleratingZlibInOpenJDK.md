@@ -1,6 +1,6 @@
 # Accelerating zlib compression & decompression in OpenJDK
 
-By integrating Cloudflare’s and Chromium’s enhanced zlib versions into OpenJDK, we’ve improved zlib decompression speed by about 50% and compression speed up to 100%. After successfully using the new implementations for several services, we’ve decided to [propse these improvements for inclusion into upstream OpenJDK](https://bugs.openjdk.org/browse/JDK-8249963) for the benefit of the community and in order to gather more usage feedback. The new implementations are optional and are controlled by three new system properties.
+By integrating Cloudflare’s and Chromium’s enhanced zlib versions into our version of OpenJDK, we’ve improved zlib decompression speed by about 50% and compression speed up to 100%. After successfully using the new implementations for several services, we’ve decided to propose these improvements for inclusion into upstream OpenJDK (see [JDK-8249963: Make the zlib implementation selectively configurable at startup](https://bugs.openjdk.org/browse/JDK-8249963)) for the benefit of the community and in order to gather more usage feedback. The new implementations are optional and are controlled by three new system properties.
 
 The following two graphs show the de-/compression throughput achieved by OpenJDK 11 with the new system property `-Dorg.openjdk.zlib.implementation` set to  `bundled`, `system`, `cloudflare,` `chromium` for a selected set of files from the commonly used [Silesia compression corpus](http://sun.aei.polsl.pl/~sdeor/index.php?page=silesia) at the default compression level 6. You can find the full set of graphs [online](https://github.com/simonis/zlib-bench/tree/master/graphs).
 
@@ -14,7 +14,7 @@ Before going into detail, let’s first define what “zlib” stands for. The t
 
 It is important to mention that “Deflate” (aka  [RFC 1951](https://www.ietf.org/rfc/rfc1951.txt)) does not specify an exact compression algorithm but a compressed data format which is a combination of  “[Huffman Coding](https://doi.org/10.1109%2FJRPROC.1952.273898)“ and the output produced by the [LZ77 algorithm](https://doi.org/10.1109%2FTIT.1977.1055714). This means that there are different ways to produce RFC 1951 compliant compressed data streams which may require different computation overhead and result in different compression ratios. However, as long as the deflater generates RFC 1951 compliant data, any RFC 1951 compliant inflater will be able to restore the original input data from it. For example, the 9 different compression levels supported by the original zlib implementation are not preserved in the generated deflated data stream, and they are not required by a compliant decompressor to inflate the data.
 
-Since its appearance in the early 90s, the zlib compressed data format has become a de-facto compression standard and the original zlib library has become the standard implementation (and a default package) on many platforms. 
+Since its appearance in the early 90s, the zlib compressed data format has become a de-facto compression standard and the original zlib library has become the standard implementation (and a default package) on many platforms.
 
 ## Java and zlib - a long history
 
@@ -36,7 +36,7 @@ handle compressed ZIP/JAR files that are specified in the CLASSPATH.
 
 With the `java.util.zip` package, JDK 1.1 also added a public API for accessing zip files. It is mostly unchanged and still in use today. Compression/decompression was implemented by calling into the native `libzip.so` library which bundled version 1.0.4 of the original zlib library and exposed its functionality through JNI wrappers. API support for accessing jar files in the `java.util.jar` package was added later in JDK 1.2.
 
-## JDK’s zlib and zip implementation 
+## JDK’s zlib and zip implementation
 
 Starting with JDK 1.1, zip-file handling was implemented natively in the JDK’s `libzip.so` library. This worked remarkably well, although frequent JNI calls could have a significant negative performance impact, and there were well known stability problems such as crashes when a zip-file was modified/accessed concurrently. The latter problem was mitigated by the system property [-Dsun.zip.disableMemoryMapping](http://hg.openjdk.java.net/jdk7/jdk7/jdk/rev/ee385b4e2ffb) introduced in JDK 5u71/6u23. For the performance issues it took until JDK 9 before OpenJDK developers decided to [reimplement the whole zip-file handling in Java](https://bugs.openjdk.java.net/browse/JDK-8145260). This resulted in a nice performance boost described by [Claes Redestad](https://cl4es.github.io/) in his blog “[Zip lookups](https://cl4es.github.io/2020/04/27/Zip-Lookups.html)“.
 
@@ -62,13 +62,13 @@ Due to its age and widespread adoption, ranging from 16-bit home computers to ex
 
 ### zlib-ipp
 
-[zlib-ipp](https://software.intel.com/en-us/articles/intel-ipp-zlib-coding-functions) is a [patch set](https://software.intel.com/en-us/articles/how-to-use-zlib-with-intel-ipp-optimization) for the original zlib library which redirects time consuming computation to Intel’s proprietary [Integrated Performance Primitives](https://software.intel.com/en-us/ipp) (IPP) library. In addition to general improvements for the default zlib compression levels 1-9, zlib-ipp also supports a new, “fastest” compression level (called ‘-2’ in the “throughput/ratio” graph below) and several experimental compression levels for huge and highly compressible data which I haven’t evaluated here. 
+[zlib-ipp](https://software.intel.com/en-us/articles/intel-ipp-zlib-coding-functions) is a [patch set](https://software.intel.com/en-us/articles/how-to-use-zlib-with-intel-ipp-optimization) for the original zlib library which redirects time consuming computation to Intel’s proprietary [Integrated Performance Primitives](https://software.intel.com/en-us/ipp) (IPP) library. In addition to general improvements for the default zlib compression levels 1-9, zlib-ipp also supports a new, “fastest” compression level (called ‘-2’ in the “throughput/ratio” graph below) and several experimental compression levels for huge and highly compressible data which I haven’t evaluated here.
 
-Although it requires registration, IPP can be freely downloaded and used under the “[Intel Simplified Software License](https://software.intel.com/en-us/license/intel-simplified-software-license)” license. Unfortunately this license, and especially the fact that the library itself it is only available in binary format, make it unsuitable for integration into OpenJDK. 
+Although it requires registration, IPP can be freely downloaded and used under the “[Intel Simplified Software License](https://software.intel.com/en-us/license/intel-simplified-software-license)” license. Unfortunately this license, and especially the fact that the library itself it is only available in binary format, make it unsuitable for integration into OpenJDK.
 
 ### zlib-cloudflare
 
-[zlib-cloudflare](https://github.com/cloudflare/zlib) is a fork by Cloudflare with greatly improved compression speed (details are described in this [blog post](https://blog.cloudflare.com/cloudflare-fights-cancer/)). They cleaned up the old code base, threw away parts which are not necessary on modern platforms, changed the base data types used in the computations to 64-bit counterparts, changed code patterns such that they can be better optimized by modern compilers, and selectively replaced some parts with assembler intrinsics. 
+[zlib-cloudflare](https://github.com/cloudflare/zlib) is a fork by Cloudflare with greatly improved compression speed (details are described in this [blog post](https://blog.cloudflare.com/cloudflare-fights-cancer/)). They cleaned up the old code base, threw away parts which are not necessary on modern platforms, changed the base data types used in the computations to 64-bit counterparts, changed code patterns such that they can be better optimized by modern compilers, and selectively replaced some parts with assembler intrinsics.
 
 All these improvements result in a nice speed-up, while still maintaining full zlib API compatibility. One small drawback of zlib-cloudflare is the fact that it is based on zlib version 1.2.8, while the upstream project has reached version 1.2.12. Recently, [zlib-cloudflare has integrated some inflater improvements from zlib-chromium](https://aws.amazon.com/blogs/opensource/improving-zlib-cloudflare-and-comparing-performance-with-other-zlib-forks/) which are not refelected in these measurements yet, but bring cloudflares infaltion speed on par with that of zlib-chromium.
 
@@ -78,7 +78,7 @@ All these improvements result in a nice speed-up, while still maintaining full z
 
 ### zlib-jtkukunas
 
-[Jim Kukunas](https://www.linkedin.com/in/jim-kukunas-60512514/), an engineer working at Intel's Open-Source Technology Center has started back in 2013 to [improve the zlib deflate performance](https://www.phoronix.com/scan.php?page=news_item&px=MTUyNzY) on x86 CPUs with SSE support. He collected his optimization in his own zlib repository at [zlib-jtkukunas](https://github.com/jtkukunas) which became the base for other forks like cloudlflare or ng mentioned before. 
+[Jim Kukunas](https://www.linkedin.com/in/jim-kukunas-60512514/), an engineer working at Intel's Open-Source Technology Center has started back in 2013 to [improve the zlib deflate performance](https://www.phoronix.com/scan.php?page=news_item&px=MTUyNzY) on x86 CPUs with SSE support. He collected his optimization in his own zlib repository at [zlib-jtkukunas](https://github.com/jtkukunas) which became the base for other forks like cloudlflare or ng mentioned before.
 
 ### zlib-chromium
 
@@ -92,7 +92,7 @@ The [Intel Intelligent Storage Acceleration Library](https://github.com/intel/is
 
 I’ve used files from the [Silesia compression corpus](http://sun.aei.polsl.pl/~sdeor/index.php?page=silesia) to compare the inflate/deflate speed of the different implementations. While they all produce fully [RFC 1591](https://tools.ietf.org/html/rfc1951) compatible compressed data streams, they compress data to a different extent (even at the same compression level) so it is not easy to compare their compression speed in an objective way.
 
-For single input files, I’ve produced graphs which show the compression throughput and ratio depending on the compression level. From a high level perspective, these graphs look similar for all files. E.g., isa-l is almost always the fastest implementation but usually produces slightly less compressed results. The exact deltas vary for different input files. You can find the graphs for each of the files from the Silesia corpus as well as the benchmark sources in [my GitHub repository](https://github.com/simonis/zlib-bench/tree/master/graphs). 
+For single input files, I’ve produced graphs which show the compression throughput and ratio depending on the compression level. From a high level perspective, these graphs look similar for all files. E.g., isa-l is almost always the fastest implementation but usually produces slightly less compressed results. The exact deltas vary for different input files. You can find the graphs for each of the files from the Silesia corpus as well as the benchmark sources in [my GitHub repository](https://github.com/simonis/zlib-bench/tree/master/graphs).
 
 | ![](graphs/i7-8650U-1900MHz-deflate-silesia-2020-09-16/ratio-silesia-webster.svg) |
 |-------|
@@ -114,18 +114,20 @@ For inflation we don’t have different inflation levels. Compressed data at all
 
 isa-l is clearly the winner for both compression and decompression. However, its different API and the lower compression ratio make it unsuitable as a simple drop-in replacement for zlib. zlib-ipp comes in second for inflation tightly followed by zlib-chromium. For deflation, zlib-cloudflare and zlib-ipp are about on par.
 
-With these results, and taking into account that zlib-ipp depends on a proprietary, binary-only library, we’ve decided to propose both, zlib-cloudflare for compression and zlib-chromium for decompression, for integration into OpenJDK. With the changes which were required to make this possible, it becomes easy to add different implementations in the future. 
+With these results, and taking into account that zlib-ipp depends on a proprietary, binary-only library, we’ve decided to propose both, zlib-cloudflare for compression and zlib-chromium for decompression, for integration into OpenJDK. With the changes which were required to make this possible, it becomes easy to add different implementations in the future.
 
 ## Integrating zlib-cloudflare and zlib-chromium into OpenJDK
 
-zlib-cloudflare and zlib-chromium have been [proposed for integration into OpenJDK](https://bugs.openjdk.org/browse/JDK-8249963) in parallel with the existing, [default zlib implementation](https://github.com/openjdk/jdk/tree/jdk-20+1/src/java.base/share/native/libzip). Their actual inclusion into a jdk image is controlled by the new configuration flag `—with-additional-zlib=<(cloudflare,chromium)|none>`. It currently supports a list of the values `(cloudflare,chromium)`, or the value `none` to exclude any additional implementation. The default value for `—with-additional-zlib` is `cloudflare,chromium` on Linux/Windows/MacOS/x86_64 and Linux/aarch64 and `none` on all other platforms. It is also possible to only include a single additional implementation (e.g. `—with-additional-zlib=chromium`) or to exclude all additional implementations even on supported platforms with `—with-additional-zlib=none`.
+We've tried to contribute our enhancements to upstream OpenJDK with [JDK-8249963: Make the zlib implementation selectively configurable at startup](https://bugs.openjdk.org/browse/JDK-8249963) (you can find [the proposed changes here](https://cr.openjdk.org/~simonis/webrevs/2020/8249963/)) but unfortunately [our proposal hasn't been accepted](https://mail.openjdk.org/pipermail/core-libs-dev/2020-July/thread.html#67868) yet.
+
+In our solution, the inclusion of alternative zlib versions into a jdk image is controlled by the new configuration flag `—with-additional-zlib=<(cloudflare,chromium)|none>`. It currently supports a list of the values `(cloudflare,chromium)`, or the value `none` to exclude any additional implementation. The default value for `—with-additional-zlib` is `cloudflare,chromium` on Linux/Windows/MacOS/x86_64 and Linux/aarch64 and `none` on all other platforms. It is also possible to only include a single additional implementation (e.g. `—with-additional-zlib=chromium`) or to exclude all additional implementations even on supported platforms with `—with-additional-zlib=none`.
 
 Once a new implementation has been built into the JDK, it can be enabled at runtime by setting one of the following new system properties:
 
 ```
 -Dorg.openjdk.zlib.implementation=<cloudflare|chromium|bundled|system>          (1)
 -Dorg.openjdk.zlib.implementation.inflate=<cloudflare|chromium|bundled|system>  (2)
--Dorg.openjdk.zlib.implementation.deflate=<cloudflare|chromium|bundled|system>  (3) 
+-Dorg.openjdk.zlib.implementation.deflate=<cloudflare|chromium|bundled|system>  (3)
 ```
 
 `bundled` chooses the original, bundled version of zlib, or the system-wide version if the JDK was configured with `--with-zlib=system`.
@@ -136,7 +138,7 @@ The second and third property can be used to change the inflate/deflate implemen
 
 ```
 -Dorg.openjdk.zlib.implementation.inflate=chromium
--Dorg.openjdk.zlib.implementation.deflate=cloudflare 
+-Dorg.openjdk.zlib.implementation.deflate=cloudflare
 ```
 
 These properties must be specified at start-up and are not manageable. Setting or changing them later will have no effect.
@@ -145,7 +147,7 @@ These properties must be specified at start-up and are not manageable. Setting o
 
 For the alternative zlib implementations, all functions are redefined with a unique prefix at build time and statically linked into the `libzip.so`, which exports their functionality. This means that all public functions from zlib-cloudflare are prefixed with ‘`z_`’ (e.g., `deflateInit` becomes `z_deflateInit`) and the ones from zlib-chromium are prefixed with ‘`Cr_z_`’ (e.g., `deflateInit` becomes `Cr_z_deflateInit`). This function renaming is a feature already present in the original zlib version and implemented with the help of the C preprocessor.
 
-`libzip.so` has been changed to use function pointers instead of directly calling into zlib (see [src/java.base/share/native/libzip/dispatch.c](http://cr.openjdk.java.net/~simonis/webrevs/2020/8249963/src/java.base/share/native/libzip/dispatch.c.html)). At startup, and depending on the value of the  `org.openjdk.zlib.implementation` system properties, these function pointers can be re-assigned to point to the desired implementation. A nice benefit of this approach is that it becomes possible to use the system zlib version even if the jdk was configured with only a single, bundled zlib. The overhead of the indirect function calls is negligible if we take into account JNI overhead and the amount of time usually spent in the corresponding zlib functions. 
+`libzip.so` has been changed to use function pointers instead of directly calling into zlib (see [src/java.base/share/native/libzip/dispatch.c](http://cr.openjdk.java.net/~simonis/webrevs/2020/8249963/src/java.base/share/native/libzip/dispatch.c.html)). At startup, and depending on the value of the  `org.openjdk.zlib.implementation` system properties, these function pointers can be re-assigned to point to the desired implementation. A nice benefit of this approach is that it becomes possible to use the system zlib version even if the jdk was configured with only a single, bundled zlib. The overhead of the indirect function calls is negligible if we take into account JNI overhead and the amount of time usually spent in the corresponding zlib functions.
 
 This new dispatch mechanism doesn’t work for `libsplashscreen.so` and the `unpack200` utility, which don’t use `libzip.so` but instead statically link in parts of the original zlib implementation. However, we don’t consider this to be a major problem because `libsplashscreen.so`, if at all, is only used at startup, and `unpack200` is rarely used and deprecated.
 
